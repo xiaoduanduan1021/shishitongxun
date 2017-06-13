@@ -1,0 +1,165 @@
+
+.tishitubiao {
+    background-color: red;
+    border-radius: 11px;
+    height: 11px;
+    width: 11px;
+}
+.liaotianqu .fabuqu input[type="button"] {
+    background-color: white;
+    border: 1px solid rgb(193, 193, 193);
+    border-radius: 4px;
+    font-family: 微软雅黑;
+    font-weight: 100;
+}
+.liaotianqu .fabuqu input[type="text"] {
+    background-color: #eeeeee;
+    border: 1px solid #d6d6d6;
+    font-size: 1.3em;
+    height: 85%;
+    margin: 1%;
+    width: 72%;
+}
+.liaotianqu .fabuqu {
+    background-color: #eeeeee;
+    border-top: 2px solid rgb(214, 214, 214);
+    height: 16%;
+    /* margin-top: -2px; */
+    min-height: 100px;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.tuichudenglu {
+    float: right;
+    font-size: 11px;
+    height: 94%;
+}
+.dingbugoneng {
+    height: 3%;
+}
+.zuocegukeliebiao .xiayiyeanniukuang {
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+}
+.zuocegukeliebiao .chakangengduo {
+    color: #3c3c3c;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+.zuocegukeliebiao {
+    background-color: #d5cdcd;
+    float: left;
+    height: 97%;
+    overflow: auto;
+    width: 16%;
+}
+.zuocegukeliebiao .guke {
+    background-color: #d3ddf7;
+    font-size: 12px;
+    height: 49px;
+    line-height: 16px;
+    margin-left: 3%;
+    margin-top: 5px;
+    overflow: hidden;
+    padding: 1%;
+    width: 92%;
+}
+.liaotianqu {
+    background-color: #fcf2f2;
+    float: left;
+    height: 97%;
+    width: 84%;
+}
+.liaotianqu .gukemokuai {
+    background-color: #ceeeef;
+    height: 100%;
+    width: 100%;
+}
+.xinxiqu {
+    background-color: rgb(238, 238, 238);
+    height: 83%;
+    overflow: auto;
+    width: 100%;
+}
+.hang {
+    float: left;
+    margin-top: 0.5%;
+    width: 100%;
+}
+.neirong {
+    background-color: rgb(178, 226, 129);
+    border-radius: 4px;
+    display: inline-block;
+    font-family: 微软雅黑;
+    font-size: 13px;
+    line-height: 21px;
+    margin: 5px;
+    max-width: 73%;
+    padding: 7px;
+    word-break: normal;
+    word-wrap: break-word;
+}
+.myneirong {
+    background-color: rgb(178, 226, 129);
+    border-radius: 4px;
+    display: inline-block;
+    float: right;
+    font-family: 微软雅黑;
+    font-size: 13px;
+    line-height: 21px;
+    margin: 5px;
+    max-width: 73%;
+    padding: 7px;
+    word-break: normal;
+    word-wrap: break-word;
+}
+.shijian {
+    color: white;
+    font-family: 微软雅黑;
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+}
+.shijiannei {
+    background-color: gainsboro;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 5px;
+}
+.yemafengexian {
+    background: rgb(220, 220, 220) none repeat scroll 0 0;
+    height: 1px;
+    margin: 10px auto;
+    width: 60%;
+}
+.liaotianqu img {
+    max-width: 200px;
+}
+.bianjiqikuang {
+    float: left;
+    height: 100%;
+    width: 80%;
+}
+.shangchuantupian {
+    float: left;
+    font-size: 11px;
+    height: 25%;
+    margin: 1%;
+    width: 18%;
+}
+.fabuanniu {
+    background-color: white;
+    border: 1px solid rgb(193, 193, 193);
+    border-radius: 4px;
+    float: left;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    font-weight: 100;
+    height: 48%;
+    margin: 1%;
+    width: 18%;
+}

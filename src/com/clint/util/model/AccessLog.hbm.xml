@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.clint.util.model.AccessLog" table="accesslog">
+		<id name="id" type="java.lang.Integer" column="id">
+			<generator class="increment"/>
+		</id>
+		<property name="url" column="url" type="string" />
+		<property name="startTime" column="startTime" type="string" />
+		<property name="endTime" column="endTime" type="string" />
+		<property name="residenceTime" column="residenceTime" type="long" />
+		<property name="startTimeS" column="startTimeS" type="long" />
+		<property name="endTimeS" column="endTimeS" type="long" />
+		<property name="accessSessionId" column="accessSessionId" type="string" />
+		<property name="sourceUrl" column="sourceUrl" type="string" />
+		<property name="title" column="title" type="string" />
+		<property name="yemianid" column="yemianid" type="string" />
+	</class>
+</hibernate-mapping>
