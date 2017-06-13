@@ -19,7 +19,6 @@ public class CopyOfjsouptest {
 			
 			Document doc = Jsoup.connect(url).get();
 
-			System.out.println(111111111111);
 			System.out.println(doc.toString());
 	}
 }
