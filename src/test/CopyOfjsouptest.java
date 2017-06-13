@@ -18,11 +18,8 @@ public class CopyOfjsouptest {
 			String url = "http://m.mm131.com/qingchun/";
 			
 			Document doc = Jsoup.connect(url).get();
-			
-			Elements elements = doc.getElementsByTag("img");
-			for (int i = 0; i < elements.size(); i++) {
-				Element element = elements.get(i);
-				System.out.println(element.attr("data-img"));
-			}
+
+			System.out.println(111111111111);
+			System.out.println(doc.toString());
 	}
 }

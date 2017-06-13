@@ -2,17 +2,12 @@ package com.clint.shishitongxun.xinxi.controller;
 
 
 import java.io.IOException;
-import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
-
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
@@ -20,11 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import test.tt;
 import util.qiniu.qiniuGetToken;
 
 import com.clint.shishitongxun.websocketsession.WebSocketSession;
-import com.clint.shishitongxun.xinxi.model.Xinxi;
 import com.clint.shishitongxun.xinxi.service.XinxiService;
 import com.clint.sysuser.model.SysUser;
 

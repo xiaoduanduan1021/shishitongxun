@@ -1,7 +1,5 @@
 package util.qiniu;
 
-import test.tt;
-
 import com.qiniu.util.Auth;
 
 public class qiniuGetToken {
@@ -20,6 +18,5 @@ public class qiniuGetToken {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(new tt().getUpToken());;
 	}
 }
