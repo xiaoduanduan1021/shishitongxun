@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  1
+  <%=request.getAttribute("html") %>
   </body>
 </html>
