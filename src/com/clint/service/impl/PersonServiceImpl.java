@@ -41,6 +41,12 @@ public class PersonServiceImpl implements PersonService {
 	}
 	//测试lucene高速搜索功能
 	public Object getUser(){
-		return this.personDao.getUser();
+		try {
+			return this.personDao.getUser();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return personDao;
 	}
 }
