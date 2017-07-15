@@ -19,7 +19,7 @@
 	<!-- 注解驱动 -->
 	<mvc:annotation-driven/>
 	<!-- 组件扫描 -->
-	<context:component-scan base-package="com.clint"></context:component-scan>
+	<context:component-scan base-package="com"></context:component-scan>
 	
 	<!-- 定义数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -31,9 +31,12 @@
 		<property name="password" value="12345687" /> -->
 		
 		
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shishi_tongxun?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="user" value="root" />
 		<property name="password" value="root" />
+		<!-- <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shishi_tongxun?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="user" value="root" />
+		<property name="password" value="root" /> -->
 		
 		
 		<property name="initialPoolSize" value="10"/> 
@@ -55,7 +58,7 @@
 		
 		<property name="mappingLocations">
 			<!-- 扫描指定文件路径下不限制深度的配置文件 -->  
-            <value>classpath:com/clint/**/*.hbm.xml</value>  
+            <value>classpath:com/**/*.hbm.xml</value>  
         </property>
 		
 		<property name="hibernateProperties">

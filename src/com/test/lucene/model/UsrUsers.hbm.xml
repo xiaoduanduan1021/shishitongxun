@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.test.lucene.model.UsrUsers" table="usr_users">
+  <id column="id" name="id" type="java.lang.Integer">
+   <generator class="increment"/>
+  </id>
+  <property column="sex" name="sex" type="java.lang.Integer"/>
+  <property column="subscribe" name="subscribe" type="java.lang.Integer"/>
+  <property column="statu" name="statu" type="java.lang.Integer"/>
+  <property column="openid" name="openid" type="string"/>
+  <property column="names" name="names" type="string"/>
+  <property column="nickname" name="nickname" type="string"/>
+  <property column="country" name="country" type="string"/>
+  <property column="province" name="province" type="string"/>
+  <property column="telephone" name="telephone" type="string"/>
+  <property column="city" name="city" type="string"/>
+  <property column="headimgurl" name="headimgurl" type="string"/>
+  <property column="language" name="language" type="string"/>
+  <property column="subscribe_time" name="subscribe_time" type="string"/>
+  <property column="creat_time" name="creat_time" type="string"/>
+  <property column="fakeid" name="fakeid" type="string"/>
+  <property column="email" name="email" type="string"/>
+  <property column="integral" name="integral" type="java.lang.Integer"/>
+ </class>
+</hibernate-mapping>

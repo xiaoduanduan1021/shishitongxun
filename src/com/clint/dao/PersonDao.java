@@ -16,5 +16,6 @@ public interface PersonDao {
 	public Person findPersonById(String id);
 	
 	public List<Person> findAllPerson();
-	
+	//测试lucene高速搜索功能
+	public Object getUser();
 }

@@ -39,4 +39,8 @@ public class PersonServiceImpl implements PersonService {
 	public void updatePerson(Person p) {
 		personDao.updatePerson(p);
 	}
+	//测试lucene高速搜索功能
+	public Object getUser(){
+		return this.personDao.getUser();
+	}
 }
