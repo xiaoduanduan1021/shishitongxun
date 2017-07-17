@@ -37,13 +37,13 @@ public class LuceneDemo {
 		IndexWriterConfig config = new IndexWriterConfig(version, analyzer);
 		IndexWriter iwriter = new IndexWriter(directory, config);
 		
-		Document doc = new Document();
-		Document doc2 = new Document();
-		String text = "11111111111ssssssssssssss";
-		String text2 = "撒拉嘿呦哈哈哈哈哈哈哈哈哈哈哈或或或或或或或";
+//		Document doc = new Document();
+//		Document doc2 = new Document();
+//		String text = "11111111111ssssssssssssss";
+//		String text2 = "撒拉嘿呦哈哈哈哈哈哈哈哈哈哈哈或或或或或或或";
 
-		doc.add(new Field("fieldname", text, TextField.TYPE_STORED));
-		doc2.add(new Field("fieldname", text2, TextField.TYPE_STORED));
+//		doc.add(new Field("fieldname", text, TextField.TYPE_STORED));
+//		doc2.add(new Field("fieldname", text2, TextField.TYPE_STORED));
 //		iwriter.addDocument(doc);
 //		iwriter.addDocument(doc2);
 		iwriter.close();
@@ -61,18 +61,23 @@ public class LuceneDemo {
 		DirectoryReader ireader = DirectoryReader.open(directory);
 		IndexSearcher isearcher = new IndexSearcher(ireader);
 
+		
+		
 		// 解析搜索“文本”的简单查询：
-		QueryParser parser = new QueryParser(version, "fieldname", analyzer);
+		QueryParser parser = new QueryParser(version, "id", analyzer);
 		//开启正则表达式
 		parser.setAllowLeadingWildcard(true);
 		
-		Query query = parser.parse("");
-		ScoreDoc[] hits = isearcher.search(query, null, 1000).scoreDocs;
+		Query query = parser.parse("*");
+		ScoreDoc[] hits = isearcher.search(query, null, 10).scoreDocs;
+		System.out.println("查询到多少条"+hits.length);
 		// 迭代结果：
 		for (int i = 0; i < hits.length; i++) {
 			Document hitDoc = isearcher.doc(hits[i].doc);
-			System.out.println("这是要编入索引的文本=" + hitDoc.get("fieldname"));
+			System.out.println("查询到的文档：" + hitDoc.get("id")+"  "+hitDoc.get("openid")+"  "+hitDoc.get("nickname")+"  "+hitDoc.get("creat_time"));
 		}
+		
+		
 		ireader.close();
 		directory.close();
 	}

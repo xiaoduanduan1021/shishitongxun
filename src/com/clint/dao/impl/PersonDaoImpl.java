@@ -10,9 +10,13 @@ import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.MultiReader;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
@@ -99,69 +103,64 @@ public class PersonDaoImpl extends BaseHibernate implements PersonDao {
 		//lucene最大id
 		Integer neicunZuihou = 0;
 		//判断lucene中是否没有数据，如果有则进入查询，如果没有则获取最大id开始存入内存
-		
 
 		
 		Analyzer analyzer = new StandardAnalyzer(version);
 		Directory directory = FSDirectory.open(new File("E:/suoyin"));
-		//建立写入模块
-		IndexWriterConfig config = new IndexWriterConfig(version, analyzer);
-		IndexWriter iwriter = new IndexWriter(directory, config);
 		
-		// 建立查询模块
-		DirectoryReader ireader = DirectoryReader.open(directory);
-		IndexSearcher isearcher = new IndexSearcher(ireader);
+		//查询当前lucene中是否有数据
+		int DangQian = 0;
+		//获取总数
+		IndexReader reader = MultiReader.open(directory);
+		System.out.println(reader.numDocs());
+		DangQian = reader.numDocs();
+		reader.close();
+		
+		//获取最后一个id
+		
+		
+		if (DangQian == 0) {
+			
+			kaishijishi("转存开始");
+			//获取最大id
+			maxid = getMaxId();
+		
+			do {
+				//获取指定条数记录
+				List<UsrUsers> listUserDb = getUserDB(ksid, mcdq);
+				
+				//建立写入模块
+				IndexWriterConfig config = new IndexWriterConfig(version, analyzer);
+				IndexWriter iwriter = new IndexWriter(directory, config);
+				//将记录存入lucene
+				for (int i = 0; i < listUserDb.size(); i++) {
+					UsrUsers db = listUserDb.get(i);
+					
+					Document doc = new Document();
 
-		// 建立查询解析器
-		QueryParser parser = new QueryParser(version, "fieldname", analyzer);
-		//开启正则表达式
-		parser.setAllowLeadingWildcard(true);
-		Query query = parser.parse("*");
-		ScoreDoc[] hits = isearcher.search(query, null, 1000).scoreDocs;
-		// 迭代结果：
-		for (int i = 0; i < hits.length; i++) {
-			Document hitDoc = isearcher.doc(hits[i].doc);
-			System.out.println(hitDoc.get("fieldname"));
+					doc.add(new Field("id", ""+db.getId(), TextField.TYPE_STORED));
+					doc.add(new Field("openid", db.getOpenid()==null ? "":db.getOpenid(), TextField.TYPE_STORED));
+					doc.add(new Field("nickname", db.getNickname() == null ? "" : db.getNickname(), TextField.TYPE_STORED));
+					doc.add(new Field("creat_time", db.getCreat_time() == null ? "" : db.getCreat_time(), TextField.TYPE_STORED));
+					
+					iwriter.addDocument(doc);
+				}
+				iwriter.close();
+				
+				//判断最后的ID是否达到最大id，如果达到则结束进入查询，如果没有达到则继续转存
+				
+				neicunZuihou = 0;
+				ksid = neicunZuihou;
+				
+				
+				System.out.println(ksid);
+				jieshujishi();
+			} while (neicunZuihou != maxid);
+			
+			
+			
 		}
-
-		
-		
-		
-		
-		
-		
-		
-//		if (listAllUser.size() == 0) {
-//			
-//			
-//			
-//			
-//			
-//			kaishijishi("转存开始");
-//			//获取最大id
-//			maxid = getMaxId();
-//		
-//			do {
-//				//获取指定条数记录
-//				List<UsrUsers> listUserDb = getUserDB(ksid, mcdq);
-//				//将记录存入内存
-//				listAllUser.addAll(listUserDb);
-//				//判断最后的ID是否达到最大id，如果达到则结束进入查询，如果没有达到则继续转存
-//				neicunZuihou = listAllUser.get(listAllUser.size()-1).getId();
-//				ksid = neicunZuihou;
-//				
-//				
-//				System.out.println(ksid);
-//				jieshujishi();
-//			} while (neicunZuihou != maxid);
-//			
-//			
-//			
-//		}
-		//关闭写入模块
-		iwriter.close();
-		//关闭查询模块
-		ireader.close();
+		//关闭索引
 		directory.close();
 		return null;
 	}
