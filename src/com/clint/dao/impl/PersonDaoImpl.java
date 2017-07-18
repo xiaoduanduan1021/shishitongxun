@@ -92,38 +92,51 @@ public class PersonDaoImpl extends BaseHibernate implements PersonDao {
 //		System.out.println("结束时间"+jieshu);
 //		System.out.println("用时"+(jieshu-kaishi));
 		//-------------------------------------------------------------------------
+		//链接lucene索引
+		Analyzer analyzer = new StandardAnalyzer(version);
+		Directory directory = FSDirectory.open(new File("E:/suoyin"));
 		//把数据库中所有数据放入lucene
 		//每次读取条数
 		int mcdq = 10000;
 		//开始id
 		int ksid = 0;
 		
-		//最大id
-		int maxid = 0;
-		//lucene最大id
-		Integer neicunZuihou = 0;
-		//判断lucene中是否没有数据，如果有则进入查询，如果没有则获取最大id开始存入内存
-
+		//获取数据库最大id
+		int maxid = getMaxId();
 		
-		Analyzer analyzer = new StandardAnalyzer(version);
-		Directory directory = FSDirectory.open(new File("E:/suoyin"));
+		//判断lucene中是否没有数据，如果有则进入查询，如果没有则获取最大id开始存入内存
 		
 		//查询当前lucene中是否有数据
-		int DangQian = 0;
+		int DangQianZongShu = 0;
+		
+		
 		//获取总数
-		IndexReader reader = MultiReader.open(directory);
-		System.out.println(reader.numDocs());
-		DangQian = reader.numDocs();
-		reader.close();
-		
+		DangQianZongShu = getLuceneIndexNum(directory);
 		//获取最后一个id
+		int luceneMaxid = 0;
+		if (DangQianZongShu==0) {
+			
+		}else{
+			
+			Document docButton = getDocumentByDocId(DangQianZongShu-1, directory);
+			luceneMaxid = (int)Integer.valueOf(docButton.get("id"));
+		}
 		
 		
-		if (DangQian == 0) {
+		//索引中的最大id
+		System.out.println(luceneMaxid);
+		
+		if (DangQianZongShu == 0) {
+			ksid =0;
+		}else{
+			ksid = luceneMaxid;
+		}
+		
+		//如果当前索引中没有数据或者数据的最大id没有数据库大则开始更新转存
+		if (DangQianZongShu == 0 || luceneMaxid<maxid) {
 			
 			kaishijishi("转存开始");
-			//获取最大id
-			maxid = getMaxId();
+			
 		
 			do {
 				//获取指定条数记录
@@ -148,18 +161,18 @@ public class PersonDaoImpl extends BaseHibernate implements PersonDao {
 				iwriter.close();
 				
 				//判断最后的ID是否达到最大id，如果达到则结束进入查询，如果没有达到则继续转存
-				
-				neicunZuihou = 0;
-				ksid = neicunZuihou;
-				
-				
+				luceneMaxid = listUserDb.get(listUserDb.size()-1).getId();
+				ksid = luceneMaxid;
 				System.out.println(ksid);
 				jieshujishi();
-			} while (neicunZuihou != maxid);
+			} while ( luceneMaxid < maxid);
 			
 			
 			
 		}
+		
+		//查询关键字
+		
 		//关闭索引
 		directory.close();
 		return null;
@@ -193,5 +206,46 @@ public class PersonDaoImpl extends BaseHibernate implements PersonDao {
 		System.out.println("当前时间"+jieshu);
 		System.out.println("用时ms"+(jieshu-kaishi));
 		System.out.println("用时s"+((jieshu-kaishi)/1000));
+	}
+	//获取lucene总文档数
+	//获取总数
+	public int getLuceneIndexNum(Directory directory) throws IOException{
+		IndexReader reader = null;
+		int zongshu =0;
+		try {
+			reader = MultiReader.open(directory);
+			zongshu = reader.numDocs();
+			reader.close();
+		} catch (IOException e) {
+			zongshu = 0;
+		}
+		return zongshu;
+	}
+	
+	//根据docmentId
+	public Document getDocumentByDocId(int docId,Directory directory) throws IOException{
+		DirectoryReader ireader = DirectoryReader.open(directory);
+		Document hitDoc = ireader.document(docId);
+		ireader.close();
+		return hitDoc;
+	}
+	
+	//lucene搜索功能
+	public ScoreDoc[] getDocByserch(Directory directory,int pageSize,String key,String field,Analyzer analyzer) throws IOException, ParseException{
+		// 现在搜索索引
+		DirectoryReader ireader = DirectoryReader.open(directory);
+		IndexSearcher isearcher = new IndexSearcher(ireader);
+		
+		// 解析搜索“文本”的简单查询：
+		QueryParser parser = new QueryParser(version, field, analyzer);
+		//开启正则表达式
+		parser.setAllowLeadingWildcard(true);
+		
+		Query query = parser.parse(key);
+		ScoreDoc[] hits = isearcher.search(query, null, 10).scoreDocs;
+		
+		ireader.close();
+		
+		return hits;
 	}
 }
