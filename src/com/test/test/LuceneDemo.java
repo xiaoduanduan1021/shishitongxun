@@ -53,10 +53,13 @@ public class LuceneDemo {
 		//开启正则表达式
 		parser.setAllowLeadingWildcard(true);
 		
-		Query query = parser.parse("*张*");
+//		Query query = parser.parse("*张*");
+//		Query query = parser.parse("*李*");
+//		Query query = parser.parse("*赵*");
+		Query query = parser.parse("*小*");
 		
 		int start = 1;
-		int pagesize = 100000;
+		int pagesize = 10;
 		
         ScoreDoc lastSd = new LuceneDemo().getLastScoreDoc(start, pagesize, query, isearcher);
         TopDocs tds = isearcher.searchAfter(lastSd,query, pagesize);
