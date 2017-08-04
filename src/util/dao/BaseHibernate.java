@@ -187,6 +187,16 @@ public class BaseHibernate{
 	  List list = hibernateTemplate.find(hql, params);
 	  return list;
   }
+  
+  public Object getObjectByHqlAndParams(String hql,Object[] params){
+	  List list = hibernateTemplate.find(hql, params);
+	  if (list.size()>0) {
+		return list.get(0);
+	  }
+	  return null;
+  }
+  
+  
   public Query setQuery(Query query,Object[] params){
 	  for(int i=0;i<params.length;i++){
 		  Object obj = params[i];

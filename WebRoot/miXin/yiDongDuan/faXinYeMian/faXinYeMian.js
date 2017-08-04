@@ -12,6 +12,9 @@ function wancheng(){
 				if(msg==2){
 					alert("内容太长，不可超过1000字哦！！");
 				}
+				if(msg.uuid!=null){
+					location.href='miXin/yiDongDuan/shengcheng/shengcheng.jsp?uuid='+msg.uuid;
+				}
 			},
 			error:function(){
 				alert("error");

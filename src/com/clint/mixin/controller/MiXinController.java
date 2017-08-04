@@ -28,7 +28,6 @@ import com.clint.sysuser.model.SysUser;
 
 @Controller
 @RequestMapping(value = "/")
-
 public class MiXinController {
 	
 	private Logger log = Logger.getLogger(MiXinController.class);  
@@ -40,16 +39,19 @@ public class MiXinController {
 	private MiXinService miXinService;
 
 	
+	//添加
 	@RequestMapping(value = "/addMiXin")
 	public void addMiXin(MiXin miXin,HttpServletResponse response,HttpSession session) throws IOException {
 
 		log.info("提交");
 		log.info(session.getId());
 		
+		//文字不能为空
 		if (org.apache.commons.lang3.StringUtils.isBlank(miXin.getContent())) {
 			response.getWriter().write("1");
 			return;
 		}
+		//文字不能超过1000字
 		log.info(miXin.getContent().length());
 		if (miXin.getContent().length()>1000) {
 			response.getWriter().write("2");
@@ -63,10 +65,20 @@ public class MiXinController {
 		
 		response.getWriter().write(json.toString());
 	}
+	
+	//查看
+	@RequestMapping(value="/getMiXin")
+	public String getMiXin(String uuid){
+		log.info("查看");
+		request.setAttribute("miXin", this.miXinService.getMiXin(uuid));
+		return "miXin/yiDongDuan/chakanXinxi/chakanXinxi.jsp";
+	}
+	
+	
 	public static void main(String[] args) {
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 10000; i++) {
 			UUID uuid = UUID.randomUUID();
-	        System.out.println(uuid);
+	        System.out.println(uuid.toString());
 		}
 	}
 }

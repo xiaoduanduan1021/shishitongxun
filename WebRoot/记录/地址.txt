@@ -4,5 +4,6 @@ https://www.baidu.com/s?ie=UTF-8&wd=lucene%E5%88%A0%E9%99%A4
 
 
 
-
-密信首页http://192.168.1.100:8080/shishitongxun2014/miXin/yiDongDuan/faXinYeMian/faXinYeMian.jsp
+添加http://192.168.1.100:8080/shishitongxun2014/miXin/yiDongDuan/faXinYeMian/faXinYeMian.jsp
+查看http://192.168.1.100:8080/shishitongxun2014/getMiXin.action?uuid=4ebee407-b120-44c4-afa2-5cfcb71a005d
+生成http://192.168.1.100:8080/shishitongxun2014/miXin/yiDongDuan/shengcheng/shengcheng.jsp?uuid=4ebee407-b120-44c4-afa2-5cfcb71a005d

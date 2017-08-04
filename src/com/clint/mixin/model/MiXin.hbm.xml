@@ -10,5 +10,6 @@
 		<property name="uuid" column="uuid" type="string" />
 		<property name="content" column="content" type="string" />
 		<property name="creationTime" column="creationTime" type="string" />
+		<property name="isRead" column="isRead" type="java.lang.Integer" />
 	</class>
 </hibernate-mapping>

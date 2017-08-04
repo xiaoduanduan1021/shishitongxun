@@ -12,10 +12,18 @@ public class MiXin implements Serializable {
 	 */
 	private static final long serialVersionUID = 8443551843975815133L;
 	private Integer id;
-	private String uuid;//每条信息唯一标识,不可以用id防止用户按照规律获取密信
+	private String uuid;//每条信息唯一标识,不可以用id，防止用户按照规律获取密信
 	private String content;//内容密信正文
 	private String creationTime;//创建时间
+	private Integer isRead;//是否已读，1表示已读0表示未读
 	
+	
+	public Integer getIsRead() {
+		return isRead;
+	}
+	public void setIsRead(Integer isRead) {
+		this.isRead = isRead;
+	}
 	public String getUuid() {
 		return uuid;
 	}
