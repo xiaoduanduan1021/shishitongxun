@@ -1,0 +1,22 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.mixintop {
+    font-weight: 900;
+    font-size: 5VW;
+    background-color: rgb(204,1,1);
+    /* width: 18%; */
+    float: left;
+    border-radius: 171%;
+    padding: 3.9% 1.9%;
+    margin: 11% 0 0 41%;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+body {}

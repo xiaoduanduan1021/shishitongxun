@@ -22,6 +22,7 @@
 </head>
 
 <body>
-	http://192.168.1.100:8080/shishitongxun2014/getMiXin.action?uuid=<%=request.getParameter("uuid")%>
+
+	<%=basePath %>getMiXin.action?uuid=<%=request.getParameter("uuid")%>
 </body>
 </html>
