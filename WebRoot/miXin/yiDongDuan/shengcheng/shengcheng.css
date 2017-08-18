@@ -1,0 +1,48 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: black;
+	color: white;
+}
+
+.dizhi {
+    border: white 1px solid;
+    background: black;
+    border-radius: 5px;
+    width: 80%;
+    margin: 8% 8%;
+    color: white;
+    padding: 2% 2%;
+    font-size: 4VW;
+    min-height: 65px;
+    word-break:break-all;
+}
+
+.dianjifuzhi{
+	float: left;
+    font-size: 6VW;
+    background: rgb(80,183,227);
+    padding: 0.5% 3%;
+    border-radius: 28px;
+    margin: 4% 0 0 36%;
+    color: white;
+}
+.shuoming{
+	width: 80%;
+    margin: 16% 10%;
+    float: left;
+    font-size: 5VW;
+}
+
+.zaixieyige{
+	float: left;
+    font-size: 6VW;
+    background: rgb(80,183,227);
+    padding: 0.5% 3%;
+    border-radius: 28px;
+    margin: 4% 0 0 36%;
+    color: white;
+}

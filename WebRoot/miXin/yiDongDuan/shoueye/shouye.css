@@ -3,14 +3,37 @@
 	padding: 0px;
 }
 
+.lianxiwomen {
+    width: 70%;
+    float: left;
+    margin: 4% 15%;
+    font-size: 4VW;
+}
+
+.jieshao {
+    width: 80%;
+    margin: 16% 10%;
+    float: left;
+    font-size: 6VW;
+}
+
+.anniu {
+    float: left;
+    font-size: 6VW;
+    background: rgb(80,183,227);
+    padding: 0.5% 3%;
+    border-radius: 28px;
+    margin: 7% 0 0 33%;
+}
+
 .mixintop {
     font-weight: 900;
     font-size: 5VW;
     background-color: rgb(204,1,1);
     /* width: 18%; */
     float: left;
-    border-radius: 171%;
-    padding: 3.9% 1.9%;
+    border-radius: 175%;
+    padding: 3.9% 2.5%;
     margin: 11% 0 0 41%;
 }
 

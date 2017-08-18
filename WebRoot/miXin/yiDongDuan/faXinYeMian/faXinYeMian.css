@@ -1,0 +1,30 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.wancenganniu {
+    float: left;
+    font-size: 6VW;
+    background: rgb(80,183,227);
+    padding: 0.5% 3%;
+    border-radius: 28px;
+    margin: 7% 0 0 38%;
+    color: white;
+}
+
+textarea.wenbenkuang {
+    border: white 1px solid;
+    background: black;
+    border-radius: 5px;
+    width: 80%;
+    margin: 10% 10%;
+    color: white;
+    padding: 2% 2%;
+    font-size: 4VW;
+    min-height: 65px;
+}
+
+body {
+    background: black;
+}
