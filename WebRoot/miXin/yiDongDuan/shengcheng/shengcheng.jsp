@@ -27,11 +27,10 @@
 
 <body>
 
-	<div class="dizhi">
-		<%=basePath %>getMiXin.action?uuid=<%=request.getParameter("uuid")%>
-	</div>
+	<textarea class="dizhi" id="url"><%=basePath %>getMiXin.action?uuid=<%=request.getParameter("uuid")%></textarea>
 	
-	<div class="dianjifuzhi">点击复制</div>
+	
+	<div class="dianjifuzhi" onClick="copyUrl()">点击复制</div>
 	
 	<div class="shuoming">
 		复制上方网址发送到qq或微信中,也可发送到：qq空间、朋友圈、论坛、贴吧等
@@ -40,4 +39,14 @@
 	<div class="zaixieyige" onclick="location.href='miXin/yiDongDuan/faXinYeMian/faXinYeMian.jsp'">再写一个</div>
 	
 </body>
+
+	<script type="text/javascript">
+		function copyUrl() {
+			var Url = document.getElementById("url");
+			Url.select(); // 选择对象
+			document.execCommand("Copy"); // 执行浏览器复制命令
+			alert("已复制好，去贴粘发送吧。");
+		}
+	</script>
+	
 </html>
