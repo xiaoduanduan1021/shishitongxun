@@ -23,15 +23,18 @@
 <meta name = "format-detection" content = "telephone=no">
 
 <link rel="stylesheet" type="text/css" href="miXin/yiDongDuan/shengcheng/shengcheng.css">
+
+    <script src="public/clipboard/clipboard.min.js"></script>
 </head>
 
 <body>
 
-	<textarea class="dizhi" id="url"><%=basePath %>getMiXin.action?uuid=<%=request.getParameter("uuid")%></textarea>
+	<textarea class="dizhi" id="bar"><%=basePath %>getMiXin.action?uuid=<%=request.getParameter("uuid")%></textarea>
 	
+	<!-- <div class="dianjifuzhi" data-clipboard-action="cut" data-clipboard-target="#bar">点击复制</div> -->
 	
-	<div class="dianjifuzhi" onClick="copyUrl()">点击复制</div>
-	
+	<button class="dianjifuzhi" data-clipboard-action="cut" data-clipboard-target="#bar">点击复制</button>
+	    
 	<div class="shuoming">
 		复制上方网址发送到qq或微信中,也可发送到：qq空间、朋友圈、论坛、贴吧等
 	</div>
@@ -41,12 +44,15 @@
 </body>
 
 	<script type="text/javascript">
-		function copyUrl() {
-			var Url = document.getElementById("url");
-			Url.select(); // 选择对象
-			document.execCommand("Copy"); // 执行浏览器复制命令
-			alert("已复制好，去贴粘发送吧。");
-		}
+	 	var clipboard = new Clipboard('.dianjifuzhi');
+
+	    clipboard.on('success', function(e) {
+	    	alert("复制成功。");
+	    });
+
+	    clipboard.on('error', function(e) {
+	    	alert("复制失败了！手动复制吧");
+	    });
 	</script>
 	
 </html>
