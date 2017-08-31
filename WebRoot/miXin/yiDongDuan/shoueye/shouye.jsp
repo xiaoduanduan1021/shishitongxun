@@ -29,6 +29,8 @@
 </head>
 
 <body>
+	<%System.out.println("访问密信首页"); %>
+
 	<div class="mixintop">密信</div>
 	<div class="anniu" onclick="location.href='miXin/yiDongDuan/faXinYeMian/faXinYeMian.jsp'">制作密信</div>
 	<div class="jieshao">
