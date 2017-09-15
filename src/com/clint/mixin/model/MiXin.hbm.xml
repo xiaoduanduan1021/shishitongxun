@@ -4,12 +4,12 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.clint.mixin.model.MiXin" table="mixin">
-		<id name="id" type="java.lang.Integer" column="id">
+		<id name="id" type="java.lang.Integer" column="id" length="10">
 			<generator class="increment" />
 		</id>
-		<property name="uuid" column="uuid" type="string" />
-		<property name="content" column="content" type="string" />
-		<property name="creationTime" column="creationTime" type="string" />
-		<property name="isRead" column="isRead" type="java.lang.Integer" />
+		<property name="uuid" column="uuid" type="string" length="50"/>
+		<property name="content" column="content" type="string" length="1000"/>
+		<property name="creationTime" column="creationTime" type="string" length="50" />
+		<property name="isRead" column="isRead" type="java.lang.Integer" length="2"/>
 	</class>
 </hibernate-mapping>
