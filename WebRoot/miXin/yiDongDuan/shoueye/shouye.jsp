@@ -35,6 +35,10 @@
 	<div class="anniu" onclick="location.href='miXin/yiDongDuan/faXinYeMian/faXinYeMian.jsp'">制作密信</div>
 	<div class="jieshao">
 		密信是一个网页加密工具，你可以把需要保密发送的内容通过密信发给你的朋友们，观看之后就会被销毁，不能再次转发和查看。
+		<br/>
+		注意：
+		1：如果是安卓手机则不要使用QQ内置浏览器直接打开，请用手机浏览器或者其他浏览器打开，否则复制过程可能出现异常。
+		2：如果使用异常请更换浏览器
 	</div>
 	<div class="lianxiwomen">联系我们：手机15210647606，邮箱1476073219@qq.com，来信请注明密信反馈，恭候您的信息。</div>
 </body>
