@@ -69,7 +69,7 @@ public class MiXinController {
 	//查看
 	@RequestMapping(value="/getMiXin")
 	public String getMiXin(String uuid){
-		log.info("查看");
+		log.info("查看信息");
 		request.setAttribute("miXin", this.miXinService.getMiXin(uuid));
 		return "miXin/yiDongDuan/chakanXinxi/chakanXinxi.jsp";
 	}
