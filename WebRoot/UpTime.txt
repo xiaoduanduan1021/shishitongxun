@@ -23,3 +23,6 @@ m新设备连接后发送消息显示两条，
 当客服端长时间定留在页面时session断开，但是websocketsession是否断开，需要保证长时间停留但是不会断开，且消息可以收到
 
 
+
+
+lucene搜索引擎测试入口/shishitongxun/WebRoot/lucene/Searche.jsp

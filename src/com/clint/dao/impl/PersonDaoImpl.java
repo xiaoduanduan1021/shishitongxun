@@ -75,6 +75,7 @@ public class PersonDaoImpl extends BaseHibernate implements PersonDao {
 	long kaishi = 0;
 	long jieshu = 0;
 	//测试lucene高速搜索功能
+	//该方法调用后系统自动从数据库的 usruser表中获取数据自动累加到lucene的索引文件中
 	public Object getUser() throws Exception{
 		
 		String hql = " from UsrUsers where id<10";
@@ -192,6 +193,9 @@ public class PersonDaoImpl extends BaseHibernate implements PersonDao {
 	public List<UsrUsers> getUserDB(int starid , int size){
 		  String hql = "from UsrUsers where id>"+starid+" and id<"+(size+starid);
 		  List<UsrUsers> l = hibernateTemplate.find(hql);
+		  if (l.size()==0) {
+			  return getUserDB(starid, size+10000);
+		  }
 		  return l;
 	}
 	
