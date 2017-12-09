@@ -28,7 +28,7 @@
 		
 <!-- 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shishi_tongxun?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="user" value="root" />
-		<property name="password" value="Mx12345678." /> -->
+		<property name="password" value="" /> -->
 		<!-- <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shishi_tongxun?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="user" value="root" />
 		<property name="password" value="root" /> -->
