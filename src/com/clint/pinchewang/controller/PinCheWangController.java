@@ -49,7 +49,7 @@ public class PinCheWangController {
 		
 		String con = "";//暂存一条信息
 		
-		// 从后往前遍历
+		// 从后往前遍历，并存储
 		for (int i = contentHangs.length - 1; i >= 0; i--) {
 		//	System.out.println(xinxihang);
 			String xinxihang = contentHangs[i];
@@ -130,8 +130,19 @@ public class PinCheWangController {
 				
 				
 				//查询这个qq今天是否已经发过相同的信息
-				
-				//如果发过则不再存储,但是更新时间
+				PinCheXinXi pdb = pinCheWangService.getPinCheXinXiByContent(pinCheXinXi2);
+				if (pdb == null) {
+					pinCheWangService.addPinCheXinXi(pinCheXinXi2);
+				}else{
+					//查看时间是否相同
+					if (pdb.getFaSongShiJian().equals(pinCheXinXi2.getFaSongShiJian())) {
+						//相同则停止存储和循环，不同则更新时间
+						break;//跳出循环不再存储剩下的
+					}else{
+						pdb.setFaSongShiJian(pinCheXinXi2.getFaSongShiJian());
+						pinCheWangService.updatePinCheXinXi(pdb);
+					}
+				}
 				
 				
 				

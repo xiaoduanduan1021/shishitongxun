@@ -29,4 +29,10 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 		hql +=" and content='"+pinCheXinXi.getContent()+"'";
 		return (PinCheXinXi) this.getObjectByHql(hql);
 	}
+	public PinCheXinXi addPinCheXinXi(PinCheXinXi pxx){
+		return (PinCheXinXi) this.addObject(pxx);
+	}
+	public PinCheXinXi updatePinCheXinXi(PinCheXinXi pxx){
+		return (PinCheXinXi) this.updateObject(pxx);
+	}
 }

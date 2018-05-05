@@ -20,4 +20,12 @@ public class PinCheWangServiceImpl implements PinCheWangService {
 	public PinCheXinXi getPinCheXinXiByContent(PinCheXinXi pinCheXinXi){
 		return this.PinCheWangDao.getPinCheXinXiByContent(pinCheXinXi);
 	}
+	
+	public PinCheXinXi addPinCheXinXi(PinCheXinXi pxx){
+		return this.PinCheWangDao.addPinCheXinXi(pxx);
+	}
+	
+	public PinCheXinXi updatePinCheXinXi(PinCheXinXi pxx){
+		return this.PinCheWangDao.updatePinCheXinXi(pxx);
+	}
 }
