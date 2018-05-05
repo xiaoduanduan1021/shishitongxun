@@ -10,6 +10,10 @@ import java.util.Date;
 
 public class StringCode {
 
+	public static String getnnt(){
+		return new SimpleDateFormat("yyyy/MM/dd ").format(new Date());
+	}
+	
 	public static String strCode(String s){
 		String str = "";
 		try{

@@ -66,6 +66,10 @@ public class luceneController {
 	
 	
 	static{
+
+		
+		/*去掉这个注释既可以自动启动搜索引擎
+		
 		System.out.println("建立搜索引擎库文件连接");
 		//项目启动时建立搜索引擎读取块，搜索时可以直接搜索，这个可以写在项目的工具类中，写在这是测试方便查看
 		analyzer = new StandardAnalyzer(LuceneDemo.version);
@@ -86,6 +90,6 @@ public class luceneController {
 			e.printStackTrace();
 		}
 		
-		
+		*/
 	}
 }

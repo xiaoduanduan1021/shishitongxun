@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   	<%
-	  	request.getRequestDispatcher("miXin/yiDongDuan/shoueye/shouye.jsp").forward(request, response);
+	 //	request.getRequestDispatcher("miXin/yiDongDuan/shoueye/shouye.jsp").forward(request, response);
   	//	response.sendRedirect("miXin/yiDongDuan/shoueye/shouye.jsp"); 
   	
   	%>

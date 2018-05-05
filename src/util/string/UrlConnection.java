@@ -6,11 +6,15 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Date;
 
 public class UrlConnection {
 
 	public static void main(String[] args) throws Exception {
-		//System.out.println(new UrlConnection().getIpRegionByTaobao("114.113.18.86"));
+		double a = new Date().getTime();
+		System.out.println(new UrlConnection().getIpRegionByTaobao("114.113.18.86"));
+		double b = new Date().getTime();
+		System.out.println(b-a);
 		//System.out.println(new UrlConnection().getHtmlStringByUrlAndUnicodeToUtf8("https://www.baidu.com/"));
 	}
 

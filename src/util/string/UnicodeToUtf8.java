@@ -114,9 +114,9 @@ public class UnicodeToUtf8 {
 			zhuanma = new UnicodeToUtf8().decodeUnicode(doc.body().toString());
 		} catch (IOException e) {
 			e.printStackTrace();
-//			System.out.println("超时");
+			System.out.println("超时");
 			zhuanma = "超时";
 		}
-//		System.out.println(zhuanma);
+		System.out.println(zhuanma);
 	}
 }
