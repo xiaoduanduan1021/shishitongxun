@@ -25,7 +25,7 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 	//查看该qq号今天是否发送过相同信息
 	public PinCheXinXi getPinCheXinXiByContent(PinCheXinXi pinCheXinXi){
 		String hql = "from PinCheXinXi where faSongZheQQ='"+pinCheXinXi.getFaSongZheQQ()+"'";
-		hql +=" and faSongShiJian like '"+StringCode.getnnt()+"%'";
+		hql +=" and faSongShiJian like '"+StringCode.getThisYear()+"%'";
 		hql +=" and content='"+pinCheXinXi.getContent()+"'";
 		return (PinCheXinXi) this.getObjectByHql(hql);
 	}

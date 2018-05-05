@@ -126,8 +126,8 @@ public class PinCheWangController {
 					time = StringCode.getnnt()+shijian;
 				}
 				
-				pinCheXinXi2.setFaSongShiJian(time);
-				
+				pinCheXinXi2.setFaSongShiJian(StringCode.zhuanhuan(time));
+				System.out.println("转换后"+pinCheXinXi2.getFaSongShiJian());
 				
 				//查询这个qq今天是否已经发过相同的信息
 				PinCheXinXi pdb = pinCheWangService.getPinCheXinXiByContent(pinCheXinXi2);
@@ -139,8 +139,10 @@ public class PinCheWangController {
 						//相同则停止存储和循环，不同则更新时间
 						break;//跳出循环不再存储剩下的
 					}else{
-						pdb.setFaSongShiJian(pinCheXinXi2.getFaSongShiJian());
-						pinCheWangService.updatePinCheXinXi(pdb);
+						if(pinCheXinXi2.getFaSongShiJian().compareTo(pdb.getFaSongShiJian())>0){
+							pdb.setFaSongShiJian(pinCheXinXi2.getFaSongShiJian());
+							pinCheWangService.updatePinCheXinXi(pdb);
+						}
 					}
 				}
 				
@@ -163,13 +165,13 @@ public class PinCheWangController {
 		}
 		// 再查询该信息是否已经存储，如果没有则存储，如果有则不存储并且循环停止
 
-		// 模拟系统处理时间
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		// 模拟系统处理时间
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 		JSONObject json = new JSONObject();
 		json.put("type", "ok");

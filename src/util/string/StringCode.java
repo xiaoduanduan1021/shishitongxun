@@ -11,7 +11,21 @@ import java.util.Date;
 public class StringCode {
 
 	public static String getnnt(){
-		return new SimpleDateFormat("yyyy/MM/dd ").format(new Date());
+		return new SimpleDateFormat("yyyy/M/d ").format(new Date());
+	}
+	
+	public static String zhuanhuan(String yuanString){
+		DateFormat format= new SimpleDateFormat("yyyy/MM/dd a hh:mm:ss");
+		Date date = null;
+		try {
+			date = format.parse(yuanString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "异常原信息："+yuanString;
+		}
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");     
+		return df.format(date);
 	}
 	
 	public static String strCode(String s){
@@ -242,15 +256,8 @@ public class StringCode {
 		return flag;
 	}
 	
-	public static void main(String args[]) {
-		//String uldate = "2013-08-08";
-		//String infodate= "2014-03-20";
-		//	public static String getAddDay(String dateStr, int s){
-		//System.out.println(getAddDay(infodate, -1));
-		//System.out.println(getCurrentDay());
-		//System.out.println(getyyyyMMddHHmmss());
-		
-//		System.out.println(transferStringDateToLong("2014-04-08 14:59:26","2014-04-27 14:59:30"));
+	public static void main(String args[]) throws ParseException {
+		System.out.println(StringCode.zhuanhuan("2018/5/5 上午 8:27:22"));
 	}
 
 }
