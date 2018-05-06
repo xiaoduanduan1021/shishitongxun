@@ -58,10 +58,6 @@ public class PinCheWangController {
 			
 			
 			
-			if (xinxihang.indexOf("382165866")>=0) {
-				System.out.println(11111111);
-			}
-			
 			
 			
 			
@@ -74,6 +70,8 @@ public class PinCheWangController {
 			//正则匹配
 			String pattern = ".*(.*) .*午 .*:.*:.*";
 			boolean isMatch = Pattern.matches(pattern, xinxihang);
+			
+			
 			if (isMatch) {
 				
 				
@@ -89,14 +87,29 @@ public class PinCheWangController {
 				
 				//分析出时间、昵称、QQ号、
 				System.out.println("昵称");
-				String nicheng = xinxihang.substring(0, xinxihang.indexOf("("));
+				
+				
+				
+				//判断是否是尖括号，邮箱注册的qq是尖括号
+				String kuohaozuo = "(";
+				String kuohaoyou = ")";
+				if (xinxihang.indexOf("<")>0) {
+					kuohaozuo="<";
+					kuohaoyou=">";
+				}
+				
+				
+				
+				
+				
+				String nicheng = xinxihang.substring(0, xinxihang.indexOf(kuohaozuo));
 				
 				pinCheXinXi2.setFaSongZheNiCheng(nicheng);
 				
 				
 				System.out.println(nicheng);
 				System.out.println("QQ");
-				String QQ = xinxihang.substring(xinxihang.indexOf("(")+1, xinxihang.indexOf(")"));
+				String QQ = xinxihang.substring(xinxihang.indexOf(kuohaozuo)+1, xinxihang.indexOf(kuohaoyou));
 				
 				pinCheXinXi2.setFaSongZheQQ(QQ);
 				
@@ -111,7 +124,7 @@ public class PinCheWangController {
 				if (isNianyueri) {
 					//如果有则删除星期
 					//获取年
-					String nian = xinxihang.substring(xinxihang.indexOf(") ")+2, xinxihang.indexOf(" 星期"));
+					String nian = xinxihang.substring(xinxihang.indexOf(kuohaoyou+" ")+2, xinxihang.indexOf(" 星期"));
 					//获取时间
 					String shijian = xinxihang.substring(xinxihang.indexOf(" 星期")+4, xinxihang.length());
 					System.out.println(nian+shijian);
@@ -120,7 +133,7 @@ public class PinCheWangController {
 					//如果没有则自动补充今天时间
 					//获取时间
 					//获取时间
-					String shijian = xinxihang.substring(xinxihang.indexOf(")  ")+3, xinxihang.length());
+					String shijian = xinxihang.substring(xinxihang.indexOf(kuohaoyou+"  ")+3, xinxihang.length());
 					
 					System.out.println(StringCode.getnnt()+shijian);
 					time = StringCode.getnnt()+shijian;
@@ -180,13 +193,15 @@ public class PinCheWangController {
 
 	public static void main(String[] args) {
 		
-		String aa = "旧治--李茂堤(904920590) 2018/5/5 星期六 上午 8:04:52";
-		String bb = "招财进宝--（平安出行）(546942582)  上午 8:27:22";
+		String aa = "【活跃】別說、対罘起.<yangjie136272700@qq.com> 2018/5/6 星期日 下午 2:36:12";
+		String bb = "【活跃】杨保军(2019468064) 2018/5/6 星期日 下午 2:35:18";
 		
-		//获取年
-		System.out.println();
 		//获取时间
-		System.out.println();
+		
+		System.out.println(aa.indexOf("<"));
+		System.out.println(aa.indexOf("("));
+		System.out.println(bb.indexOf("<"));
+		System.out.println(bb.indexOf("("));
 		
 	}
 }
