@@ -1,5 +1,9 @@
 package com.clint.pinchewang.dao;
 
+import java.util.Map;
+
+import util.page.PageList;
+
 import com.clint.pinchewang.model.PinCheXinXi;
 
 
@@ -10,4 +14,7 @@ public interface PinCheWangDao {
 	public PinCheXinXi addPinCheXinXi(PinCheXinXi pxx);
 	
 	public PinCheXinXi updatePinCheXinXi(PinCheXinXi pxx);
+	
+	//按照条件查询信息
+	public PageList getPageListPincheXinxi(Map<String, String> tiaojian);
 }

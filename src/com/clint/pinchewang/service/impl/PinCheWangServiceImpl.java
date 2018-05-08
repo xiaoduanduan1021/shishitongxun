@@ -1,8 +1,12 @@
 package com.clint.pinchewang.service.impl;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
+import util.page.PageList;
 
 import com.clint.pinchewang.model.PinCheXinXi;
 import com.clint.pinchewang.service.PinCheWangService;
@@ -27,5 +31,9 @@ public class PinCheWangServiceImpl implements PinCheWangService {
 	
 	public PinCheXinXi updatePinCheXinXi(PinCheXinXi pxx){
 		return this.PinCheWangDao.updatePinCheXinXi(pxx);
+	}
+	//按照条件查询信息
+	public PageList getPageListPincheXinxi(Map<String, String> tiaojian){
+		return this.PinCheWangDao.getPageListPincheXinxi(tiaojian);
 	}
 }

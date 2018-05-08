@@ -3,6 +3,8 @@ package com.clint.pinchewang.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
@@ -16,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import util.page.PageList;
 import util.string.StringCode;
 
 import com.clint.model.Person;
@@ -191,6 +194,39 @@ public class PinCheWangController {
 		response.getWriter().write(json.toString());
 	}
 
+	
+	
+	
+	//查询页面
+	@RequestMapping(value = "/getPincheList")
+	public String getPincheList() {
+		return "/pin_che_wang/getPincheList/getPincheList.jsp";
+	}
+	
+	
+	//提交查询条件，返回查询数据
+	@RequestMapping(value = "/getPincheListAndTiaojian")
+	public void getPincheListAndTiaojian(String guanjianzi,Integer yema,HttpServletResponse response) throws IOException, InterruptedException {
+		System.out.println("查询");
+		
+		//Thread.sleep(3000);
+		
+		System.out.println("关键字：");
+		System.out.println(guanjianzi);
+		
+		Map<String, String> tiaojian = new HashMap<String, String>();
+		tiaojian.put("yema", String.valueOf(yema));
+		tiaojian.put("guanjianzi", guanjianzi);
+		
+		JSONObject json = new JSONObject();
+		PageList pageList = pinCheWangService.getPageListPincheXinxi(tiaojian);
+		json.put("list", pageList.getDatalist());
+		
+		json.put("type", "ok");
+		response.getWriter().write(json.toString());
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		String aa = "【活跃】別說、対罘起.<yangjie136272700@qq.com> 2018/5/6 星期日 下午 2:36:12";
