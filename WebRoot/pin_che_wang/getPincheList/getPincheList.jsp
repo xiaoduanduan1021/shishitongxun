@@ -29,8 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="pin_che_wang/getPincheList/getPincheXinxi.js?a=<%=Math.random()%>"></script>
 	<script type="text/javascript" src="public/vConsole-2.2.0/dist/vconsole.min.js"></script>
 
-	<script type="text/javascript" src="public/dropload/dropload.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="public/dropload/dropload.css">
   </head>
   
   <body>
@@ -49,10 +47,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div class="content">
   	</div>
   	
+  	<!-- 翻页底部提示 -->
   	<div class="jieweitishi">
-  		
+  		<img src='pin_che_wang/getPincheList/img/lodding.gif' class='fanyezhengzaichaxun'>
+  		<div class="jieguowenzitishi"></div>
   	</div>
   	
+  	
+  	<!-- 查询正文提示 -->
   	<div class='chaxunjiazaikuang'>
 		<img src='pin_che_wang/getPincheList/img/lodding.gif' class='zhengzaichaxun'>
 		<div class='chaxunzhong'>查询中...</div>

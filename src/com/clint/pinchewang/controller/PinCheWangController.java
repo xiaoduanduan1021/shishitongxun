@@ -209,7 +209,7 @@ public class PinCheWangController {
 	public void getPincheListAndTiaojian(String guanjianzi,Integer yema,HttpServletResponse response) throws IOException, InterruptedException {
 		System.out.println("查询");
 		
-		//Thread.sleep(3000);
+//		Thread.sleep(5000);
 		
 		System.out.println("关键字：");
 		System.out.println(guanjianzi);

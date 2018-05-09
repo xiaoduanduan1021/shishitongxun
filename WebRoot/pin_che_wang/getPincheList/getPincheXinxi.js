@@ -1,3 +1,56 @@
+function getScrollTop() {
+		var scrollTop = 0;
+		if (document.documentElement && document.documentElement.scrollTop) {
+			scrollTop = document.documentElement.scrollTop;
+		} else if (document.body) {
+			scrollTop = document.body.scrollTop;
+		}
+		return scrollTop;
+	}
+
+	/********************  
+	 * 取窗口可视范围的高度    
+	 *******************/
+	function getClientHeight() {
+		var clientHeight = 0;
+		if (document.body.clientHeight && document.documentElement.clientHeight) {
+			var clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight
+					: document.documentElement.clientHeight;
+		} else {
+			var clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight
+					: document.documentElement.clientHeight;
+		}
+		return clientHeight;
+	}
+
+	/********************  
+	 * 取文档内容实际高度    
+	 *******************/
+	function getScrollHeight() {
+		return Math.max(document.body.scrollHeight,
+				document.documentElement.scrollHeight);
+	}
+	function test() {
+		if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+			//alert("到达底部");
+			zhengzaichaxun();
+			chaxunyiye();
+		} else {
+			//alert("没有到达底部");
+		}
+	}
+	window.onscroll = function() {
+		
+		test();
+	}
+
+	var fanyeType = 0;//默认等于0可以翻页，查询时等于1不可重复翻页，必须等待查询完毕才可以再次翻页
+
+	//下拉翻页功能-------------------------------------
+	
+	
+
+
 
 //显示正在查询
 
@@ -15,23 +68,13 @@ function xianshiliebiao(list,me){
 	//判断是否还有信息，如果没有则显示已经没有更多信息
 	if(list.length==0){
 		console.log("无数据");
-		if(me!=null){
-			//me.lock();
-			me.noData();
-			me.resetload();
-		}
+		meiyougengduo();
 	}else{
 		yema++;
-		if(me!=null){
-			me.resetload();
-		}
+		console.log("加载完成");
+		shanglajiazaigengduo();
 	}
-	
-	if(publicMe!=null){
-		console.log("重置数据");
-		publicMe.resetload();
-	}
-	
+	fanyeType=0;//开启翻页
 }
 
 
@@ -47,13 +90,42 @@ function tianjiaNeirongqu(html){
 }
 
 
-//修改结尾信息
-function jieweitishi(text){
-	$(".jieweitishi").txt(text);
+
+
+
+
+//正在查询
+function zhengzaichaxun(){
+	$(".fanyezhengzaichaxun").css("visibility","inherit");
+	$(".jieguowenzitishi").text("正在查询中...");
 }
+//上拉加载更多
+function shanglajiazaigengduo(){
+	
+	$(".fanyezhengzaichaxun").css("visibility","hidden");
+	$(".jieguowenzitishi").text("↑  上拉加载更多   ↑");
+}
+//没有更多数据
+function meiyougengduo(){
+	$(".fanyezhengzaichaxun").css("visibility","hidden");
+	$(".jieguowenzitishi").text("没有更多数据。");
+}
+
+
+
+
+
+
+
 
 //在页面添加一个信息
 function xianshiyigexinxi(model){
+	
+	var content = model.content;
+	
+	//将关键字改为红色
+	content = dianLiangGuanjianzi(content);
+	
 	var html  ="<div class='yigexinxi'>";
 			html +="<div class='xinxi'>";
 				html +="<div class='nicheng'>";
@@ -68,19 +140,38 @@ function xianshiyigexinxi(model){
 				html +="</div>";
 			html +="</div>";
 			html +="<div class='xinxineirong'>";
-				html +=model.content;
+				html += content;
 			html +="</div>";
 		html +="</div>";
 	tianjiaNeirongqu(html);
 }
 
-
+//点亮字符串内的关键字，并返回点亮后的字符串
+function dianLiangGuanjianzi(content){
+	//获取关键字
+	//获取自定义输入框的关键字
+	//循环替换所有关键字，携带点亮样式标签
+	//返回
+}
 
 
 
 //查询一页
 var yema = 0;
 function chaxunyiye(me){
+	
+	
+	
+	//翻页程序----------------
+	if(fanyeType == 0){
+		fanyeType = 1;//关闭翻页
+	}else{
+		console.log("正在查询,请不要重复查询");
+		return;
+	}
+	//翻页程序----------------
+	
+	
 	console.log("第"+yema+"页");
 	var options={
 			url:"getPincheListAndTiaojian.action",
@@ -120,6 +211,7 @@ function IsPC() {
 
 //dropload对象
 var publicMe = null;
+var dropload = null;
 $(document).ready(function() {
 	
 	
@@ -135,34 +227,13 @@ $(document).ready(function() {
 	
 	
 	
-	//默认加载第一页,dropload会自动执行一次
-	
-	console.log(3);
-	xiugaichaxun(null);
-	//判断翻页，屏幕下拉到最下方触发
-	$("body").dropload({					
-		scrollArea : window,
-		autoLoad:false,
-		loadDownFn : function(me) {
-			publicMe = me;
-			console.log(4);
-			chaxunyiye(me);
-		},
-		loadUpFn : function(me) {//上拉刷新
-			console.log(5);
-			xiugaichaxun(me);
-		},
-		error : function(xhr, type) {
-			//alert("Ajax error!");
-			// 即使加载出错，也得重置
-			me.resetload();
-		}
-	})
+	//默认加载第一页
+	xiugaichaxun();
 	
 });
 
 //当修改查询条件时，自动查询
-function xiugaichaxun(me){
+function xiugaichaxun(){
 	
 	yema = 0;
 	//清空内容区域
@@ -172,5 +243,6 @@ function xiugaichaxun(me){
 	$(".chaxunjiazaikuang").show();
 	console.log(6);
 	//查询内容
-	chaxunyiye(me);
+	chaxunyiye();
 }
+
