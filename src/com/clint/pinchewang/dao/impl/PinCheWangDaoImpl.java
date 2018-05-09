@@ -57,7 +57,7 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 			String [] guanjianzis  = guanjianzi.split(" ");
 			for (String gjz : guanjianzis) {
 				hql+=or+" content like '%"+gjz+"%' ";
-				or ="or";
+				or ="and";
 			}
 			hql +=")";
 		}

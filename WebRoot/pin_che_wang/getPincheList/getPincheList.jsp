@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<form id="f1" action="">
   		
   			条件区域
-  			<input type="text" class="guanjianzi" name="guanjianzi" placeholder="多个关键字请用空格隔开">
+  			<input type="text" class="guanjianzi" name="guanjianzi" id="zidingyiguanjianzi" placeholder="多个关键字请用空格隔开">
   		
 	  		<input type="button" onclick="xiugaichaxun();" value="搜索">
 	  		

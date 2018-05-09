@@ -3,6 +3,10 @@
 	padding: 0px;
 }
 
+span.dianliangGuanjianzi {
+    color: #c00;
+}
+
 .chaxunzhong {
     text-align: center;
     width: 100%;
@@ -22,7 +26,12 @@ img.zhengzaichaxun {
 }
 
 .yigexinxi {
-    margin-top: 27px;
+    margin: 27px 0 0 8px;
+    background-color: rgba(242, 242, 242, 0.65);
+    padding: 6px;
+    width: 94%;
+    MAX-WIDTH: 768PX;
+    BORDER-RADIUS: 8PX;
 }
 
 .zhazhaoceng {
@@ -39,12 +48,13 @@ img.zhengzaichaxun {
     background: #ebebeb;
     padding: 0.9%;
     width: 96.2%;
+    MAX-WIDTH: 761PX;
 }
 
 input.guanjianzi {
-    width: 167px;
+    width: 75%;
     padding: 2px;
-    font-size:  14px;
+    font-size: 16px;
 }
 
 body{

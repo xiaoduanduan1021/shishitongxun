@@ -149,12 +149,28 @@ function xianshiyigexinxi(model){
 //点亮字符串内的关键字，并返回点亮后的字符串
 function dianLiangGuanjianzi(content){
 	//获取关键字
-	//获取自定义输入框的关键字
+	var guanjianzis = huoquGuanjianzi();
 	//循环替换所有关键字，携带点亮样式标签
+	for(i in guanjianzis){
+		if(guanjianzis[i]!=null && guanjianzis[i]!=""){
+			content = content.replace(guanjianzis[i],"<span class='dianliangGuanjianzi'>"+guanjianzis[i]+"</span>");
+		}
+	}
+	
 	//返回
+	return content;
 }
 
-
+//获取所有搜索条件的关键字
+//返回数组
+function huoquGuanjianzi(){
+	
+	var guanjianzis = $("#zidingyiguanjianzi").val().split(" ");
+	//获取筛选条件关键字
+	
+	
+	return guanjianzis;
+}
 
 //查询一页
 var yema = 0;
@@ -218,6 +234,8 @@ $(document).ready(function() {
 	//如果是电脑则遮挡页面
 	if(IsPC()){
 		console.log(1);
+		//隐藏遮罩层
+		$(".zhazhaoceng").hide();
 	}else{
 		console.log(2);
 		//隐藏遮罩层
