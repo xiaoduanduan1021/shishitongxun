@@ -234,8 +234,6 @@ $(document).ready(function() {
 	//如果是电脑则遮挡页面
 	if(IsPC()){
 		console.log(1);
-		//隐藏遮罩层
-		$(".zhazhaoceng").hide();
 	}else{
 		console.log(2);
 		//隐藏遮罩层

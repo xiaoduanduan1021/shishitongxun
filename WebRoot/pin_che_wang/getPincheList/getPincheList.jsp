@@ -34,13 +34,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<div class="zhazhaoceng"></div>
   
+  	<!-- 条件区域 -->
   	<div class="tiaojian">
   		<form id="f1" action="">
   		
-  			条件区域
-  			<input type="text" class="guanjianzi" name="guanjianzi" id="zidingyiguanjianzi" placeholder="多个关键字请用空格隔开">
-  		
-	  		<input type="button" onclick="xiugaichaxun();" value="搜索">
+		  	<!-- 搜索框 -->
+		  	<img alt="" class="fangdajing" src="pin_che_wang/getPincheList/img/search-icon.png">
+  			 <input type="text" class="guanjianzi" name="guanjianzi" id="zidingyiguanjianzi" placeholder="多个关键字请用空格隔开例如：明天 管接">
+
+			<label class="fangxiang--label">  
+			    <input class="fangxiang--radio" type="radio" value="到大名" name="fangxiang-radio">  
+			    <div class="fangxiang--radioDiv">北京到大名</div>
+			</label>  
+			<label class="fangxiang--label">  
+			    <input class="fangxiang--radio" type="radio" value="到北京" name="fangxiang-radio">  
+			    <div class="fangxiang--radioDiv">大名到北京</div>
+			</label>  
+
+
+
+	  		<input type="button" onclick="xiugaichaxun();" class="sousuoanniu" value="搜索">
 	  		
   		</form>
   	</div>
