@@ -5,6 +5,7 @@ import java.net.URLDecoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -256,8 +257,96 @@ public class StringCode {
 		return flag;
 	}
 	
+	
+	/** 
+	    * 获取过去或者未来 任意天内的日期数组 
+	    * @param intervals      intervals天内 
+	    * @return              日期数组 
+	    */  
+	   public static ArrayList<String> test(int intervals ) {  
+	       ArrayList<String> pastDaysList = new ArrayList<>();  
+	       ArrayList<String> fetureDaysList = new ArrayList<>();  
+	       for (int i = 0; i <intervals; i++) {  
+	           pastDaysList.add(getPastDate(i));  
+	           fetureDaysList.add(getFetureDate(i));  
+	       }  
+	       return pastDaysList;  
+	   }  
+	   /** 
+	    * 获取过去或者未来 任意天内的日期数组 
+	    * 只返回号
+	    * @param intervals      intervals天内 
+	    * @return              日期数组 
+	    */  
+	   public static ArrayList<String> testHao(int intervals ) {  
+		   ArrayList<String> pastDaysList = new ArrayList<>();  
+		   ArrayList<String> fetureDaysList = new ArrayList<>();  
+		   for (int i = 0; i <intervals; i++) {  
+			   pastDaysList.add(getPastDateHao(i));  
+			   fetureDaysList.add(getFetureDateHao(i));  
+		   }  
+		   return fetureDaysList;  
+	   }  
+	  
+	   /** 
+	    * 获取过去第几天的日期 
+	    * 
+	    * @param past 
+	    * @return 
+	    */  
+	   public static String getPastDate(int past) {  
+	       Calendar calendar = Calendar.getInstance();  
+	       calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - past);  
+	       Date today = calendar.getTime();  
+	       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");  
+	       String result = format.format(today);  
+	       return result;  
+	   }  
+	   /** 
+	    * 获取过去第几天的日期,只返回号 
+	    * 
+	    * @param past 
+	    * @return 
+	    */  
+	   public static String getPastDateHao(int past) {  
+		   Calendar calendar = Calendar.getInstance();  
+		   calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - past);  
+		   Date today = calendar.getTime();  
+		   SimpleDateFormat format = new SimpleDateFormat("d");  
+		   String result = format.format(today);  
+		   return result;  
+	   }  
+	  
+	   /** 
+	    * 获取未来 第 past 天的日期 
+	    * @param past 
+	    * @return 
+	    */  
+	   public static String getFetureDate(int past) {  
+	       Calendar calendar = Calendar.getInstance();  
+	       calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) + past);  
+	       Date today = calendar.getTime();  
+	       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");  
+	       String result = format.format(today);  
+	       return result;  
+	   }  
+	   /** 
+	    * 获取未来 第 past 天的日期 ,只返回号
+	    * @param past 
+	    * @return 
+	    */  
+	   public static String getFetureDateHao(int past) {  
+		   Calendar calendar = Calendar.getInstance();  
+		   calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) + past);  
+		   Date today = calendar.getTime();  
+		   SimpleDateFormat format = new SimpleDateFormat("d");  
+		   String result = format.format(today);  
+		   return result;  
+	   }  
+	   
+	   
 	public static void main(String args[]) throws ParseException {
-		System.out.println(StringCode.zhuanhuan("2018/5/5 上午 8:27:22"));
+		System.out.println(StringCode.testHao(7));
 	}
 
 }

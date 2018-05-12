@@ -130,10 +130,9 @@ function xianshiyigexinxi(model){
 			html +="<div class='xinxi'>";
 				html +="<div class='nicheng'>";
 					html +=model.faSongZheNiCheng;
-					html +=model.id;
 				html +="</div>";
 				html +="<div class='QQ'>";
-					html +=model.faSongZheQQ;
+					html +="QQ:"+model.faSongZheQQ;
 				html +="</div>";
 				html +="<div class='shijian'>";
 					html +=model.faSongShiJian;
@@ -145,15 +144,21 @@ function xianshiyigexinxi(model){
 		html +="</div>";
 	tianjiaNeirongqu(html);
 }
-
 //点亮字符串内的关键字，并返回点亮后的字符串
 function dianLiangGuanjianzi(content){
-	//获取关键字
-	var guanjianzis = huoquGuanjianzi();
+	
 	//循环替换所有关键字，携带点亮样式标签
-	for(i in guanjianzis){
-		if(guanjianzis[i]!=null && guanjianzis[i]!=""){
-			content = content.replace(guanjianzis[i],"<span class='dianliangGuanjianzi'>"+guanjianzis[i]+"</span>");
+	for(i in guanjianzirr){
+		for(j in guanjianzirr[i]){
+			var guanjianzi = guanjianzirr[i][j];
+			//guanjianzi.split("%");
+			for(p in guanjianzi){
+				if(guanjianzi[p]!=null && guanjianzi[p]!=""){
+					//加上斜杠和斜杠g是正则表达式，表示全局替换，否则只会替换一个
+//					content = content.replace(/明/g,"<span class='dianliangGuanjianzi'>明</span>");
+					content = content.replace(new RegExp(guanjianzi[p], 'g'),"<span class='dianliangGuanjianzi'>"+guanjianzi[p]+"</span>");
+				}
+			}
 		}
 	}
 	
@@ -161,17 +166,8 @@ function dianLiangGuanjianzi(content){
 	return content;
 }
 
-//获取所有搜索条件的关键字
-//返回数组
-function huoquGuanjianzi(){
-	
-	var guanjianzis = $("#zidingyiguanjianzi").val().split(" ");
-	//获取筛选条件关键字
-	
-	
-	return guanjianzis;
-}
-
+//分析关键字结果列表
+var guanjianzirr;
 //查询一页
 var yema = 0;
 function chaxunyiye(me){
@@ -198,6 +194,7 @@ function chaxunyiye(me){
 	        },
 			success:function(msg){
 				console.log(msg);
+				guanjianzirr = msg.fenxiGuanjianci;
 				xianshiliebiao(msg.list,me);
 				
 			},
@@ -234,6 +231,8 @@ $(document).ready(function() {
 	//如果是电脑则遮挡页面
 	if(IsPC()){
 		console.log(1);
+		//隐藏遮罩层
+		$(".zhazhaoceng").hide();
 	}else{
 		console.log(2);
 		//隐藏遮罩层
@@ -262,3 +261,22 @@ function xiugaichaxun(){
 	chaxunyiye();
 }
 
+//刷新页面自动显示全部
+function shuaxin(){
+	location.reload(true);
+}
+
+//判断搜索框回车键
+function EnterPress(e){ //传入 event 
+	var e = e || window.event; 
+	if(e.keyCode == 13){ //13代表回车符
+		//TO_DO按下回车键后的动作
+		e.keyCode = 0;//屏蔽回车键
+        e.returnValue = false;
+        xiugaichaxun();
+        
+        //让文本框失去焦点，这样输入法就会隐藏
+        var input = document.getElementById("zidingyiguanjianzi");
+        input.blur();
+	}
+} 

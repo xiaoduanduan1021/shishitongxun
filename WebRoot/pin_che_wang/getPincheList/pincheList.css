@@ -3,6 +3,74 @@
 	padding: 0px;
 }
 
+.tiaojianwenzi {
+    float: left;
+    margin: 7px 0 0 9px;
+}
+
+.shijianhang {
+    float: left;
+    width: 100%;
+}
+
+.diquhang {
+    float: left;
+    width: 100%;
+}
+
+select.xialaliebiao {
+    margin-top: 15px;
+    color: #000000;
+    background-color: #fcfcfc;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 13px 6px 19px;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.655556;
+    border-radius: 5px;
+    overflow: hidden;
+    float: left;
+    font-size: 15px;
+    margin: 5px 0 0 10px;
+    border: #4CAF50 1px solid;
+}
+
+.xinxineirong {
+    float: left;
+    background-color: rgb(237, 237, 237);
+    border-radius: 8px;
+    padding: 1.4%;
+}
+
+.xinxi {
+    float: left;
+    font-size: 12px;
+    width: 97%;
+    color: #484848;
+    margin: 0 0 0 1.1%;
+}
+
+.shijian {
+    float: left;
+    /* width: 97.4%; */
+    /* text-align: right; */
+    margin: 0 0 0 2.8%;
+}
+
+.QQ {
+    margin: 0 0 0 2.5%;
+    float: left;
+}
+
+.nicheng {
+    float: left;
+    /* width: 51%; */
+}
+
 span.dianliangGuanjianzi {
 	color: #c00;
 }
@@ -26,12 +94,13 @@ img.zhengzaichaxun {
 }
 
 .yigexinxi {
-	margin: 27px 0 0 8px;
-	background-color: rgba(242, 242, 242, 0.65);
-	padding: 6px;
-	width: 94%;
+	margin: 27px 0 0 1%;
+	/* background-color: rgba(242, 242, 242, 0.65); */
+	/* padding: 1.7%; */
+	width: 97.2%;
 	MAX-WIDTH: 768PX;
 	BORDER-RADIUS: 8PX;
+	float: left;
 }
 
 .zhazhaoceng {
@@ -39,7 +108,7 @@ img.zhengzaichaxun {
 	height: 100%;
 	position: absolute;
 	z-index: 4;
-	background: #ffffff;
+	background: #ffffff00;
 	margin: 0px 0 0 0;
 }
 
@@ -49,6 +118,7 @@ img.zhengzaichaxun {
 	padding: 0.9%;
 	width: 96.2%;
 	MAX-WIDTH: 761PX;
+	border-radius: 6px;
 }
 
 
@@ -81,22 +151,35 @@ html {
 /*搜索按钮*/
 .sousuoanniu {
 	
-	margin-top: 15px;
-    color: #1aad19;
-    border: 1px solid #1aad19;
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 14px;
-    padding-right: 14px;
-    box-sizing: border-box;
-    text-align: center;
-    text-decoration: none;
-    line-height: 2.55555556;
-    border-radius: 5px;
-    overflow: hidden;
-    
+margin-top: 15px;
+	
+color: #1aad19;
+	
+border: 1px solid #1aad19;
+	
+position: relative;
+	
+display: block;
+	
+margin-left: auto;
+	
+margin-right: auto;
+	
+padding-left: 14px;
+	
+padding-right: 14px;
+	
+box-sizing: border-box;
+	
+text-align: center;
+	
+text-decoration: none;
+	
+line-height: 1.855556;
+	
+border-radius: 5px;
+	
+overflow: hidden;
 }
 /*北京到大名单选按钮样式*/
 /*点击后样式*/
@@ -107,22 +190,43 @@ html {
 /*未点击样式*/
 .fangxiang--radioDiv {
 	margin-top: 15px;
-    color: #000000;
-    background-color: #F8F8F8;
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 14px;
-    padding-right: 14px;
-    box-sizing: border-box;
-    text-align: center;
-    text-decoration: none;
-    line-height: 2.55555556;
-    border-radius: 5px;
-    overflow: hidden;
-    float: left;
-    margin: 5px 0 0 10px;
+	color: #000000;
+	background-color: #ffffff;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 14px;
+	padding-right: 14px;
+	box-sizing: border-box;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.655556;
+	border-radius: 5px;
+	overflow: hidden;
+	float: left;
+	margin: 5px 0 0 10px;
+	border: #4CAF50 1px solid;
+}
+/*全部按钮*/
+.quanbuInput{
+	margin-top: 15px;
+	color: #000000;
+	background-color: #f0f0f0;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 14px;
+	box-sizing: border-box;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.655556;
+	border-radius: 5px;
+	overflow: hidden;
+	float:  right;
+	margin: 5px 0 0 10px;
+	border: #4CAF50 1px solid;
 }
 /*单选框样式隐藏*/
 .fangxiang--radio {

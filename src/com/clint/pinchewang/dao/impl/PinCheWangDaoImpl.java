@@ -1,6 +1,7 @@
 package com.clint.pinchewang.dao.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -70,7 +71,14 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 		
 		hql +=" order by faSongShiJian desc";
 		System.out.println(hql);
-		return this.getPageObjects(hql, params.toArray(), yema*PincheUtil.pagesize, PincheUtil.pagesize);
+		PageList pagelist = this.getPageObjects(hql, params.toArray(), yema*PincheUtil.pagesize, PincheUtil.pagesize);
+		//存储附加返回值
+		Map<String, Object> fujiazhi =new HashMap<String, Object>();
+		//返回分析关键字结果
+		fujiazhi.put("guanjianzirr", guanjianzirr);
+		pagelist.setFujiaZhi(fujiazhi);
+		
+		return pagelist;
 	}
 	
 	
@@ -79,15 +87,36 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 		
 		List<String[]> ll=new ArrayList<String[]>();
 		
+		//搜索关键字
 		String sousuoguanjianzi = tiaojian.get("guanjianzi");
 		if (StringUtils.isNotBlank(sousuoguanjianzi)) {
-			//搜索关键字
 			String [] sousuoguanjianzis  = sousuoguanjianzi.split(" ");
 			for ( String sg:sousuoguanjianzis) {
 				ll.add(new String[]{sg});//搜索关键字的子关键字之间关系是且，筛选关键字的子关键字之间关系是或
 			}
-			//筛选条件关键字
 			
+		}
+		//筛选条件关键字,北京到大名
+		String fangxiangRadio = tiaojian.get("fangxiangRadio");
+		if (StringUtils.isNotBlank(fangxiangRadio)) {
+			String[] fangxiangRadioArray = PincheUtil.FK.get(fangxiangRadio);
+			ll.add(fangxiangRadioArray);
+		}
+		//筛选条件关键字，日期例如：12号
+		String riqi = tiaojian.get("riqi");
+		if (StringUtils.isNotBlank(riqi)) {
+			ll.add(new String[]{riqi});
+		}
+		//筛选条件关键字，类型：车找人、人找车
+		String leixing = tiaojian.get("leixing");
+		if (StringUtils.isNotBlank(leixing)) {
+			ll.add(new String[]{leixing});
+		}
+		//筛选条件关键字，时间：例如上午
+		String shangwuxiawu = tiaojian.get("shangwuxiawu");
+		if (StringUtils.isNotBlank(shangwuxiawu)) {
+			String[] shangwuxiawuArray = PincheUtil.FK.get(shangwuxiawu);
+			ll.add(shangwuxiawuArray);
 		}
 		
 		return ll;

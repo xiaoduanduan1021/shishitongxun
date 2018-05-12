@@ -3,6 +3,7 @@ package util.page;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class PageList
   implements Serializable
@@ -25,7 +26,19 @@ public class PageList
   private int startOfLastPage = 0;
   private int totalPages = 0;
 
-  public PageList(ArrayList datalist, int startOfCurPage, int pageSize, int totalCount)
+  private Map<String, Object> fujiaZhi;//附加返回值
+  
+  
+  
+  public Map<String, Object> getFujiaZhi() {
+	return fujiaZhi;
+}
+
+public void setFujiaZhi(Map<String, Object> fujiaZhi) {
+	this.fujiaZhi = fujiaZhi;
+}
+
+public PageList(ArrayList datalist, int startOfCurPage, int pageSize, int totalCount)
   {
     this.datalist = datalist;
     this.startOfCurPage = startOfCurPage;

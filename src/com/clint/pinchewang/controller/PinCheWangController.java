@@ -206,8 +206,11 @@ public class PinCheWangController {
 	
 	//提交查询条件，返回查询数据
 	@RequestMapping(value = "/getPincheListAndTiaojian")
-	public void getPincheListAndTiaojian(String guanjianzi,Integer yema,HttpServletResponse response) throws IOException, InterruptedException {
+	public void getPincheListAndTiaojian(String leixing,String shangwuxiawu,String riqi,String fangxiangRadio , String guanjianzi,Integer yema,HttpServletResponse response) throws IOException, InterruptedException {
 		System.out.println("查询");
+		System.out.println(riqi);
+		System.out.println(shangwuxiawu);
+		System.out.println(fangxiangRadio);
 		
 //		Thread.sleep(2000);
 		
@@ -217,10 +220,17 @@ public class PinCheWangController {
 		Map<String, String> tiaojian = new HashMap<String, String>();
 		tiaojian.put("yema", String.valueOf(yema));
 		tiaojian.put("guanjianzi", guanjianzi);
+		tiaojian.put("fangxiangRadio", fangxiangRadio);
+		tiaojian.put("shangwuxiawu", shangwuxiawu);
+		tiaojian.put("riqi", riqi);
+		tiaojian.put("leixing", leixing);
 		
 		JSONObject json = new JSONObject();
 		PageList pageList = pinCheWangService.getPageListPincheXinxi(tiaojian);
 		json.put("list", pageList.getDatalist());
+		
+		//分析得到的关键字
+		json.put("fenxiGuanjianci", pageList.getFujiaZhi().get("guanjianzirr"));
 		
 		json.put("type", "ok");
 		response.getWriter().write(json.toString());
