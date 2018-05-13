@@ -43,6 +43,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  	<img alt="" class="fangdajing" src="pin_che_wang/getPincheList/img/search-icon.png">
   			 <input onkeypress="EnterPress(event)" type="text" class="guanjianzi" name="guanjianzi" id="zidingyiguanjianzi" placeholder="多个关键字请用空格隔开例如：明天 管接">
 
+			
+			
+			
 			<div class="diquhang">
 				<label class="fangxiang--label">  
 				    <input class="fangxiang--radio" type="radio" value="找人" name="leixing">  
@@ -55,6 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 				<div onclick="shuaxin();" class="quanbuInput">全部</div>
 			</div>
+			
+			
+			
+			
 			<div class="diquhang">
 				<label class="fangxiang--label">  
 				    <input class="fangxiang--radio" type="radio" value="到大名" name="fangxiangRadio">  
@@ -66,6 +73,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</label>  
 	
 			</div>
+			
+			
+			
 			<div class="shijianhang">
 				<div class="tiaojianwenzi">日期:</div>
 				<select class="xialaliebiao" name="riqi">
@@ -97,6 +107,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <option value="晚上">晚上</option>
 				</select>
 			</div>
+			
+			
+			
+			<div class="diquhang">
+				<label class="fangxiang--label">  
+				    <input class="fangxiang--radio" type="checkbox" value="不超员" name="shushidu">  
+				    <div class="fangxiang--radioDiv">不超员</div>
+				</label>  
+				<label class="fangxiang--label">  
+				    <input class="fangxiang--radio" type="checkbox" value="小车" name="shushidu">  
+				    <div class="fangxiang--radioDiv">小车</div>
+				</label>  
+				<label class="fangxiang--label">  
+				    <input class="fangxiang--radio" type="checkbox" value="私家车" name="shushidu">  
+				    <div class="fangxiang--radioDiv">私家车</div>
+				</label>
+			</div>
+			
 
 	  		<input type="button" onclick="xiugaichaxun();" class="sousuoanniu" value="搜索">
 	  		

@@ -43,9 +43,9 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 	}
 	
 	//手机端按照条件查询信息
-	public PageList getPageListPincheXinxi(Map<String, String> tiaojian){
+	public PageList getPageListPincheXinxi(Map<String, Object> tiaojian){
 		
-		Integer yema  = Integer.valueOf(tiaojian.get("yema"));
+		Integer yema  = (Integer) tiaojian.get("yema");
 
 		
 		List<Object> params = new ArrayList<Object>();
@@ -83,12 +83,12 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 	
 	
 	//组织关键词,根据筛选条件分析出查询关键字
-	public List<String[]> zuzhiGuanjianzi(Map<String, String> tiaojian){
+	public List<String[]> zuzhiGuanjianzi(Map<String, Object> tiaojian){
 		
 		List<String[]> ll=new ArrayList<String[]>();
 		
 		//搜索关键字
-		String sousuoguanjianzi = tiaojian.get("guanjianzi");
+		String sousuoguanjianzi = (String) tiaojian.get("guanjianzi");
 		if (StringUtils.isNotBlank(sousuoguanjianzi)) {
 			String [] sousuoguanjianzis  = sousuoguanjianzi.split(" ");
 			for ( String sg:sousuoguanjianzis) {
@@ -97,26 +97,31 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 			
 		}
 		//筛选条件关键字,北京到大名
-		String fangxiangRadio = tiaojian.get("fangxiangRadio");
+		String fangxiangRadio = (String) tiaojian.get("fangxiangRadio");
 		if (StringUtils.isNotBlank(fangxiangRadio)) {
 			String[] fangxiangRadioArray = PincheUtil.FK.get(fangxiangRadio);
 			ll.add(fangxiangRadioArray);
 		}
 		//筛选条件关键字，日期例如：12号
-		String riqi = tiaojian.get("riqi");
+		String riqi = (String) tiaojian.get("riqi");
 		if (StringUtils.isNotBlank(riqi)) {
 			ll.add(new String[]{riqi});
 		}
 		//筛选条件关键字，类型：车找人、人找车
-		String leixing = tiaojian.get("leixing");
+		String leixing = (String) tiaojian.get("leixing");
 		if (StringUtils.isNotBlank(leixing)) {
 			ll.add(new String[]{leixing});
 		}
 		//筛选条件关键字，时间：例如上午
-		String shangwuxiawu = tiaojian.get("shangwuxiawu");
+		String shangwuxiawu = (String) tiaojian.get("shangwuxiawu");
 		if (StringUtils.isNotBlank(shangwuxiawu)) {
 			String[] shangwuxiawuArray = PincheUtil.FK.get(shangwuxiawu);
 			ll.add(shangwuxiawuArray);
+		}
+		//筛选条件关键字，舒适度：例如不超员
+		String [] shushidu = (String[]) tiaojian.get("shushidu");
+		if (shushidu!=null && shushidu.length>0) {
+			ll.add(shushidu);
 		}
 		
 		return ll;

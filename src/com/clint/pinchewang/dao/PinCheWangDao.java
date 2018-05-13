@@ -16,5 +16,5 @@ public interface PinCheWangDao {
 	public PinCheXinXi updatePinCheXinXi(PinCheXinXi pxx);
 	
 	//按照条件查询信息
-	public PageList getPageListPincheXinxi(Map<String, String> tiaojian);
+	public PageList getPageListPincheXinxi(Map<String, Object> tiaojian);
 }

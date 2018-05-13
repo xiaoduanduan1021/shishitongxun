@@ -33,7 +33,7 @@ public class PinCheWangServiceImpl implements PinCheWangService {
 		return this.PinCheWangDao.updatePinCheXinXi(pxx);
 	}
 	//按照条件查询信息
-	public PageList getPageListPincheXinxi(Map<String, String> tiaojian){
+	public PageList getPageListPincheXinxi(Map<String, Object> tiaojian){
 		return this.PinCheWangDao.getPageListPincheXinxi(tiaojian);
 	}
 }

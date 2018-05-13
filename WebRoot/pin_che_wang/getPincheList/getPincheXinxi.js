@@ -263,6 +263,7 @@ function xiugaichaxun(){
 
 //刷新页面自动显示全部
 function shuaxin(){
+	console.log("刷新");
 	location.reload(true);
 }
 
