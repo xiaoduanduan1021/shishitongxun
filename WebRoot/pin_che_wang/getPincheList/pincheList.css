@@ -108,7 +108,7 @@ img.zhengzaichaxun {
 	height: 100%;
 	position: absolute;
 	z-index: 4;
-	background: #ffffff00;
+	background: #ffffff;
 	margin: 0px 0 0 0;
 }
 
@@ -119,6 +119,7 @@ img.zhengzaichaxun {
 	width: 96.2%;
 	MAX-WIDTH: 761PX;
 	border-radius: 6px;
+	float: left;
 }
 
 
@@ -137,16 +138,19 @@ html {
 	visibility: hidden;
 }
 
+/*翻页提示文字*/
 .jieguowenzitishi {
 	width: 100%;
 	text-align: center;
 	max-width: 600px;
 	margin: -30px 0 0 0;
 }
-
+/*翻页结果提示块*/
 .jieweitishi {
+	width:100%;
 	min-height: 100px;
 	margin: 0px 0 20px 0;
+	float: left;
 }
 /*搜索按钮*/
 .sousuoanniu {
@@ -161,7 +165,7 @@ position: relative;
 	
 display: block;
 	
-margin-left: auto;
+margin-left: 42%;
 	
 margin-right: auto;
 	
@@ -182,6 +186,7 @@ border-radius: 5px;
 overflow: hidden;
 font-size: 17px;
 background-color: white;
+float: left;
 }
 /*北京到大名单选按钮样式*/
 /*点击后样式*/
@@ -247,4 +252,41 @@ input.guanjianzi {
 	font-size: 16px;
 	border: hidden;
 	border-radius:5px;
+}
+
+/*内容列表*/
+.content{
+	float: left;
+}
+/*今天*/
+.jintian{
+	color: #1aad19;
+}
+/*昨天*/
+.zuotian{
+	color: #FF9800;
+	
+}
+/*前天*/
+.qiantian{
+	color: #ff0000;
+	
+}
+/*更早*/
+.gengzao{
+	color: #ff0000;
+	
+}
+
+/*页眉区域*/
+.yemei{
+	width: 100%;
+	float: left;
+}
+
+/*联系客服按钮*/
+.lianxikefu{
+	float: right;
+	font-size: 13px;
+	margin: 3px 2px 0 0;
 }

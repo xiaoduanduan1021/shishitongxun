@@ -213,7 +213,7 @@ public class PinCheWangController {
 		System.out.println(fangxiangRadio);
 		System.out.println(shushidu);
 		
-//		Thread.sleep(2000);
+//		Thread.sleep(5000);
 		
 		System.out.println("关键字：");
 		System.out.println(guanjianzi);

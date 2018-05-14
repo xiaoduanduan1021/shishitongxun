@@ -28,13 +28,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="public/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="public/js/jquery.form.js"></script>
 	<script type="text/javascript" src="pin_che_wang/getPincheList/getPincheXinxi.js?a=<%=Math.random()%>"></script>
-	<script type="text/javascript" src="public/vConsole-2.2.0/dist/vconsole.min.js"></script>
+	<!-- <script type="text/javascript" src="public/vConsole-2.2.0/dist/vconsole.min.js"></script> -->
 
   </head>
   
   <body>
   	<div class="zhazhaoceng"></div>
   
+  	<!-- 页眉区域 -->
+  	<div class="yemei">
+  		<a class="lianxikefu" href="mqqwpa://im/chat?chat_type=wpa&uin=2687017178&version=1&src_type=web&web_src=oicqzone.com">点击联系客服QQ:2687017178</a>
+  	</div>
   	<!-- 条件区域 -->
   	<div class="tiaojian">
   		<form id="f1" action="">
@@ -130,6 +134,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  		
   		</form>
   	</div>
+  	
+  	<!-- 内容列表 -->
   	<div class="content">
   	</div>
   	

@@ -64,14 +64,14 @@ function xianshiliebiao(list,me){
 		xianshiyigexinxi(list[i])
 	}
 	
-	console.log("条数："+list.length);
+	//console.log("条数："+list.length);
 	//判断是否还有信息，如果没有则显示已经没有更多信息
 	if(list.length==0){
-		console.log("无数据");
+		//console.log("无数据");
 		meiyougengduo();
 	}else{
 		yema++;
-		console.log("加载完成");
+		//console.log("加载完成");
 		shanglajiazaigengduo();
 	}
 	fanyeType=0;//开启翻页
@@ -126,6 +126,31 @@ function xianshiyigexinxi(model){
 	//将关键字改为红色
 	content = dianLiangGuanjianzi(content);
 	
+	//判断日期是今天还是昨天
+//	alert("前天："+GetDateStr(-2)); 
+//	alert("<br />昨天："+GetDateStr(-1)); 
+//	alert("<br />今天："+GetDateStr(0)); 
+//	alert("<br />明天："+GetDateStr(1)); 
+//	alert("<br />后天："+GetDateStr(2)); 
+//	alert("<br />大后天："+GetDateStr(3)); 
+	
+	var natian = "";
+	if(model.faSongShiJian.indexOf(GetDateStr(0))>-1){
+		natian = "<span class='jintian'>今天<span>";
+	}else if(model.faSongShiJian.indexOf(GetDateStr(-1))>-1){
+		natian = "<span class='zuotian'>昨天<span>";
+	}else if(model.faSongShiJian.indexOf(GetDateStr(-2))>-1){
+		natian = "<span class='qiantian'>前天<span>";
+	}else if(model.faSongShiJian<GetDateStr(-2)){
+		natian = "<span class='gengzao'>更早<span>";
+	}
+	
+	console.log("比对时间");
+	console.log(model.faSongShiJian);
+	console.log(GetDateStr(-2));
+	console.log(model.faSongShiJian<GetDateStr(-2));
+	
+	
 	var html  ="<div class='yigexinxi'>";
 			html +="<div class='xinxi'>";
 				html +="<div class='nicheng'>";
@@ -135,7 +160,7 @@ function xianshiyigexinxi(model){
 					html +="QQ:"+model.faSongZheQQ;
 				html +="</div>";
 				html +="<div class='shijian'>";
-					html +=model.faSongShiJian;
+					html +=model.faSongShiJian+natian;
 				html +="</div>";
 			html +="</div>";
 			html +="<div class='xinxineirong'>";
@@ -178,13 +203,13 @@ function chaxunyiye(me){
 	if(fanyeType == 0){
 		fanyeType = 1;//关闭翻页
 	}else{
-		console.log("正在查询,请不要重复查询");
+		//console.log("正在查询,请不要重复查询");
 		return;
 	}
 	//翻页程序----------------
 	
 	
-	console.log("第"+yema+"页");
+	//console.log("第"+yema+"页");
 	var options={
 			url:"getPincheListAndTiaojian.action",
 			type:"POST",
@@ -193,7 +218,7 @@ function chaxunyiye(me){
 	            "yema":yema
 	        },
 			success:function(msg){
-				console.log(msg);
+				//console.log(msg);
 				guanjianzirr = msg.fenxiGuanjianci;
 				xianshiliebiao(msg.list,me);
 				
@@ -230,11 +255,11 @@ $(document).ready(function() {
 	
 	//如果是电脑则遮挡页面
 	if(IsPC()){
-		console.log(1);
+		//console.log(1);
 		//隐藏遮罩层
-		$(".zhazhaoceng").hide();
+//		$(".zhazhaoceng").hide();
 	}else{
-		console.log(2);
+		//console.log(2);
 		//隐藏遮罩层
 		$(".zhazhaoceng").hide();
 	}
@@ -256,14 +281,14 @@ function xiugaichaxun(){
 	
 	//显示正在查询
 	$(".chaxunjiazaikuang").show();
-	console.log(6);
+	//console.log(6);
 	//查询内容
 	chaxunyiye();
 }
 
 //刷新页面自动显示全部
 function shuaxin(){
-	console.log("刷新");
+	//console.log("刷新");
 	location.reload(true);
 }
 
@@ -281,3 +306,47 @@ function EnterPress(e){ //传入 event
         input.blur();
 	}
 } 
+
+//获取今天、昨天、明天、等日期
+function GetDateStr(AddDayCount) { 
+	var dd = new Date(); 
+	dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期 
+	return dd.format('yyyy-MM-dd'); 
+
+//	alert("前天："+GetDateStr(-2)); 
+//	alert("<br />昨天："+GetDateStr(-1)); 
+//	alert("<br />今天："+GetDateStr(0)); 
+//	alert("<br />明天："+GetDateStr(1)); 
+//	alert("<br />后天："+GetDateStr(2)); 
+//	alert("<br />大后天："+GetDateStr(3)); 
+
+} 
+
+
+
+/** 
+ *  对Date的扩展，将 Date 转化为指定格式的String 
+ * 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，  
+ * 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)  
+ * 例子：  
+ * (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423  
+ * (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18  
+ */  
+Date.prototype.format = function (fmt) { //author: meizz   
+    "use strict";  
+    var o = {  
+        "M+": this.getMonth() + 1, //月份   
+        "d+": this.getDate(), //日   
+        "h+": this.getHours(), //小时   
+        "m+": this.getMinutes(), //分   
+        "s+": this.getSeconds(), //秒   
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度   
+        "S": this.getMilliseconds() //毫秒   
+    };  
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));  
+    for (var k in o)  
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));  
+    return fmt;  
+};  
+
+
