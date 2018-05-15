@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   	<!-- 页眉区域 -->
   	<div class="yemei">
-  		<a class="lianxikefu" href="mqqwpa://im/chat?chat_type=wpa&uin=2687017178&version=1&src_type=web&web_src=oicqzone.com">点击联系客服QQ:2687017178</a>
+  		<a class="lianxikefu" href="mqqwpa://im/chat?chat_type=wpa&uin=2687017178&version=1&src_type=web&web_src=oicqzone.com">点击联系我们QQ:2687017178</a>
   	</div>
   	<!-- 条件区域 -->
   	<div class="tiaojian">

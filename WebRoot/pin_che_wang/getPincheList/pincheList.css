@@ -282,6 +282,7 @@ input.guanjianzi {
 .yemei{
 	width: 100%;
 	float: left;
+	color: #838383;
 }
 
 /*联系客服按钮*/
@@ -289,4 +290,5 @@ input.guanjianzi {
 	float: right;
 	font-size: 13px;
 	margin: 3px 2px 0 0;
+	color: #838383;
 }
