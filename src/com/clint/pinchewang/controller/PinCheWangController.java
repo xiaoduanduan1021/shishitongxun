@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import util.page.PageList;
+import util.string.EmojiFilter;
 import util.string.StringCode;
 
 import com.clint.model.Person;
@@ -47,6 +48,13 @@ public class PinCheWangController {
 	@RequestMapping(value = "/autoSavePPXX")
 	public void autoSavePPXX(PinCheXinXi pinCheXinXi, HttpServletResponse response) throws IOException {
 
+		//去掉单引号和双引号防止mysql查询识别出错
+		pinCheXinXi.setContent(pinCheXinXi.getContent().replaceAll("'", ""));
+		pinCheXinXi.setContent(pinCheXinXi.getContent().replaceAll("\"", ""));
+		//过滤掉emoji表情或者特殊符号，数据库不识别，
+		pinCheXinXi.setContent(EmojiFilter.filterEmoji(pinCheXinXi.getContent()));
+		
+		
 		// 按照行分割
 		String[] contentHangs = pinCheXinXi.getContent().split("\n");
 		

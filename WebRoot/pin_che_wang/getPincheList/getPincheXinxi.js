@@ -258,6 +258,19 @@ $(document).ready(function() {
 		//console.log(1);
 		//隐藏遮罩层
 //		$(".zhazhaoceng").hide();
+		//如果域名是250xyz
+		var host = window.location.host;
+		
+		console.log(host);
+		console.log("判断是否是正式服务");
+		
+		
+		if(host.indexOf("250xyz.xyz")>=0){
+			//隐藏遮罩层
+			$(".zhazhaoceng").hide();
+		}else{
+			
+		};
 	}else{
 		//console.log(2);
 		//隐藏遮罩层
