@@ -6,12 +6,12 @@ import org.springframework.context.ApplicationContextAware;
 
 public class Aware implements ApplicationContextAware {
 
-	//private ApplicationContext context;
-	 public static ApplicationContext context;
+	// private ApplicationContext context;
+	public static ApplicationContext context;
 
-	public void setApplicationContext(ApplicationContext context)
-			throws BeansException {
+	public void setApplicationContext(ApplicationContext context) throws BeansException {
 		this.context = context;
+		System.out.println("启动springvmc");
 	}
 
 }
