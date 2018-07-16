@@ -5,6 +5,7 @@ import java.util.Map;
 import util.page.PageList;
 
 import com.clint.pinchewang.model.PinCheXinXi;
+import com.clint.xiamipinglun.mobel.BaiduLianjeiXiazaiJilu;
 import com.clint.xiamipinglun.mobel.XiamiJianceJilu;
 
 
@@ -20,4 +21,6 @@ public interface PinCheWangDao {
 	public PageList getPageListPincheXinxi(Map<String, Object> tiaojian);
 	//添加虾米评论检测记录
 	public XiamiJianceJilu addXiamiJianceJilu (XiamiJianceJilu xiamiJianceJilu);
+	//添加链接下载检测记录
+	public BaiduLianjeiXiazaiJilu addBaiduLianjeiXiazaiJilu(BaiduLianjeiXiazaiJilu baiduLianjeiXiazaiJilu);
 }

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONObject;
 
 import org.apache.log4j.Logger;
+import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +22,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import util.page.PageList;
 import util.string.EmojiFilter;
 import util.string.StringCode;
+import util.string.UnicodeToUtf8;
 
+import com.alibaba.fastjson.JSONArray;
 import com.clint.model.Person;
 import com.clint.pinchewang.model.PinCheXinXi;
 import com.clint.pinchewang.service.PinCheWangService;
 import com.clint.xiamipinglun.HttpGetPost;
+import com.clint.xiamipinglun.mobel.BaiduLianjeiXiazaiJilu;
 import com.clint.xiamipinglun.mobel.XiamiJianceJilu;
 
 @Controller
@@ -249,10 +253,7 @@ public class PinCheWangController {
 	}
 	
 	
-	public static void main(String[] args) throws InterruptedException {
-		
-		new PinCheWangController().xiamijiance();
-	}
+	
 	
 	
 	
@@ -280,7 +281,7 @@ public class PinCheWangController {
 	
 	//虾米评论检测，每分钟一次，检测是否在第一
 		@RequestMapping(value = "/xiamijiance")
-		public void xiamijiance() throws InterruptedException{
+		public void xiamijiance() throws InterruptedException, IOException{
 			System.out.println("启动");
 			System.out.println("检查是否第一");
 			while (true) {
@@ -348,6 +349,13 @@ public class PinCheWangController {
 				this.pinCheWangService.addXiamiJianceJilu(xiamiJianceJilu);
 				
 				
+				
+				
+				//保存百度链接检测记录
+				this.jiancebaidu();
+				
+				
+				
 				//延迟1分钟检测一测
 				for (int k = 0; k < 60*5; k++) {
 					Thread.sleep(1000);
@@ -361,12 +369,35 @@ public class PinCheWangController {
 		
 		
 		
-		
-//		百度网盘下载量获取
-		//record?channel=chunlei&clienttype=0&web=1&page=1&order=ctime&desc=1&_=1531728865605&bdstoken=f663457ca3da98a18ee020ec11228a46&channel=chunlei&web=1&app_id=250528&logid=MTUzMTcyODg2NTYwNTAuMTgwOTAyNzc4OTY5NzkwMTI=&clienttype=0
-		
-		
-		
-		
-		
+
+		@RequestMapping(value = "/jiancebaidu")
+//		百度网盘下载量自动保存
+		public void jiancebaidu() throws IOException{
+			
+			//查询百度链接访问次数下载次数
+		 	Document doc = HttpGetPost.httpGet("https://pan.baidu.com/share/record?channel=chunlei&clienttype=0&web=1&page=1&order=ctime&desc=1&_=1531731797366&bdstoken=f663457ca3da98a18ee020ec11228a46&channel=chunlei&web=1&app_id=250528&logid=MTUzMTczMTc5NzM2NjAuMDQ3ODUwNTM2NTE5OTc2NjE2&clienttype=0", "BAIDUID=F4F6FBDA54B4897FD1C0FF6F7262A1EB:FG=1; BIDUPSID=F4F6FBDA54B4897FD1C0FF6F7262A1EB; PSTM=1531702896; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; PANWEB=1; PSINO=2; FP_UID=234b328ccb905a05a502f09cedfd8966; BDUSS=JKTUNtUW85aEp5QU0zNTYwTHBEbFYyalNnendzYVlGYVpENXI5OUFzWDNsbk5iQVFBQUFBJCQAAAAAAAAAAAEAAAAVPfYIMTAyMTU2NzIwNQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPcJTFv3CUxbQn; pan_login_way=1; SCRC=67413c0e6450ed3929cd9cae6dfd9fc6; STOKEN=66a35f5c0cd91dee1b0bcf736263407f805fd28fbe056570192d44fa82960faa; cflag=15%3A3; locale=zh; H_PS_PSSID=26522_1434_26458_21098_18559_20697_26350_26807; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1531705676,1531709948,1531726349,1531731226; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1531731340; PANPSC=10365827697105222768%3ARjPPFO%2Fmao%2FxEZ7VecQ9BpL0sWaEh1tro0KDZL2BkTcxFT2j7aBV%2BHgXofrWESI4QGhj5WrRaLoEt%2Bn2pTdhc9tRhTZfsH67Rh8sLk7draU%2F0we9031ImHQXStQWRQyPwL9JXASrr014%2B2HacCA3yTsuktMw6gulbVFcNkn0FT5VvmSKYmKRhKQRuwhxVv30");
+		 	
+		 	String jieguo = doc.body().text();
+		    jieguo = new UnicodeToUtf8().decodeUnicode(jieguo);
+		 	System.out.println(jieguo);
+		    
+		    JSONObject json = JSONObject.fromObject(jieguo);
+		    net.sf.json.JSONArray list = json.getJSONArray("list");
+		    for (int i = 0; i < list.length(); i++) {
+		    	JSONObject jo = list.getJSONObject(i);
+		    	
+		    	if (jo.getString("typicalPath").indexOf("抖音")>0) {
+		    		System.out.println(jo);
+		    		
+		    		BaiduLianjeiXiazaiJilu baiduLianjeiXiazaiJilu = new BaiduLianjeiXiazaiJilu();
+		    		baiduLianjeiXiazaiJilu.setJianceDate(StringCode.getDateTime());
+		    		baiduLianjeiXiazaiJilu.setLianJieMing(jo.getString("typicalPath"));
+		    		baiduLianjeiXiazaiJilu.setChakanCishu(jo.getInt("vCnt"));
+		    		baiduLianjeiXiazaiJilu.setBaocunCishu(jo.getInt("tCnt"));
+		    		baiduLianjeiXiazaiJilu.setXiazaiCishu(jo.getInt("dCnt"));
+		    		this.pinCheWangService.addBaiduLianjeiXiazaiJilu(baiduLianjeiXiazaiJilu);
+		    		
+				}
+			}
+		}
 }

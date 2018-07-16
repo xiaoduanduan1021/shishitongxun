@@ -19,6 +19,7 @@ public class XiamiJianceJilu implements Serializable {
 	private Integer dadanchaoshi;//大单是否超时
 	
 	
+	
 	public String getEnddate() {
 		return enddate;
 	}

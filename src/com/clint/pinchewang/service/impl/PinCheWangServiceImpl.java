@@ -10,6 +10,7 @@ import util.page.PageList;
 
 import com.clint.pinchewang.model.PinCheXinXi;
 import com.clint.pinchewang.service.PinCheWangService;
+import com.clint.xiamipinglun.mobel.BaiduLianjeiXiazaiJilu;
 import com.clint.xiamipinglun.mobel.XiamiJianceJilu;
 
 
@@ -40,5 +41,9 @@ public class PinCheWangServiceImpl implements PinCheWangService {
 	//添加虾米评论检测记录
 	public XiamiJianceJilu addXiamiJianceJilu (XiamiJianceJilu xiamiJianceJilu){
 		return this.PinCheWangDao.addXiamiJianceJilu(xiamiJianceJilu);
+	}
+	//添加链接下载检测记录
+	public BaiduLianjeiXiazaiJilu addBaiduLianjeiXiazaiJilu(BaiduLianjeiXiazaiJilu baiduLianjeiXiazaiJilu){
+		return this.PinCheWangDao.addBaiduLianjeiXiazaiJilu(baiduLianjeiXiazaiJilu);
 	}
 }

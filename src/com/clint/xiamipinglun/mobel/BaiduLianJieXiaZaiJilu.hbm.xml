@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.clint.xiamipinglun.mobel.BaiduLianjeiXiazaiJilu" table="baidu_lianjie_xiazai_jilu">
+		<id name="id" type="java.lang.Integer" column="id" length="10">
+			<generator class="increment" />
+		</id>
+		
+<!-- 连接名 -->
+				<property name="lianJieMing" column="lianJieMing" type="string" />
+<!-- 查看次数 -->
+				<property name="chakanCishu" column="chakanCishu" type="java.lang.Integer" />
+<!-- 保存次数 -->
+				<property name="baocunCishu" column="baocunCishu" type="java.lang.Integer" />
+<!-- 下载次数 -->
+				<property name="xiazaiCishu" column="xiazaiCishu" type="java.lang.Integer" />
+<!-- 检测时间 -->
+				<property name="jianceDate" column="jianceDate" type="string" />
+				
+	</class>
+</hibernate-mapping>

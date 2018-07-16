@@ -15,6 +15,7 @@ import com.clint.mixin.model.MiXin;
 import com.clint.pinchewang.dao.PinCheWangDao;
 import com.clint.pinchewang.model.PinCheXinXi;
 import com.clint.pinchewang.util.PincheUtil;
+import com.clint.xiamipinglun.mobel.BaiduLianjeiXiazaiJilu;
 import com.clint.xiamipinglun.mobel.XiamiJianceJilu;
 
 import util.dao.BaseHibernate;
@@ -131,5 +132,10 @@ public class PinCheWangDaoImpl extends BaseHibernate implements PinCheWangDao {
 	//添加虾米评论检测记录
 	public XiamiJianceJilu addXiamiJianceJilu (XiamiJianceJilu xiamiJianceJilu){
 		return (XiamiJianceJilu) this.addObject(xiamiJianceJilu);
+	}
+	
+	//添加链接下载检测记录
+	public BaiduLianjeiXiazaiJilu addBaiduLianjeiXiazaiJilu(BaiduLianjeiXiazaiJilu baiduLianjeiXiazaiJilu){
+		return (BaiduLianjeiXiazaiJilu) this.addObject(baiduLianjeiXiazaiJilu);
 	}
 }
