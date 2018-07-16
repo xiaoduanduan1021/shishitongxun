@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.clint.xiamipinglun.mobel.XiamiJianceJilu" table="xiami_jiance_jilu">
+		<id name="id" type="java.lang.Integer" column="id" length="10">
+			<generator class="increment" />
+		</id>
+		
+				<property name="xiaodan" column="xiaodan" type="java.lang.Integer" />
+				<property name="chaoshi" column="chaoshi" type="java.lang.Integer" />
+				<property name="dadan" column="dadan" type="java.lang.Integer" />
+				<property name="dadanchaoshi" column="dadanchaoshi" type="java.lang.Integer" />
+				
+				<property name="date" column="date" type="string" />
+				<property name="enddate" column="enddate" type="string" />
+				
+	</class>
+</hibernate-mapping>

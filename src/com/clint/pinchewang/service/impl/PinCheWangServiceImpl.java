@@ -10,6 +10,7 @@ import util.page.PageList;
 
 import com.clint.pinchewang.model.PinCheXinXi;
 import com.clint.pinchewang.service.PinCheWangService;
+import com.clint.xiamipinglun.mobel.XiamiJianceJilu;
 
 
 
@@ -35,5 +36,9 @@ public class PinCheWangServiceImpl implements PinCheWangService {
 	//按照条件查询信息
 	public PageList getPageListPincheXinxi(Map<String, Object> tiaojian){
 		return this.PinCheWangDao.getPageListPincheXinxi(tiaojian);
+	}
+	//添加虾米评论检测记录
+	public XiamiJianceJilu addXiamiJianceJilu (XiamiJianceJilu xiamiJianceJilu){
+		return this.PinCheWangDao.addXiamiJianceJilu(xiamiJianceJilu);
 	}
 }

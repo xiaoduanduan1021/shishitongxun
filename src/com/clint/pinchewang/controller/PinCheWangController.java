@@ -25,6 +25,8 @@ import util.string.StringCode;
 import com.clint.model.Person;
 import com.clint.pinchewang.model.PinCheXinXi;
 import com.clint.pinchewang.service.PinCheWangService;
+import com.clint.xiamipinglun.HttpGetPost;
+import com.clint.xiamipinglun.mobel.XiamiJianceJilu;
 
 @Controller
 @RequestMapping(value = "/")
@@ -247,17 +249,113 @@ public class PinCheWangController {
 	}
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
-		String aa = "【活跃】別說、対罘起.<yangjie136272700@qq.com> 2018/5/6 星期日 下午 2:36:12";
-		String bb = "【活跃】杨保军(2019468064) 2018/5/6 星期日 下午 2:35:18";
-		
-		//获取时间
-		
-		System.out.println(aa.indexOf("<"));
-		System.out.println(aa.indexOf("("));
-		System.out.println(bb.indexOf("<"));
-		System.out.println(bb.indexOf("("));
-		
+		new PinCheWangController().xiamijiance();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//虾米评论检测，每分钟一次，检测是否在第一
+		@RequestMapping(value = "/xiamijiance")
+		public void xiamijiance() throws InterruptedException{
+			System.out.println("启动");
+			System.out.println("检查是否第一");
+			while (true) {
+				
+				String list [][][] = new HttpGetPost().getList();
+				
+				//存储第一个数
+				int diyigeshu = 0;
+				//超时个数
+				int chaoshi = 0;
+				
+				
+				XiamiJianceJilu xiamiJianceJilu = new XiamiJianceJilu();
+				xiamiJianceJilu.setDate(StringCode.getDateTime());
+				
+				
+				
+				
+				
+				for (int i = 0; i < list.length; i++) {
+					String yigezhanghu[][] = list[i];
+					for (int j = 0; j < yigezhanghu[1].length; j++) {
+						String oid = yigezhanghu[1][j];
+						
+						System.out.println(oid);
+						String diyi = new HttpGetPost().dyno1("https://www.xiami.com/collect/"+oid);
+						System.out.println(diyi);
+						if (diyi.equals("true")) {
+							diyigeshu++;
+						}else if(diyi.equals("chaoshi")){
+							chaoshi++;
+						}
+						//延迟
+						for (int k = 0; k < 0; k++) {
+							Thread.sleep(1000);
+							System.out.print(k+",");
+						}
+						System.out.println();
+					}
+				}
+				
+				
+				
+				//存储
+				xiamiJianceJilu.setXiaodan(diyigeshu);
+				xiamiJianceJilu.setChaoshi(chaoshi);
+				
+				System.out.println("完成");
+				
+				
+				//检测362是否是第一
+				String diyi = new HttpGetPost().dyno1("https://www.xiami.com/collect/"+355288362);
+				if(diyi.equals("true")){
+					xiamiJianceJilu.setDadan(1);
+				}else if(diyi.equals("chaoshi")){
+					xiamiJianceJilu.setDadanchaoshi(1);
+				}
+				
+				
+				
+				
+				xiamiJianceJilu.setEnddate(StringCode.getDateTime());
+				
+				
+				this.pinCheWangService.addXiamiJianceJilu(xiamiJianceJilu);
+				
+				
+				//延迟1分钟检测一测
+				for (int k = 0; k < 60; k++) {
+					Thread.sleep(1000);
+					System.out.print(k+",");
+				}
+			}
+		}
+		
+		
+		
 }
