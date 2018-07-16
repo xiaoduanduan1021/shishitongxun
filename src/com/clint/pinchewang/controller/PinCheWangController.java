@@ -349,12 +349,23 @@ public class PinCheWangController {
 				
 				
 				//延迟1分钟检测一测
-				for (int k = 0; k < 60; k++) {
+				for (int k = 0; k < 60*5; k++) {
 					Thread.sleep(1000);
 					System.out.print(k+",");
 				}
 			}
 		}
+		
+		
+		
+		
+		
+		
+		
+//		百度网盘下载量获取
+		//record?channel=chunlei&clienttype=0&web=1&page=1&order=ctime&desc=1&_=1531728865605&bdstoken=f663457ca3da98a18ee020ec11228a46&channel=chunlei&web=1&app_id=250528&logid=MTUzMTcyODg2NTYwNTAuMTgwOTAyNzc4OTY5NzkwMTI=&clienttype=0
+		
+		
 		
 		
 		
