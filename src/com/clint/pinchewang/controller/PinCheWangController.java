@@ -389,22 +389,30 @@ public class PinCheWangController {
 		 	System.out.println(jieguo);
 		    
 		    JSONObject json = JSONObject.fromObject(jieguo);
-		    net.sf.json.JSONArray list = json.getJSONArray("list");
-		    for (int i = 0; i < list.length(); i++) {
-		    	JSONObject jo = list.getJSONObject(i);
-		    	
-		    	if (jo.getString("typicalPath").indexOf("抖音")>0) {
-		    		System.out.println(jo);
-		    		
-		    		BaiduLianjeiXiazaiJilu baiduLianjeiXiazaiJilu = new BaiduLianjeiXiazaiJilu();
-		    		baiduLianjeiXiazaiJilu.setJianceDate(StringCode.getDateTime());
-		    		baiduLianjeiXiazaiJilu.setLianJieMing(jo.getString("typicalPath"));
-		    		baiduLianjeiXiazaiJilu.setChakanCishu(jo.getInt("vCnt"));
-		    		baiduLianjeiXiazaiJilu.setBaocunCishu(jo.getInt("tCnt"));
-		    		baiduLianjeiXiazaiJilu.setXiazaiCishu(jo.getInt("dCnt"));
-		    		this.pinCheWangService.addBaiduLianjeiXiazaiJilu(baiduLianjeiXiazaiJilu);
-		    		
+		    
+		    if (json.getInt("errno") == 0) {
+				
+			    net.sf.json.JSONArray list = json.getJSONArray("list");
+			    for (int i = 0; i < list.length(); i++) {
+			    	JSONObject jo = list.getJSONObject(i);
+			    	
+			    	if (jo.getString("typicalPath").indexOf("抖音")>0) {
+			    		System.out.println(jo);
+			    		
+			    		BaiduLianjeiXiazaiJilu baiduLianjeiXiazaiJilu = new BaiduLianjeiXiazaiJilu();
+			    		baiduLianjeiXiazaiJilu.setJianceDate(StringCode.getDateTime());
+			    		baiduLianjeiXiazaiJilu.setLianJieMing(jo.getString("typicalPath"));
+			    		baiduLianjeiXiazaiJilu.setChakanCishu(jo.getInt("vCnt"));
+			    		baiduLianjeiXiazaiJilu.setBaocunCishu(jo.getInt("tCnt"));
+			    		baiduLianjeiXiazaiJilu.setXiazaiCishu(jo.getInt("dCnt"));
+			    		this.pinCheWangService.addBaiduLianjeiXiazaiJilu(baiduLianjeiXiazaiJilu);
+			    		
+					}
 				}
-			}
+		    
+		    }
+		    
+		    
+		    
 		}
 }
