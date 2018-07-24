@@ -1,0 +1,15 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+div {
+    font-size: 26px;
+    color: #db2d32;
+}
+
+img {
+    width: 98%;
+    max-width: 375px;
+    margin: 1% 0 6% 1%;
+}
