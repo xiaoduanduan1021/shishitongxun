@@ -29,12 +29,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var _hmt = _hmt || [];
 		(function() {
 		  var hm = document.createElement("script");
-		  hm.src = "https://hm.baidu.com/hm.js?c232d28eb74cbeadff9e87d2f8fb6ae0";
+		  hm.src = "https://hm.baidu.com/hm.js?cd375c6160a5d041e4324ec826308d35";
 		  var s = document.getElementsByTagName("script")[0]; 
 		  s.parentNode.insertBefore(hm, s);
 		})();
 	</script>
 	<!-- 百度的统计代码 -->
+	
   </head>
   
   <body>
