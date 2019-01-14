@@ -278,7 +278,7 @@ public class Ik123 {
 
 		
 		//提取音乐id
-	 	String  url = "http://www.ik123.com/mp3-dj/ik123_11800.html";
+	 	String  url = "http://www.dj97.com/m/86134/";
 		
 		
 		//获取请求连接
