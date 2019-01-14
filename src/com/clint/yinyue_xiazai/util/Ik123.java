@@ -13,9 +13,8 @@ import org.jsoup.nodes.Document;
 
 
 //下载网站
-//http://www.190757.com/
-
-public class UrlToMusic {
+//http://www.ik123.com
+public class Ik123 {
 
 	
 	
@@ -274,8 +273,37 @@ public class UrlToMusic {
 	
 	
 	public static void main(String[] args) throws IOException {
-		new UrlToMusic().shouye_urlToMusicList();
-//		System.out.println("111111111111111\n222222222222222");
+		
+		
+
+		
+		//提取音乐id
+	 	String  url = "http://www.ik123.com/mp3-dj/ik123_11800.html";
+		
+		
+		//获取请求连接
+        Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
+        //请求头设置，特别是cookie设置
+        
+        
+        //解析请求结果
+        Document doc=con.get(); 
+        //获取标题
+        System.out.println(doc.toString());
+		
+        
+		// 使用正则获取地址
+		// 从字符串中提取指定的字符串
+		String s = doc.toString();
+
+		
+        System.out.println("--------------------");
+        System.out.println(s);
+        System.out.println("======================");
+        
+	
+		
+		
 	}
 
 }

@@ -2,7 +2,7 @@
 <%@page import="java.lang.String"%>
 <%@page import="com.clint.sysuser.model.SysUser"%>
 <%
-	String pathtop = request.getContextPath();
+	String path = request.getContextPath();
 	String basePathtop = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 	SysUser sysuser = (SysUser) request.getSession().getAttribute("sysUser");
 %>
