@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+input.queren {
+    padding: 4px 33px;
+    margin: 0 0 0 183px;
+}
+
+.shuruweizhi {
+    margin: 28px 0 0 0;
+}
+
+.shuoming {
+    margin: 16px 0 0 24px;
+    font-size: 17px;
+}
+
+textarea.shuruyu {
+    width: 468px;
+    height: 81px;
+}
