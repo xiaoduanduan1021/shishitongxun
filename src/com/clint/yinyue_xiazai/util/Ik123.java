@@ -278,7 +278,7 @@ public class Ik123 {
 
 		
 		//提取音乐id
-	 	String  url = "https://www.kugou.com/song/#hash=D8D978FD185F634BAE8635A2E798E1C0&album_id=9220944";
+	 	String  url = "https://www.kugou.com/song/#hash=7096BE75D906E840CE8249130CA22294&album_id=14597805";
 		
 		
 		//获取请求连接
@@ -292,8 +292,6 @@ public class Ik123 {
         System.out.println(doc.toString());
 		
         
-		// 使用正则获取地址
-		// 从字符串中提取指定的字符串
 		String s = doc.toString();
 
 		

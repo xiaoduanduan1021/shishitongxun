@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.clint.yinyue_xiazai.model.YinyueXiazai" table="yinyue_xiazai">
+		<id name="id" column="id" type="integer">
+			<generator class="increment" />
+		</id>
+		<property name="shiting_url" column="shiting_url" type="string" />
+		<property name="uuid" column="uuid" type="string" />
+		<property name="datetime" column="datetime" type="string" />
+		<property name="gequ_name" column="gequ_name" type="string" />
+		<property name="status" column="status" type="integer" />
+		<property name="xiazai_dizhi" column="xiazai_dizhi" type="string" />
+	</class>
+</hibernate-mapping>
