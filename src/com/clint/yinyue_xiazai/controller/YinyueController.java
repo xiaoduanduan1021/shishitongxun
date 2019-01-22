@@ -8,11 +8,16 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.clint.yinyue_xiazai.dao.YinyueXiazaiDao;
 import com.clint.yinyue_xiazai.model.YinyueXiazai;
+import com.clint.yinyue_xiazai.util.KuGou;
+import com.clint.yinyue_xiazai.util.QianQianYinYue;
 
 import net.sf.json.JSONObject;
 import util.page.PageList;
@@ -53,6 +58,35 @@ public class YinyueController {
 			response.getWriter().write(json.toString());
 			return;
 		}
+		
+		
+		//默认获取页面标题，获取标题名称
+        Connection con = Jsoup.connect(yinyueXiazai.getShiting_url()).timeout(1000 * 30).ignoreContentType(true);
+        Document doc=con.get(); 
+        yinyueXiazai.setGequ_name(doc.title());
+        
+		
+		//查询是否是酷狗，如果是则直接查询地址并存储
+        if(yinyueXiazai.getShiting_url().indexOf("www.kugou.com")>0){
+        	String[] kugoud = new KuGou().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setGequ_name(kugoud[0]);
+        	yinyueXiazai.setXiazai_dizhi(kugoud[1]);
+        	yinyueXiazai.setStatus(1);
+        	
+        }
+        //千千音乐定制
+        if(yinyueXiazai.getShiting_url().indexOf("music.taihe.com")>0){
+        	
+        	String[] qianqian = new QianQianYinYue().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setGequ_name(qianqian[0]);
+        	yinyueXiazai.setXiazai_dizhi(qianqian[1]);
+        	yinyueXiazai.setStatus(1);
+        	
+        }
+		
+		
+		
+		
 		
 		
 		yinyueXiazai.setDatetime(StringCode.getDateTime());

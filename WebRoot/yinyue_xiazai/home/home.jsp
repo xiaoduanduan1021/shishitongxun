@@ -27,15 +27,27 @@
 <body>
 	<div class="shuoming">
 		
+		<div class="biaoti1">本站可以免费下载所有网上的音乐，包括酷狗音乐,只要能在浏览器打开试听地址即可。</div>
 		
-		<div class="biaoti1">本站可以免费下载所有网上的音乐，包括酷狗音乐，ik123深港dj等等,只要能在浏览器打开试听地址即可。</div>
-		<div class="biaoti2">操作步骤：</div>
-		<div class="wenzihang">1：在浏览器打开酷狗音乐网站，或者其他音乐网站</div>
-		<div class="wenzihang">2：搜索或找到你要的音乐，点击进入试听播放页面</div>
-		<div class="wenzihang">3：复制地址栏的地址，粘贴到下面输入框</div>
-		<div class="wenzihang">4：点击确定</div>
-		<div class="wenzihang">4：稍等片刻在下面列表就会显示下载地址</div>
-		<div class="wenzihang">5：将下载地址复制到迅雷，或者浏览器直接访问，或者其他下载工具进行下载</div>
+		<div class="shuomingbufen">
+			<div class="shumingzuo">
+				<div class="biaoti2">操作步骤：</div>
+				<div class="wenzihang">1：在浏览器打开酷狗音乐网站，或者其他音乐网站</div>
+				<div class="wenzihang">2：搜索或找到你要的音乐，点击进入试听播放页面</div>
+				<div class="wenzihang">3：复制地址栏的地址，粘贴到下面输入框</div>
+				<div class="wenzihang">4：点击确定</div>
+				<div class="wenzihang">4：稍等片刻在下面列表就会显示下载地址</div>
+				<div class="wenzihang">5：将下载地址复制到迅雷，或者浏览器直接访问，或者其他下载工具进行下载</div>
+			</div>
+			<div class="shuomingyou">
+				<div class="biaoti2">已纳入快速分析网站（经测试这些网站音乐是可以下载滴）：</div>
+				<div class="wenzihang">酷狗：<a  target="_blank" href='http://www.kugou.com'>www.kugou.com</a></div>
+				<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
+				<div class="wenzihang">千千音乐：<a  target="_blank" href='http://music.taihe.com/'>music.taihe.com</a></div>
+				<div class="wenzihang">未纳入的也可下载，但反映较慢，少部分网站会出现异常，可联系我们修复。</div>
+			</div>
+		</div>
+		
 		
 		<div class="shuruweizhi">
 			
@@ -50,15 +62,6 @@
 		</div>
 
 
-		<table border="1" cellspacing="0" class="liebiao" style="border-collapse:collapse">
-			<tr class="biaotihang">
-				<td>试听地址</td>
-				<td>歌曲名称</td>
-				<td>下载地址</td>
-				<td>提交时间</td>
-				<td>是否完成</td>
-			</tr>
-		</table>
 		<table border="1" cellspacing="0" class="liebiao" id="liebiao" style="border-collapse:collapse">
 		</table>
 
@@ -123,22 +126,39 @@
 		        	
 		        	
 		        	var html = "";
-		        				
+		        	
+		        	
+		        	html+="<tr class=\"biaotihang\">";
+		        	html+="<td>试听地址</td>";
+		        	html+="<td>歌曲名称</td>";
+		        	html+="<td>下载地址</td>";
+		        	html+="<td>提交时间</td>";
+		        	html+="<td>是否完成</td>";
+		        	html+="</tr>";
+			
+			
 		        	for(var i in data){
 		        		console.log(i);
 		        		console.log(data[i]);
 		        		var yinyue = data[i];
 		        		html+="<tr class=\"neironghang\">";
 		        		
-		        		html+="<td><a href="+yinyue.shiting_url+" target=\"_blank\">"+yinyue.shiting_url+"</a></td>";
+		        		html+="<td>";
+		        		html+="<a href="+yinyue.shiting_url+" target=\"_blank\">"+yinyue.shiting_url+"</a>";
+		        		
+		        		html+="</td>";
 		        		
 		        		html+="<td>"+yinyue.gequ_name+"</td>";
 		        		
-		        		html+="<td><a href="+yinyue.xiazai_dizhi+" target=\"_blank\">"+yinyue.xiazai_dizhi+"</a></td>";
+		        		html+="<td>";
+		        		html+="<a href="+yinyue.xiazai_dizhi+" target=\"_blank\">"+yinyue.xiazai_dizhi+"</a>";
+		        		html+="<audio src=\""+yinyue.xiazai_dizhi+"\" controls=\"controls\">";
+		        		html+="</audio>";
+		        		html+="</td>";
 		        		
 		        		html+="<td>"+yinyue.datetime+"</td>";
 		        		
-		        		var statu = "正在分析，预计10秒钟。。。";
+		        		var statu = "正在分析，预计10秒钟。请10秒后刷新页面";
 		        		
 		        		if(yinyue.status == 1){
 		        			statu = "已完成";
@@ -167,10 +187,10 @@
 			huoqu_liebiao();
 		});
 		
-		
-		setInterval(function(){
-			huoqu_liebiao();
-		},20*1000);
+	//自动刷新	
+//		setInterval(function(){
+//			huoqu_liebiao();
+//		},20*1000);
 		
 	</script>
 </body>

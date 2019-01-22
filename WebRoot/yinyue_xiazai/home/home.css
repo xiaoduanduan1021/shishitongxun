@@ -5,6 +5,25 @@
 	padding: 0px;
 }
 
+.shuomingbufen {
+    width: 100%;
+    float: left;
+}
+
+.shuomingyou {
+    float: left;
+    margin: 0 0 31px 49px;
+    border: 1px solid;
+    padding: 8px;
+}
+
+.shumingzuo {
+    float: left;
+    margin: 0 0 22px 0;
+    border: 1px solid;
+    padding: 8px;
+}
+
 table.liebiao {
     width: 1261px;
 }
@@ -46,7 +65,7 @@ input.queren {
 }
 
 .shuruweizhi {
-    margin: 28px 0 0 0;
+    /* margin: 62px 0 0 0; */
 }
 
 .shuoming {
@@ -57,4 +76,6 @@ input.queren {
 textarea.shuruyu {
     width: 743px;
     height: 81px;
+    border: solid 1px #0033ff;
+    padding: 3px;
 }
