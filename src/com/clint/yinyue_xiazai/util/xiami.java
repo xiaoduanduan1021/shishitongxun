@@ -12,9 +12,9 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-//下载网站，，获取到的音乐地址不能下载，估计是增加了防盗链判断
+//下载网站
 //http://www.dj97.com
-public class DJ97 {
+public class xiami {
 	
 	//根据一个url获取一个下载链接，这个是试听页面的地址
 	public String urlToMusic(String url) throws IOException{
@@ -23,6 +23,21 @@ public class DJ97 {
         Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
         Document doc=con.get(); 
 		String s = doc.toString();
+		
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		System.out.println(s);
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		
+		
+		
+		
 		// 书写正则表达式
 		String regex = "file: '.*', good:";
 		// 将正则表达式转成正则对象
@@ -54,7 +69,7 @@ public class DJ97 {
 	
 	public static void main(String[] args) throws IOException {
 
-		new DJ97().urlToMusic("http://www.dj97.com/m/79265/");
+		new xiami().urlToMusic("https://www.xiami.com/song/1796378282");
 		
 	}
 }
