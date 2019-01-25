@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.clint.yinyue_xiazai.dao.YinyueXiazaiDao;
 import com.clint.yinyue_xiazai.model.YinyueXiazai;
+import com.clint.yinyue_xiazai.util.DJye;
 import com.clint.yinyue_xiazai.util.Ik123;
 import com.clint.yinyue_xiazai.util.KuGou;
 import com.clint.yinyue_xiazai.util.QianQianYinYue;
@@ -93,6 +94,22 @@ public class YinyueController {
         	
         }
 		
+        //djye定制
+        if(yinyueXiazai.getShiting_url().indexOf("www.djye.com")>0){
+        	
+        	String djye = new DJye().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setXiazai_dizhi(djye);
+        	yinyueXiazai.setStatus(1);
+        	
+        }
+        //djkk定制
+        if(yinyueXiazai.getShiting_url().indexOf("www.djkk.com")>0){
+        	
+        	String djkk = new com.clint.yinyue_xiazai.util.djkk().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setXiazai_dizhi(djkk);
+        	yinyueXiazai.setStatus(1);
+        	
+        }
 		
 		
 		

@@ -5,6 +5,30 @@
 	padding: 0px;
 }
 
+img.guanbi {
+    width: 43px;
+    float: right;
+}
+
+img.erweima {
+    width: 100%;
+}
+
+.kefu_shuoming {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+.kefu {
+    position: fixed;
+    top: 25%;
+    right: 0%;
+    width: 234px;
+    background: rgb(255, 255, 255);
+    border: 1px solid #989898;
+}
+
 body {
     /* background: red; */
 }

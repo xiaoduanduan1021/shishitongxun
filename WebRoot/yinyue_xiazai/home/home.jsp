@@ -31,7 +31,7 @@
 <body>
 		<div class="shuoming">
 			
-			<div class="biaoti1">本站可以免费下载所有网上的音乐，只要能在浏览器打开试听地址即可。</div>
+			<div class="biaoti1">本站可以免费下载网上的音乐，只要能在浏览器打开试听地址即可。</div>
 			
 			<div class="shuomingbufen">
 				<div class="shumingzuo">
@@ -49,6 +49,8 @@
 					<div class="wenzihang">千千音乐：<a  target="_blank" href='http://music.taihe.com/'>music.taihe.com</a></div>
 					<div class="wenzihang">IK123深港DJ：<a  target="_blank" href='http://www.ik123.com'>www.ik123.com</a></div>
 					<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
+					<div class="wenzihang">DJ耶耶网：<a  target="_blank" href='http://www.djye.com/'>www.djye.com</a></div>
+					<div class="wenzihang">Dj嗨嗨网：<a  target="_blank" href='http://www.djkk.com/'>www.djkk.com</a></div>
 					<div class="wenzihang">未纳入的请联系客服免费纳入</div>
 					<div class="wenzihang">联系客服可定制网站音乐批量下载任务，例如批量下载酷狗排行榜前五百</div>
 				</div>
@@ -73,6 +75,22 @@
 	
 	
 		</div>
+	
+	
+	<div class="kefu">
+		<img alt="" onclick="yincang_kefu();" class="guanbi" src="yinyue_xiazai/home/img/guanbi.jpg">
+		<div class="kefu_shuoming">扫描二维码加客服，接收免费福利新功能通知</div>
+		<img alt="" class="erweima" src="yinyue_xiazai/home/img/erweima.jpg">
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<script type="text/javascript">
 	
@@ -214,6 +232,11 @@
 	  	}else{
 	  	}
 
+	  	
+	  	//隐藏客服二维码
+	  	function yincang_kefu(){
+	  		$(".kefu").hide();
+	  	}
 	</script>
 </body>
 </html>
