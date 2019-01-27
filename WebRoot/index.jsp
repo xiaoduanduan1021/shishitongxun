@@ -10,7 +10,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>《海王》迅雷BT完整下载[MP4/3.12GB/5.35GB]超级清晰[HD720p/1080p]</title>
+<title>250xyz.xyz</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -21,44 +21,32 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
+
+<style type="text/css">
+
+.anniu{
+    font-size: 34px;
+    }
+</style>
 </head>
 
 <body>
+
 	<%
 		//	request.getRequestDispatcher("miXin/yiDongDuan/shoueye/shouye.jsp").forward(request, response);
 		//	response.sendRedirect("miXin/yiDongDuan/shoueye/shouye.jsp");
 	%>
 
-	<h1>《海王》迅雷BT完整下载[MP4/3.12GB/5.35GB]超级清晰[HD720p/1080p]</h1>
-
-
-
-
-	<table cellspacing="0" cellpadding="0">
-		<tbody>
-			<tr>
-				<td class="t_f" id="postmessage_158757484">
-				
-				<span
-					id="travle_body">《海王》 电影下载<br>
-						http://pan-baidu.com/s/hAiwANg<br>
-				</span></td>
-			</tr>
-		</tbody>
-	</table>
-
-
-
-
-	<img id="aimg_6637135" aid="6637135"
-		src="http://bbs.gxsky.com/data/attachment/forum/201812/30/082648q7888x2d8an8gvdd.png"
-		zoomfile="http://bbs.gxsky.com/data/attachment/forum/201812/30/082648q7888x2d8an8gvdd.png"
-		file="http://bbs.gxsky.com/data/attachment/forum/201812/30/082648q7888x2d8an8gvdd.png"
-		class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" width="640"
-		alt="海王.PNG" title="海王.PNG" w="640" lazyloaded="true" _load="1"
-		style="">
-
-
+	<a class="anniu" href="yinyue_xiazai/yinyue_xiazai_home.action">
+		音乐下载
+	</a>
+	
+	<br>
+	<br>
+	
+	<a class="anniu" href="yewujieshao">
+		网站开发业务介绍
+	</a>
 
 </body>
 </html>

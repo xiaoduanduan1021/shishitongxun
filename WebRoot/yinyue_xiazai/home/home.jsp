@@ -26,6 +26,19 @@
 	<link rel="stylesheet" type="text/css" href="yinyue_xiazai/home/home.css?a=<%=Math.random()%>">
 	<script type="text/javascript" src="public/js/jquery-1.10.2.min.js"></script>
 
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c63ca1c34af49d647022ac5e60e130ac";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 百度统计 -->
+
 </head>
 
 <body>
@@ -46,7 +59,10 @@
 				<div class="shuomingyou">
 					<div class="biaoti2">已纳入快速分析网站（经测试这些网站音乐是可以下载滴，如果有问题请联系客服）：</div>
 					<div class="wenzihang">酷狗：<a  target="_blank" href='http://www.kugou.com'>www.kugou.com</a></div>
-					<div class="wenzihang">千千音乐：<a  target="_blank" href='http://music.taihe.com/'>music.taihe.com</a></div>
+					<!-- 
+						<div class="wenzihang">千千音乐：<a  target="_blank" href='http://music.taihe.com/'>music.taihe.com</a></div>
+					 -->
+					
 					<div class="wenzihang">IK123深港DJ：<a  target="_blank" href='http://www.ik123.com'>www.ik123.com</a></div>
 					<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
 					<div class="wenzihang">DJ耶耶网：<a  target="_blank" href='http://www.djye.com/'>www.djye.com</a></div>
