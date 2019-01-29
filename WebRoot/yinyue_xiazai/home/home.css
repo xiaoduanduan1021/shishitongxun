@@ -1,8 +1,18 @@
+[genuitec-file-id="wc1-45"],[genuitec-lp-path="/shishitongxun/WebRoot/yinyue_xiazai/home/home.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
 @CHARSET "UTF-8";
 
 *{
 	margin: 0px;
 	padding: 0px;
+}
+
+img.xiaoshou {
+    width: 46px;
+    margin: -29px 0 0 267px;
+    position:  absolute;
 }
 
 img.guanbi {

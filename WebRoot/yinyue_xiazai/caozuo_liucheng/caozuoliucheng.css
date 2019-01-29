@@ -1,0 +1,58 @@
+[genuitec-file-id="wc1-2"],[genuitec-lp-path="/shishitongxun/WebRoot/yinyue_xiazai/caozuo_liucheng/caozuoliucheng.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+[genuitec-file-id="wc1-2"],[genuitec-lp-path="/shishitongxun/WebRoot/yinyue_xiazai/caozuo_liucheng/caozuoliucheng.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+[genuitec-file-id="wc1-2"],[genuitec-lp-path="/shishitongxun/WebRoot/yinyue_xiazai/caozuo_liucheng/caozuoliucheng.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+[genuitec-file-id="wc1-2"],[genuitec-lp-path="/shishitongxun/WebRoot/yinyue_xiazai/caozuo_liucheng/caozuoliucheng.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+*{
+	
+margin:  0px;
+	
+padding:  0px;
+}
+
+span.xuhao {
+    font-size: 31px;
+    background: rgb(91,198,72);
+    color: white;
+    border-radius: 81%;
+    padding: 0 11px;
+}
+
+.biaoti {
+    font-size: 30px;
+    text-align: center;
+    margin: 21px 0;
+    /* float: left; */
+}
+
+.wenzi {
+    font-size: 19px;
+    margin: 95px 0 0 0;
+}
+
+img.tupian {
+    max-width: 96%;
+    border: red 1px solid;
+    margin: 2.4% 0;
+    padding: 1%;
+}
+
+.juzhong {
+    width: 1150px;
+    margin: 20px auto;
+    /* border: 1px red solid; */
+    /* float: left; */
+    background: #f4f4f4;
+    padding: 0 1%;
+}

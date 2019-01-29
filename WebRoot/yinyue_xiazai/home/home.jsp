@@ -48,7 +48,14 @@ var _hmt = _hmt || [];
 			
 			<div class="shuomingbufen">
 				<div class="shumingzuo">
-					<div class="biaoti2">操作步骤：</div>
+					
+					<div class="biaoti2">操作步骤：  
+						<a href="yinyue_xiazai/caozuo_liucheng/caozuo_liucheng.jsp">
+							点我查看操作流程截图
+						</a>
+						<img alt="" class="xiaoshou" src="yinyue_xiazai/home/img/xiaoshou.png">
+					</div>
+					
 					<div class="wenzihang">1：在浏览器打开酷狗音乐网站，或者其他音乐网站</div>
 					<div class="wenzihang">2：搜索或找到你要的音乐，点击进入试听播放页面</div>
 					<div class="wenzihang">3：复制地址栏的地址，粘贴到下面输入框</div>
@@ -253,6 +260,22 @@ var _hmt = _hmt || [];
 	  	function yincang_kefu(){
 	  		$(".kefu").hide();
 	  	}
+	  	
+	  	
+	  	
+	  //闪烁小手
+		var xiaoshou = 1;
+		window.setInterval(function(){
+			if(xiaoshou==1){
+				$(".xiaoshou").hide();
+				xiaoshou=0;
+			}else{
+				xiaoshou=1;
+				$(".xiaoshou").show();
+			}
+		}, 500);
+		
+		
 	</script>
 </body>
 </html>
