@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.clint.yinyue_xiazai.dao.YinyueXiazaiDao;
 import com.clint.yinyue_xiazai.model.YinyueXiazai;
+import com.clint.yinyue_xiazai.util.Ik123;
 import com.clint.yinyue_xiazai.util.KuGou;
 import com.clint.yinyue_xiazai.util.QianQianYinYue;
 
@@ -80,6 +81,14 @@ public class YinyueController {
         	String[] qianqian = new QianQianYinYue().urlToMusic(yinyueXiazai.getShiting_url());
         	yinyueXiazai.setGequ_name(qianqian[0]);
         	yinyueXiazai.setXiazai_dizhi(qianqian[1]);
+        	yinyueXiazai.setStatus(1);
+        	
+        }
+        //Ik123定制
+        if(yinyueXiazai.getShiting_url().indexOf("www.ik123.com")>0){
+        	
+        	String ik = new Ik123().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setXiazai_dizhi(ik);
         	yinyueXiazai.setStatus(1);
         	
         }

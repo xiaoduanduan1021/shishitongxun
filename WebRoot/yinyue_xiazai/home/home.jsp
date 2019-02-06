@@ -25,6 +25,7 @@
 </head>
 
 <body>
+
 	<div class="shuoming">
 		
 		<div class="biaoti1">本站可以免费下载所有网上的音乐，包括酷狗音乐,只要能在浏览器打开试听地址即可。</div>
@@ -42,8 +43,9 @@
 			<div class="shuomingyou">
 				<div class="biaoti2">已纳入快速分析网站（经测试这些网站音乐是可以下载滴）：</div>
 				<div class="wenzihang">酷狗：<a  target="_blank" href='http://www.kugou.com'>www.kugou.com</a></div>
-				<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
 				<div class="wenzihang">千千音乐：<a  target="_blank" href='http://music.taihe.com/'>music.taihe.com</a></div>
+				<div class="wenzihang">IK123深港DJ：<a  target="_blank" href='http://www.ik123.com'>www.ik123.com</a></div>
+				<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
 				<div class="wenzihang">未纳入的也可下载，但反映较慢，少部分网站会出现异常，可联系我们修复。</div>
 			</div>
 		</div>
