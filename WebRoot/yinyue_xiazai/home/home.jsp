@@ -20,56 +20,59 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
 	<link rel="stylesheet" type="text/css" href="yinyue_xiazai/home/home.css?a=<%=Math.random()%>">
-<script type="text/javascript" src="public/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="public/js/jquery-1.10.2.min.js"></script>
+
 </head>
 
 <body>
-
-	<div class="shuoming">
-		
-		<div class="biaoti1">本站可以免费下载所有网上的音乐，包括酷狗音乐,只要能在浏览器打开试听地址即可。</div>
-		
-		<div class="shuomingbufen">
-			<div class="shumingzuo">
-				<div class="biaoti2">操作步骤：</div>
-				<div class="wenzihang">1：在浏览器打开酷狗音乐网站，或者其他音乐网站</div>
-				<div class="wenzihang">2：搜索或找到你要的音乐，点击进入试听播放页面</div>
-				<div class="wenzihang">3：复制地址栏的地址，粘贴到下面输入框</div>
-				<div class="wenzihang">4：点击确定</div>
-				<div class="wenzihang">4：稍等片刻在下面列表就会显示下载地址</div>
-				<div class="wenzihang">5：将下载地址复制到迅雷，或者浏览器直接访问，或者其他下载工具进行下载</div>
-			</div>
-			<div class="shuomingyou">
-				<div class="biaoti2">已纳入快速分析网站（经测试这些网站音乐是可以下载滴）：</div>
-				<div class="wenzihang">酷狗：<a  target="_blank" href='http://www.kugou.com'>www.kugou.com</a></div>
-				<div class="wenzihang">千千音乐：<a  target="_blank" href='http://music.taihe.com/'>music.taihe.com</a></div>
-				<div class="wenzihang">IK123深港DJ：<a  target="_blank" href='http://www.ik123.com'>www.ik123.com</a></div>
-				<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
-				<div class="wenzihang">未纳入的也可下载，但反映较慢，少部分网站会出现异常，可联系我们修复。</div>
-			</div>
-		</div>
-		
-		
-		<div class="shuruweizhi">
+		<div class="shuoming">
 			
-			<textarea class="shuruyu" id="url" placeholder="请输入播放地址例如：https://www.kugou.com/song/#hash=37AC8A1C5C2FC33E43749C22042672F7&album_id=14586035" ></textarea>
-				<br>
-			<input type="button" onclick="tijiao();" class="queren" value="确认">
+			<div class="biaoti1">本站可以免费下载所有网上的音乐，只要能在浏览器打开试听地址即可。</div>
 			
-		</div>
-		
-		<div class="biaoti2">
-			已提交的：（最近100条）
-		</div>
-
-
-		<table border="1" cellspacing="0" class="liebiao" id="liebiao" style="border-collapse:collapse">
-		</table>
-
-
-	</div>
+			<div class="shuomingbufen">
+				<div class="shumingzuo">
+					<div class="biaoti2">操作步骤：</div>
+					<div class="wenzihang">1：在浏览器打开酷狗音乐网站，或者其他音乐网站</div>
+					<div class="wenzihang">2：搜索或找到你要的音乐，点击进入试听播放页面</div>
+					<div class="wenzihang">3：复制地址栏的地址，粘贴到下面输入框</div>
+					<div class="wenzihang">4：点击确定</div>
+					<div class="wenzihang">4：稍等片刻在下面列表就会显示下载地址</div>
+					<div class="wenzihang">5：将下载地址复制到迅雷，或者浏览器直接访问，或者其他下载工具进行下载</div>
+				</div>
+				<div class="shuomingyou">
+					<div class="biaoti2">已纳入快速分析网站（经测试这些网站音乐是可以下载滴，如果有问题请联系客服）：</div>
+					<div class="wenzihang">酷狗：<a  target="_blank" href='http://www.kugou.com'>www.kugou.com</a></div>
+					<div class="wenzihang">千千音乐：<a  target="_blank" href='http://music.taihe.com/'>music.taihe.com</a></div>
+					<div class="wenzihang">IK123深港DJ：<a  target="_blank" href='http://www.ik123.com'>www.ik123.com</a></div>
+					<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
+					<div class="wenzihang">未纳入的请联系客服免费纳入</div>
+					<div class="wenzihang">联系客服可定制网站音乐批量下载任务，例如批量下载酷狗排行榜前五百</div>
+				</div>
+			</div>
+			
+			
+			<div class="shuruweizhi">
+				
+				<textarea class="shuruyu" id="url" placeholder="请输入播放地址例如：https://www.kugou.com/song/#hash=37AC8A1C5C2FC33E43749C22042672F7&album_id=14586035" ></textarea>
+					<br>
+				<input type="button" onclick="tijiao();" class="queren" value="确认">
+				
+			</div>
+			
+			<div class="biaoti2">
+				已提交的：（最近100条）
+			</div>
 	
+	
+			<table border="1" cellspacing="0" class="liebiao" id="liebiao" style="border-collapse:collapse">
+			</table>
+	
+	
+		</div>
 	
 	<script type="text/javascript">
 	
@@ -194,6 +197,23 @@
 //			huoqu_liebiao();
 //		},20*1000);
 		
+		
+		
+		var userAgent = "<%=request.getHeader("user-agent")%>";
+	  	if(userAgent.indexOf("Android") != -1){
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+	  	}else if(userAgent.indexOf("iPhone") != -1 || userAgent.indexOf("iPad") != -1){
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+		    alert("！！！请在电脑上打开，手机网站暂时无法分析");
+	  	}else{
+	  	}
+
 	</script>
 </body>
 </html>

@@ -5,6 +5,10 @@
 	padding: 0px;
 }
 
+body {
+    /* background: red; */
+}
+
 .shuomingbufen {
     width: 100%;
     float: left;
@@ -12,16 +16,18 @@
 
 .shuomingyou {
     float: left;
-    margin: 0 0 31px 49px;
+    margin: 0 0 31px 0px;
     border: 1px solid;
     padding: 8px;
+    width: 48%;
 }
 
 .shumingzuo {
     float: left;
-    margin: 0 0 22px 0;
+    margin: 0 1.1% 22px 0;
     border: 1px solid;
     padding: 8px;
+    width: 48%;
 }
 
 table.liebiao {
@@ -34,7 +40,7 @@ tr.neironghang {
 
 tr.biaotihang {
     font-size: 18px;
-    background: #dedede;
+    background: #eee;
 }
 
 td {
@@ -69,8 +75,11 @@ input.queren {
 }
 
 .shuoming {
-    margin: 16px 0 0 24px;
-    font-size: 17px;
+    /* margin: 16px 0 0 24px; */
+    /* font-size: 17px; */
+    width: 1276px;
+    margin: 22px auto;
+    background: #f9f9f9;
 }
 
 textarea.shuruyu {
