@@ -21,18 +21,6 @@
 						content="format=html5; url=---------------blog.sina.cn/dpool/blog/u/5436596231">
 						<meta http-equiv="mobile-agent"
 							content="format=wml; url=---------------blog.sina.cn/dpool/blog/ArtList.php?uid=5436596231&amp;vt=1">
-							<!--–[if lte IE 6]-->
-							<script id="sinaads-ck-script" charset="utf-8"
-								src="./index_files/sinaads_ck.js"></script>
-							<script type="text/javascript">
-								try {
-									document.execCommand("BackgroundImageCache", false, true);
-								} catch (e) {}
-							</script>
-							<!--[endif]–-->
-							<script type="text/javascript">
-								window.staticTime = new Date().getTime();
-							</script>
 							<link rel="pingback"
 								href="---------------upload.move.blog.sina.com.cn/blog_rebuild/blog/xmlrpc.php">
 								<link rel="EditURI" type="application/rsd+xml" title="RSD"
@@ -49,14 +37,6 @@
 @charset "utf-8";
 
 @import url("./index_files/t.css");
-</style>
-												<style id="positionstyle" type="text/css">
-</style>
-												<style id="bgtyle" type="text/css">
-</style>
-												<style id="headtyle" type="text/css">
-</style>
-												<style id="navtyle" type="text/css">
 </style>
 
 
@@ -198,7 +178,7 @@
 									<a href=""
 										title="点击上传头像" target="_blank"><img
 										id="comp_901_head_image" width="180" height="180" alt="点击上传头像"
-										src="./index_files/180"></a>
+										src="./index_files/180.jpg"></a>
 								</div>
 
 								<div class="info_txt">
@@ -341,13 +321,6 @@
 			</div>
 		</div>
 	</div>
-	<div id="swfbox"></div>
-	<script id="PVCOUNTER_FORIE" type="text/javascript"></script>
-
-
-
-  
-  
 
 
 </body>
