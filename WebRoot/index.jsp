@@ -28,6 +28,22 @@
     font-size: 34px;
     }
 </style>
+
+<!-- 百度统计 -->
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?c63ca1c34af49d647022ac5e60e130ac";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<!-- 百度统计 -->
+
+
+
+
 </head>
 
 <body>
@@ -38,7 +54,7 @@
 	%>
 
 	<a class="anniu" href="yinyue_xiazai/yinyue_xiazai_home.action">
-		音乐下载
+		酷狗，ik123，DJ音乐下载
 	</a>
 	
 	<br>
@@ -46,6 +62,27 @@
 	
 	<a class="anniu" href="yewujieshao">
 		网站开发业务介绍
+	</a>
+	<br>
+	<br>
+	
+	<a class="anniu" href="douyin/jihe4ban.html">
+		抖音音乐批量下载永久更新
+	</a>
+	<br>
+	<br>
+	<a class="anniu" href="">
+		酷狗DJ热歌前一百加微信
+	</a>
+	<br>
+	<br>
+	<a class="anniu" href="">
+		酷狗TOP500排行榜加微信
+	</a>
+	<br>
+	<br>
+	<a class="anniu" >
+		微信dyyy00001
 	</a>
 
 </body>
