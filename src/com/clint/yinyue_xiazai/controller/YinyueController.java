@@ -182,4 +182,10 @@ public class YinyueController {
 	}
 	
 	
+	//下载链接获取
+	@RequestMapping(value = "/XiazaiLianjie")
+	public void XiazaiLianjie(HttpServletResponse response) throws IOException {
+		
+		response.getWriter().write("http://fs.w.kugou.com/201902171402/9dcc6059af2ea3ccacb7efcb4c9d5f57/G126/M06/1B/03/vg0DAFxk5QaAZQLmADDYqT1x8PY410.mp3");
+	}
 }
