@@ -34,6 +34,9 @@ public class YinyueController {
 	
 	@Resource(name="yinyueXiazaiDao")
 	private YinyueXiazaiDao yinyueXiazaiDao;
+
+	@Resource(name="kugou")
+	private KuGou kugou;
 	
 	//进入客户端录入试听地址页面
 	@RequestMapping(value = "/yinyue_xiazai_home")
@@ -188,4 +191,13 @@ public class YinyueController {
 		
 		response.getWriter().write("http://fs.w.kugou.com/201902171402/9dcc6059af2ea3ccacb7efcb4c9d5f57/G126/M06/1B/03/vg0DAFxk5QaAZQLmADDYqT1x8PY410.mp3");
 	}
+	
+	
+	//分析排行榜存入数据库
+	@RequestMapping(value = "/fenxiPaihang")
+	public void fenxiPaihang() throws IOException {
+		kugou.ListToDB("https://www.kugou.com/yy/rank/home/1-22163.html?from=rank",25,"中国TOP排行榜"+" 2019-02-18期");
+	}
+	
+	
 }

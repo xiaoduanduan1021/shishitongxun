@@ -56,6 +56,8 @@
 
 <script src="../../public/js/jquery-3.3.1.min.js"></script>
 
+<script src="index.js"></script>
+
 
 </head>
 
@@ -301,24 +303,8 @@
 		</div>
 	</div>
 
-<script>
-	console.log("1.00");
-	$(document).ready(function(){
-	console.log("2");
-	
-		setTimeout(function(){
-		
-			$.ajax({
-				url:"yinyue_xiazai/XiazaiLianjie.action",
-				type:"post",
-				success:function (data){
-					alert(data);
-				}
-			})
-		},3000);
-	});
 
-</script>
 
 </body>
+
 </html>
