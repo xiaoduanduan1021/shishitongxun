@@ -21,4 +21,8 @@ public interface YinyueXiazaiDao {
 	public void updataYinyueXiazai(YinyueXiazai yinyueXiazai);
 	//查询音乐下载记录
 	public YinyueXiazai getYinyueXiazai(Integer id);
+	
+	//根据id查询记录
+	
+	public YinyueXiazai getYinyueXiazaiByid(int id);
 }

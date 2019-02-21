@@ -56,4 +56,9 @@ public class YinyueXiazaiDaoImpl extends BaseHibernate implements YinyueXiazaiDa
 	}
 	
 	
+	//根据id查询记录
+	
+	public YinyueXiazai getYinyueXiazaiByid(int id){
+		return (YinyueXiazai) this.getObject(YinyueXiazai.class, id);
+	}
 }

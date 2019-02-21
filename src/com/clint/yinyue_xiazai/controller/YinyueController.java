@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
@@ -199,5 +200,15 @@ public class YinyueController {
 		kugou.ListToDB("https://www.kugou.com/yy/rank/home/1-22163.html?from=rank",25,"中国TOP排行榜"+" 2019-02-18期");
 	}
 	
+	//根据id获取一首歌的下载地址，进入下载页面
+	@RequestMapping(value = "/xiazai")
+	public String xiazai(int id, HttpServletRequest req) {
+		
+		//查询出改id对应信息
+		YinyueXiazai yinyueXiazai = yinyueXiazaiDao.getYinyueXiazai(id);
+		req.setAttribute("yinyueXiazai", yinyueXiazai);
+		
+		return "/yinyue_xiazai/xiazaiByid/index.jsp";
+	}
 	
 }

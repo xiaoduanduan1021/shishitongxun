@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>威仔、阿夏 - 再也不会打扰你mp3免费下载高清</title>
+	<title>${yinyueXiazai.gequ_name} mp3免费下载高清</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,chrome=1">
 		<meta name="renderer" content="webkit">
 			<meta name="keywords" content="">
@@ -135,7 +135,7 @@
 					<div id="blogTitle" class="blogtoparea">
 						<h1 id="blogname" class="blogtitle">
 							<a href="---------------blog.sina.com.cn/u/5436596231"><span
-								id="blognamespan">威仔、阿夏 - 再也不会打扰你mp3免费下载高清</span></a>
+								id="blognamespan">${yinyueXiazai.gequ_name} mp3免费下载高清</span></a>
 						</h1>
 
 					</div>
@@ -221,19 +221,19 @@
 
 
 									<div id="t_10001_1440be0070102yk6w" class="blog_title">
-										<a target="_blank">威仔、阿夏 - 再也不会打扰你mp3免费下载高清</a>
+										<a target="_blank">${yinyueXiazai.gequ_name} mp3免费下载高清</a>
 									</div>
 									
 									<div class="shiting">
 										试听:
 									</div>
 									
-									<audio src="http://fs.w.kugou.com/201902171340/a8fd73b7c36c0835fa3ba5980c9591d0/G152/M0A/16/15/OIcBAFxlENqAbkjTADKgLJxWfuI305.mp3" controls="controls"></audio>
+									<audio src="${yinyueXiazai.xiazai_dizhi}" controls="controls"></audio>
 									
 									<div class="xiazaidizhi">
 										下载地址 :（可直接点击下载，或复制到迅雷下载）
 									</div>
-									<a class="xiazaidizi" href="http://fs.w.kugou.com/201902171340/a8fd73b7c36c0835fa3ba5980c9591d0/G152/M0A/16/15/OIcBAFxlENqAbkjTADKgLJxWfuI305.mp3" target="_blank">http://fs.w.kugou.com/201902171340/a8fd73b7c36c0835fa3ba5980c9591d0/G152/M0A/16/15/OIcBAFxlENqAbkjTADKgLJxWfuI305.mp3</a> 
+									<a class="xiazaidizi" href="${yinyueXiazai.xiazai_dizhi}" target="_blank">${yinyueXiazai.xiazai_dizhi}</a> 
 									
 									
 									
