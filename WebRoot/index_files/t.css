@@ -131,10 +131,6 @@ background-color: #BCD3E5;
 .sinablogb{background-image: url(../index_files/sinablogb.jpg); }
 .sinabloghead{height: 265px;}
 
-/* 尾图 (背景、高度) */
-.sinabloga{ background-image: url(../index_files/sinabloga.jpg);}
-.sinablogfooter{ height:150px;}
-
 /* 标题 (位置)*/
 .sinabloghead .blogtoparea{ top:43%; left:120px;}
 
