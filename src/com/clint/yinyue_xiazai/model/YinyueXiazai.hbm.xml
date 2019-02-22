@@ -13,5 +13,6 @@
 		<property name="gequ_name" column="gequ_name" type="string" />
 		<property name="status" column="status" type="integer" />
 		<property name="xiazai_dizhi" column="xiazai_dizhi" type="string" />
+		<property name="weiYuanChuang" column="weiYuanChuang" type="string" />
 	</class>
 </hibernate-mapping>

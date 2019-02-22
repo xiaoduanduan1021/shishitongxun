@@ -8,6 +8,12 @@
 	
 }
 
+.wei {
+    margin: 16% 0 0 0;
+    /* opacity: 0; */
+    display: none;
+}
+
 a {}
 
 a.xiazaidizi {

@@ -1,14 +1,19 @@
 package com.clint.yinyue_xiazai.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.chainsaw.Main;
+import org.hibernate.mapping.Array;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -202,13 +207,100 @@ public class YinyueController {
 	
 	//根据id获取一首歌的下载地址，进入下载页面
 	@RequestMapping(value = "/xiazai")
-	public String xiazai(int id, HttpServletRequest req) {
+	public String xiazai(int id, HttpServletRequest req) throws IOException {
+		
+		
 		
 		//查询出改id对应信息
+		
+		
 		YinyueXiazai yinyueXiazai = yinyueXiazaiDao.getYinyueXiazai(id);
+		
+		//如果是酷狗则更新下载链接
+		//查询是否是酷狗，如果是则直接查询地址并存储
+        if(yinyueXiazai.getShiting_url().indexOf("www.kugou.com")>0){
+        	String[] kugoud = new KuGou().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setGequ_name(kugoud[0]);
+        	yinyueXiazai.setXiazai_dizhi(kugoud[1]);
+        	yinyueXiazai.setStatus(1);
+        	this.yinyueXiazaiDao.updataYinyueXiazai(yinyueXiazai);
+        }
+        
+        
+		
 		req.setAttribute("yinyueXiazai", yinyueXiazai);
+		
 		
 		return "/yinyue_xiazai/xiazaiByid/index.jsp";
 	}
 	
+	//给所有歌曲增加伪原创文字，随机生成汉字，生成30行,并随机插入标题文字10次，并保存到数据库
+	@RequestMapping(value = "/weiyuanchuang")
+	public void weiyuanchuang() throws UnsupportedEncodingException {
+		
+		//查询出所有没有伪原创文章的歌曲记录
+		List<YinyueXiazai> list = this.yinyueXiazaiDao.getNoWeiyuanchuang();
+		
+		for (int i = 0; i < list.size(); i++) {
+			
+			
+			YinyueXiazai yy = list.get(i);
+			
+			
+			//生成随机文字30行
+			String zongwenzi = "";
+			for (int j = 0; j < 30; j++) {
+				//每行40以内，随机数量
+				//组合成p标签字符串，插入标题多次
+				zongwenzi+="<p>";
+				for (int j2 = 0; j2 < 40; j2++) {
+					
+					//在随机位置添加歌名关键词
+					if(j==5||j==16||j==23||j==28||j==32||j==38){
+						if(j2==24){
+							zongwenzi+="音乐250网"+yy.getGequ_name()+"  mp3高清歌曲免费下载";
+						}
+					}
+					
+					
+					//添加汉字
+					zongwenzi+=this.getRandomChar();
+					
+					//添加逗号
+					if(j2==10||j2==20||j2==30){
+						zongwenzi+=",";
+					}
+				}
+				//添加句号
+				zongwenzi+="。";
+				zongwenzi+="</p>";
+			}
+			//存储到数据库
+
+			yy.setWeiYuanChuang(zongwenzi);
+			this.yinyueXiazaiDao.updataYinyueXiazai(yy);
+		}
+		
+		
+	}
+	//随机汉字生成
+	public static String getRandomChar() throws UnsupportedEncodingException {
+		String str = null;
+		int hightPos, lowPos; // 定义高低位
+		Random random = new Random();
+		hightPos = (176 + Math.abs(random.nextInt(39)));//获取高位值
+		lowPos = (161 + Math.abs(random.nextInt(93)));//获取低位值
+		byte[] b = new byte[2];
+		b[0] = (new Integer(hightPos).byteValue());
+		b[1] = (new Integer(lowPos).byteValue());
+		str = new String(b, "GBk");//转成中文
+		return str;
+//        return (char) (0x4e00 + (int) (Math.random() * (0x9fa5 - 0x4e00 + 1)));
+    }
+	public static void main(String[] args) throws UnsupportedEncodingException {
+		for (int i = 0; i < 30; i++) {
+			
+			System.out.println(new YinyueController().getRandomChar());
+		}
+	}
 }

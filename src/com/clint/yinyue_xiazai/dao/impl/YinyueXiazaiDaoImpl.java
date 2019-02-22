@@ -61,4 +61,14 @@ public class YinyueXiazaiDaoImpl extends BaseHibernate implements YinyueXiazaiDa
 	public YinyueXiazai getYinyueXiazaiByid(int id){
 		return (YinyueXiazai) this.getObject(YinyueXiazai.class, id);
 	}
+	
+	
+//	查询出所有没有伪原创文章的歌曲记录
+	public List<YinyueXiazai> getNoWeiyuanchuang() {
+		
+		
+		String sql = " from YinyueXiazai where weiYuanChuang is null";
+		
+		return this.getObjects(sql);
+	}
 }

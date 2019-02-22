@@ -11,9 +11,15 @@ public class YinyueXiazai implements Serializable {
 	private String gequ_name;//歌曲名称
 	private Integer status;//状态：0或空未完成，1完成，2未分析出
 	private String xiazai_dizhi;//下载地址
+	private String weiYuanChuang;//文原创文章
 	
 	
-	
+	public String getWeiYuanChuang() {
+		return weiYuanChuang;
+	}
+	public void setWeiYuanChuang(String weiYuanChuang) {
+		this.weiYuanChuang = weiYuanChuang;
+	}
 	public String getXiazai_dizhi() {
 		return xiazai_dizhi;
 	}

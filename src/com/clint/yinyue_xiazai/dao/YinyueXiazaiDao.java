@@ -1,5 +1,6 @@
 package com.clint.yinyue_xiazai.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import com.clint.yinyue_xiazai.model.YinyueXiazai;
@@ -25,4 +26,8 @@ public interface YinyueXiazaiDao {
 	//根据id查询记录
 	
 	public YinyueXiazai getYinyueXiazaiByid(int id);
+	
+//	查询出所有没有伪原创文章的歌曲记录
+	public List<YinyueXiazai> getNoWeiyuanchuang();
+	
 }

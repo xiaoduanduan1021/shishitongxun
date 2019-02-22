@@ -15,7 +15,7 @@
 
 												
 												
-											<link href="./xiazai.css" type="text/css"
+											<link href="/yinyue_xiazai/xiazaiByid/xiazai.css?a=3" type="text/css"
 												rel="stylesheet">
 												
 												
@@ -60,7 +60,15 @@
 									classid="0" pagesize="10" total="6" id="pagination_10001"
 									class="SG_page" style="display: none;"></div>
 							
+							<div class="wei">
+								${yinyueXiazai.weiYuanChuang}
+							</div>
+							
+							
+							
 <jsp:include page="/yinyue_xiazai/public/bodyBotom/bodyBotom.jsp"></jsp:include>
+
+
 
 </body>
 </html>
