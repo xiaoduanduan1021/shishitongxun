@@ -210,20 +210,31 @@ public PageList(ArrayList datalist, int startOfCurPage, int pageSize, int totalC
     if (getTotalCount() > 0) {
     	
     	
+    	
+    	sData += "<div class='fenye'>";
+    	
+    	sData += "<div class='anniu'>";
+    	
     	if(getPreviousPage()!=0){
     		sData += "<a href=\""+getUrl()+getPreviousPage()+"\">上一页</a>";
     	}
-    	sData += "<a href=\""+getUrl()+getNextPage()+"\">下一页</a>";
-    	
-
+    	if(getNextPage()<=totalPages){
+    		sData += "  <a href=\""+getUrl()+getNextPage()+"\">下一页</a>";
+    	}
     	
     	sData += 
-    		  "第 <font color='red'>" + getCurPage() + "</font> 页  "
-      		+ "| 共 <font color='red'>" + this.totalPages + "</font> 页 "
-      				+ "转到 <input type='text' style='height:20px; width:25px;' maxlength='5' name='gopage' value=''>"
-      				+ "<input type='hidden' name='page_size' value='" + this.pageSize + "'>"
-      						+ "<input type='hidden' name='totalPages' value='" + this.totalPages + "'>"
-      								+ "</span></td>";
+    		  " <div class='yema'> 第 <font color='red'>" + getCurPage() + "</font> 页 </div>  "
+      		+ " <div class='yema'> 共 <font color='red'>" + this.totalPages + "</font> 页 </div>";
+    	sData += "</div>";
+    	
+    	sData += "<form style='' action=\""+getUrl()+"\" method=\"get\">";
+    	sData += "  转到 <input type='text' name='start' value=''>";
+    	sData += "  <input type='submit' value='确认'>";
+    	sData += "</form>";
+    	
+    	sData += "</div>";
+    	
+    	
       
       
     }

@@ -179,8 +179,9 @@ public class BaseHibernate{
 		    	     return list;
 		    }
 	  });	  
-	  return new PageList((ArrayList)l, start, pagesize, 
-			  this.getObjects(hql,params).size());
+	  
+	  //后面的参数是总条数
+	  return new PageList((ArrayList)l, start, pagesize, 0);
   }
   
   public List getObjects(String hql,Object[] params){

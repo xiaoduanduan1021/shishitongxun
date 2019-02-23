@@ -75,12 +75,9 @@
 						<div id="blognavBg" class="blognavBg"></div>
 						<div class="blognavInfo">
 							
-							<span><a class="on"
-								href="<%=basePath%>">首页</a></span> 
-								<span><a
-								href="<%=basePath%>yinyue_xiazai/yinyue_xiazai_home.action">网络音乐下载</a></span>
-								<span><a
-								>微信dyyy00001</a></span>
+							<span><a class="on" href="<%=basePath%>">首页</a></span> 
+							<span><a href="<%=basePath%>yinyue_xiazai/yinyue_xiazai_home.action">网络音乐下载</a></span>
+							<span><a href="<%=basePath%>yinyue_xiazai/gequList.action?start=1">全部音乐</a></span>
 						</div>
 					</div>
 

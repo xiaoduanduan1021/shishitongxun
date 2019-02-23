@@ -1,15 +1,12 @@
+<%@page import="com.clint.yinyue_xiazai.util.yinyueUtil"%>
 <%@page import="com.clint.yinyue_xiazai.model.YinyueXiazai"%>
 <%@page import="util.page.PageList"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
+    <base href="<%=yinyueUtil.getYuming(request)%>">
     
     <title>My JSP 'yinyueList.jsp' starting page</title>
     
@@ -22,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
+	<link rel="stylesheet" type="text/css" href="/yinyue_xiazai/yinyueList/fenye.css?a=1111">
   </head>
   
   <body>
@@ -42,7 +40,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		
   	%>
   	<%=page1.getPageText() %>
-  	<%=page1.getPageOption() %>
   	
   </body>
 </html>

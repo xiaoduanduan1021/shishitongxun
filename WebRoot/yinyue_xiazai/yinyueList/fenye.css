@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+*{}
+
+.fenye form input[type="submit"] {
+    margin: 0 0 0 0;
+    height: 20px;
+    font-size: 12px;
+    padding: 0px 3px 0 6px;
+}
+
+.yema {
+    float: left;
+    margin: 0 14px 0 -1px;
+}
+
+.fenye input[type="text"] {
+    width: 46px;
+    margin: 3px 0 0 0;
+    height: 19px;
+    font-size: 12px;
+    /* float: left; */
+}
+
+.fenye a {
+    float: left;
+    margin: 0 7px 0 9px;
+}
+
+.fenye form {
+    float: left;
+    font-size: 13px;
+    margin: -3px 0 0 0;
+}
+
+.anniu {
+    float: left;
+}
+
+.fenye {
+    width: 100%;
+    background: #e8e8e8;
+    padding: 3px;
+    font-size: 13px;
+    float: left;
+}
