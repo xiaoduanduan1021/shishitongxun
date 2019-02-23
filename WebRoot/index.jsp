@@ -15,6 +15,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+
+
+<meta name="360-site-verification" content="4d30fb3958016958083a33cc710c123e" />
+<meta name="sogou_site_verification" content="Rqn1Znigf0"/>
+
+
 	<title>250音乐</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,chrome=1">
 
@@ -89,17 +95,12 @@
 									<a class="anniu" href="">
 										酷狗TOP500排行榜加微信
 									</a>
+									<br>
+									<br>
+									<a class="anniu" href="<%=basePath%>yinyue_xiazai/xiazai_sitemap/site.txt">
+										site文件
+									</a>
 									
-								<div class="articalTag">
-									<table>
-										<tbody>
-											<tr>
-												<td class="blog_tag"></td>
-												<td class="blog_class"></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
 
 <jsp:include page="/yinyue_xiazai/public/bodyBotom/bodyBotom.jsp"></jsp:include>
 
