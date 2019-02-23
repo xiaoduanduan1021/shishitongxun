@@ -1,28 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="com.clint.yinyue_xiazai.util.yinyueUtil"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	
+	String basePath = request.getScheme() + "://" + request.getServerName() + "/";
+	
+	if(basePath.indexOf(yinyueUtil.basePath)>=0){
+		basePath = basePath.replace(yinyueUtil.basePath, "www."+yinyueUtil.basePath);
+	}
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'bodyTop.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 
-  </head>
-  
-  <body>
 <div style="z-index: 512; display: block; top: 0px; width: 100%;"
 		class="nsinatopbar">
 		<div class="ntopbar_main">
@@ -151,5 +139,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="bloglist">
 								<div class="blog_title_h">
 
-  </body>
-</html>

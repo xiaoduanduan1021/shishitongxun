@@ -71,4 +71,16 @@ public class YinyueXiazaiDaoImpl extends BaseHibernate implements YinyueXiazaiDa
 		
 		return this.getObjects(sql);
 	}
+	
+	//分页查询所有歌曲
+	public PageList getPageYinyue(Map<String, Object> tiaojian,int start, int pagesize) {
+
+		List<Object> params = new ArrayList<Object>();//存储查询参数
+		String sql = " from YinyueXiazai ";
+		String c_sql = "select count(id) "+sql;
+		int totalCount = ((Long)this.getObjects(c_sql).iterator().next()).intValue();
+	    PageList pagelist = new PageList((ArrayList)getPageObjects(sql, params.toArray(), (start-1)*pagesize, pagesize).getDatalist(), (start-1)*pagesize, pagesize, totalCount);		
+		return pagelist;
+		
+	}
 }

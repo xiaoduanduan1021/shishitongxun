@@ -30,4 +30,6 @@ public interface YinyueXiazaiDao {
 //	查询出所有没有伪原创文章的歌曲记录
 	public List<YinyueXiazai> getNoWeiyuanchuang();
 	
+	//分页查询所有歌曲
+	public PageList getPageYinyue(Map<String, Object> tiaojian,int start, int pagesize);
 }

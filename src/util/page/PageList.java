@@ -25,12 +25,24 @@ public class PageList
   private int startOfPreviousPage = 0;
   private int startOfLastPage = 0;
   private int totalPages = 0;
-
+  
+  //保存请求的地址
+  private String url;
+  
   private Map<String, Object> fujiaZhi;//附加返回值
   
   
   
-  public Map<String, Object> getFujiaZhi() {
+  
+  public String getUrl() {
+	return url;
+}
+
+public void setUrl(String url) {
+	this.url = url;
+}
+
+public Map<String, Object> getFujiaZhi() {
 	return fujiaZhi;
 }
 
@@ -196,7 +208,24 @@ public PageList(ArrayList datalist, int startOfCurPage, int pageSize, int totalC
   {
     String sData = "";
     if (getTotalCount() > 0) {
-      sData = "第 <font color='red'>" + getCurPage() + "</font> 页  | 共 <font color='red'>" + this.totalPages + "</font> 页 转到 <input type='text' style='height:20px; width:25px;' maxlength='5' name='gopage' value=''><input type='hidden' name='page_size' value='" + this.pageSize + "'><input type='hidden' name='totalPages' value='" + this.totalPages + "'></span></td>";
+    	
+    	
+    	if(getPreviousPage()!=0){
+    		sData += "<a href=\""+getUrl()+getPreviousPage()+"\">上一页</a>";
+    	}
+    	sData += "<a href=\""+getUrl()+getNextPage()+"\">下一页</a>";
+    	
+
+    	
+    	sData += 
+    		  "第 <font color='red'>" + getCurPage() + "</font> 页  "
+      		+ "| 共 <font color='red'>" + this.totalPages + "</font> 页 "
+      				+ "转到 <input type='text' style='height:20px; width:25px;' maxlength='5' name='gopage' value=''>"
+      				+ "<input type='hidden' name='page_size' value='" + this.pageSize + "'>"
+      						+ "<input type='hidden' name='totalPages' value='" + this.totalPages + "'>"
+      								+ "</span></td>";
+      
+      
     }
     return sData;
   }

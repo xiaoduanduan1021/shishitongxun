@@ -1,19 +1,32 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="com.clint.yinyue_xiazai.util.yinyueUtil"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	
+	String basePath = request.getScheme() + "://" + request.getServerName() + "/";
+	
+	if(basePath.indexOf(yinyueUtil.basePath)>=0){
+		basePath = basePath.replace(yinyueUtil.basePath, "www."+yinyueUtil.basePath);
+	}
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "---------------www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>${yinyueXiazai.gequ_name} mp3免费下载高清</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,chrome=1">
+<base href="<%=basePath%>">
 
-												
+<title>250音乐网  ${yinyueXiazai.gequ_name} mp3免费下载高清</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+
+
+	<title>250音乐网  ${yinyueXiazai.gequ_name} mp3免费下载高清</title>
 												
 											<link href="/yinyue_xiazai/xiazaiByid/xiazai.css?a=3" type="text/css"
 												rel="stylesheet">
@@ -22,7 +35,7 @@
 
 <jsp:include page="/yinyue_xiazai/public/head/head.jsp"></jsp:include>
 
-
+<script src="public/js/jquery-3.3.1.min.js"></script>
 
 </head>
 
@@ -43,12 +56,12 @@
 										试听:
 									</div>
 									
-									<audio src="${yinyueXiazai.xiazai_dizhi}" controls="controls"></audio>
+									<audio src="" id="audio" controls="controls"></audio>
 									
 									<div class="xiazaidizhi">
 										下载地址 :（可直接点击下载，或复制到迅雷下载）
 									</div>
-									<a class="xiazaidizi" href="${yinyueXiazai.xiazai_dizhi}" target="_blank">${yinyueXiazai.xiazai_dizhi}</a> 
+									<a class="xiazaidizi" href="" target="_blank"></a> 
 									
 									
 
@@ -66,9 +79,38 @@
 							
 							
 							
+							
+							
+							
+							
+							
 <jsp:include page="/yinyue_xiazai/public/bodyBotom/bodyBotom.jsp"></jsp:include>
 
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$.ajax({
+	        url:"/yinyue_xiazai/gengxin_url.action",
+	        type:"post",
+	        async:true,
+	        dataType:"text",
+	        data:{
+	            "id":${yinyueXiazai.id}
+	        },
+	        success:function (data){
+	        	console.log("成功");
+	        	
+	        	$("#audio").attr("src",data);
+	        	$(".xiazaidizi").attr("href",data);
+	        	$(".xiazaidizi").text(data);
+	        },
+	        error:function (){
+	        	console.log("获取下载地址失败，请联系客服");
+	        }
+	    })
+	});
 
+</script>
 
 </body>
 </html>

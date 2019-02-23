@@ -26,6 +26,7 @@ import com.clint.yinyue_xiazai.util.DJye;
 import com.clint.yinyue_xiazai.util.Ik123;
 import com.clint.yinyue_xiazai.util.KuGou;
 import com.clint.yinyue_xiazai.util.QianQianYinYue;
+import com.clint.yinyue_xiazai.util.yinyueUtil;
 
 import net.sf.json.JSONObject;
 import util.page.PageList;
@@ -216,6 +217,22 @@ public class YinyueController {
 		
 		YinyueXiazai yinyueXiazai = yinyueXiazaiDao.getYinyueXiazai(id);
 		
+		
+        
+        
+		
+		req.setAttribute("yinyueXiazai", yinyueXiazai);
+		
+		
+		return "/yinyue_xiazai/xiazaiByid/index.jsp";
+	}
+	
+	
+	//异步更新下载地址
+	@RequestMapping(value = "/gengxin_url")
+	public void gengxin_url(int id, HttpServletRequest req,HttpServletResponse response) throws IOException {
+		//查询出改id对应信息
+		YinyueXiazai yinyueXiazai = yinyueXiazaiDao.getYinyueXiazai(id);
 		//如果是酷狗则更新下载链接
 		//查询是否是酷狗，如果是则直接查询地址并存储
         if(yinyueXiazai.getShiting_url().indexOf("www.kugou.com")>0){
@@ -226,13 +243,10 @@ public class YinyueController {
         	this.yinyueXiazaiDao.updataYinyueXiazai(yinyueXiazai);
         }
         
-        
-		
-		req.setAttribute("yinyueXiazai", yinyueXiazai);
-		
-		
-		return "/yinyue_xiazai/xiazaiByid/index.jsp";
+        //返回地址
+        response.getWriter().write(yinyueXiazai.getXiazai_dizhi());
 	}
+	
 	
 	//给所有歌曲增加伪原创文字，随机生成汉字，生成30行,并随机插入标题文字10次，并保存到数据库
 	@RequestMapping(value = "/weiyuanchuang")
@@ -303,4 +317,20 @@ public class YinyueController {
 			System.out.println(new YinyueController().getRandomChar());
 		}
 	}
+	//获取歌曲列表
+	@RequestMapping(value = "/gequList")
+	public String gequList(int start, HttpServletRequest request) throws IOException {
+		
+		//查询出改id对应信息
+		Map<String, Object> tiaojian = new HashMap<String, Object>();
+		PageList page = yinyueXiazaiDao.getPageYinyue(tiaojian, start, 20);
+
+		
+		page.setUrl(yinyueUtil.getYuming(request)+"yinyue_xiazai/gequList.action?start=");
+
+		request.setAttribute("page", page);
+		
+		return "/yinyue_xiazai/yinyueList/yinyueList.jsp";
+	}
+	
 }
