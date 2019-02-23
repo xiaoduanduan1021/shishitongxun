@@ -1567,9 +1567,9 @@ body.SG_page_l {
 	clear: both;
 	margin: 0 0 10px;
 	text-align: left;
-	overflow: hidden;
+	/* overflow: hidden; */
 	width: auto;
-	height: 100%
+	height: 100%;
 }
 
 .SG_floatL {
@@ -4454,9 +4454,9 @@ li.SG_s_pgnext a, li.SG_s_pgprev a {
 .bloglist {
 	padding: 0 20px 40px;
 	clear: both;
-	overflow: hidden;
+	/* overflow: hidden; */
 	font-family: "宋体";
-	zoom: 1
+	zoom: 1;
 }
 
 .bloglist .blog_title_h {

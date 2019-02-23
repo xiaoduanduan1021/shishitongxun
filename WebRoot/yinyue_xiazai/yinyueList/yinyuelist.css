@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+*{}
+
+.yinyueliebiao td {
+    padding: 7px 0 7px 9px;
+}
+
+table.yinyueliebiao {
+    width: 673px;
+}
