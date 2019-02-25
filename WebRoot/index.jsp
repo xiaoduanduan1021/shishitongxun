@@ -15,7 +15,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
+<meta http-equiv="keywords" content="音乐250网提供歌曲试听下载MP3高清">
+<meta http-equiv="description" content="音乐250网提供歌曲试听下载MP3高清">
 
 <meta name="360-site-verification" content="4d30fb3958016958083a33cc710c123e" />
 <meta name="sogou_site_verification" content="Rqn1Znigf0"/>

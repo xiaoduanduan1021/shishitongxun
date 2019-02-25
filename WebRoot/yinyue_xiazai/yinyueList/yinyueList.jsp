@@ -18,8 +18,8 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
+<meta http-equiv="keywords" content="250音乐网  全部音乐列表 mp3免费下载高清">
+<meta http-equiv="description" content="250音乐网  全部音乐列表 mp3免费下载高清">
 
 
 
