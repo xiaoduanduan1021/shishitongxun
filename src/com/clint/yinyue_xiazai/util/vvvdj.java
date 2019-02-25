@@ -12,6 +12,8 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+
+//清风dj
 //下载网站，，获取到的音乐地址不能下载，估计是增加了防盗链判断
 //http://www.vvvdj.com
 public class vvvdj {
@@ -65,7 +67,7 @@ public class vvvdj {
 	
 	public static void main(String[] args) throws IOException {
 
-		new vvvdj().urlToMusic("http://www.vvvdj.com/play/120513.html");
+		new vvvdj().urlToMusic("https://m.vvvdj.com/play/173050.html");
 		
 	}
 }

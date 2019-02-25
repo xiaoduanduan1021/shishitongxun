@@ -38,7 +38,40 @@
 	
 	
 	
-									<span class="img1"></span>
+									<div id="t_10001_1440be0070102yk6w" class="blog_title">
+										<a
+											target="_blank">最新歌单</a>
+									</div>
+									<br>
+									<br>
+									<br>
+					
+									<a href="<%=basePath%>yinyue_xiazai/xiazai.action?id=3247">交塔七的歌曲下载</a>
+									<br>
+									<br>
+									<a href="<%=basePath%>yinyue_xiazai/xiazai.action?id=3248">交塔大大的歌曲下载</a>
+									<br>
+									<br>
+									<a href="<%=basePath%>yinyue_xiazai/xiazai.action?id=3249">蓝色蛋蛋歌曲下载</a>
+									<br>
+									<br>
+									<a href="<%=basePath%>yinyue_xiazai/xiazai.action?id=3250">华容走秀歌曲下载</a>
+									<br>
+									<br>
+									<a href="<%=basePath%>yinyue_xiazai/xiazai.action?id=3251">思想的娘歌曲下载</a>
+									<br>
+									<br>
+									<br>
+									<br>
+									
+									
+									
+									
+									
+									
+									
+									
+									
 									<div id="t_10001_1440be0070102yk6w" class="blog_title">
 										<a
 											target="_blank">音乐下载首页</a>

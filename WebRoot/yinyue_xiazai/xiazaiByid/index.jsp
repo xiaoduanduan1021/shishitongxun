@@ -16,7 +16,7 @@
 
 <base href="<%=basePath%>">
 
-<title>250音乐网  ${yinyueXiazai.gequ_name} mp3免费下载高清</title>
+<title>${yinyueXiazai.gequ_name}歌曲下载</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -26,8 +26,6 @@
 
 
 
-	<title>250音乐网  ${yinyueXiazai.gequ_name} mp3免费下载高清</title>
-												
 											<link href="/yinyue_xiazai/xiazaiByid/xiazai.css?a=3" type="text/css"
 												rel="stylesheet">
 												
@@ -49,7 +47,7 @@
 
 
 									<div id="t_10001_1440be0070102yk6w" class="blog_title">
-										<a target="_blank">${yinyueXiazai.gequ_name} mp3免费下载高清</a>
+										<a target="_blank">${yinyueXiazai.gequ_name}歌曲下载</a>
 									</div>
 									
 									<div class="shiting">
