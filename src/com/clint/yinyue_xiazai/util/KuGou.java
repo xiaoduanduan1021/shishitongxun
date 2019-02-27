@@ -110,17 +110,24 @@ public class KuGou {
 				String xiazaiUrl [] = this.urlToMusic(shitingUrl);
 				
 				System.out.println("名称："+xiazaiUrl[0]);
-				System.out.println("地址："+xiazaiUrl[1]);
 				
-				YinyueXiazai yinyueXiazai = new YinyueXiazai();
-				yinyueXiazai.setDatetime(StringCode.getDateTime());
-				yinyueXiazai.setGequ_name(xiazaiUrl[0]);
-				yinyueXiazai.setShiting_url(shitingUrl);
-				yinyueXiazai.setStatus(1);
-				yinyueXiazai.setUuid(shuoming);
-				yinyueXiazai.setXiazai_dizhi(xiazaiUrl[1]);
-//				保存歌曲名称和下载地址到数据库
-				yinyueXiazaiDao.saveYinyueXiazai(yinyueXiazai);
+				//查询是否已经存在这个标题
+				if(this.yinyueXiazaiDao.getYinyueBytitle(xiazaiUrl[0]).size()>0){
+					System.out.println("已经存在");
+				}else{
+				
+					System.out.println("地址："+xiazaiUrl[1]);
+					
+					YinyueXiazai yinyueXiazai = new YinyueXiazai();
+					yinyueXiazai.setDatetime(StringCode.getDateTime());
+					yinyueXiazai.setGequ_name(xiazaiUrl[0]);
+					yinyueXiazai.setShiting_url(shitingUrl);
+					yinyueXiazai.setStatus(1);
+					yinyueXiazai.setUuid(shuoming);
+					yinyueXiazai.setXiazai_dizhi(xiazaiUrl[1]);
+	//				保存歌曲名称和下载地址到数据库
+					yinyueXiazaiDao.saveYinyueXiazai(yinyueXiazai);
+				}
 			}
 		}
 		
@@ -199,13 +206,157 @@ public class KuGou {
         
         return list; 
 	}
+	
+	
+	//自动扫描歌单内的歌曲列表,返回歌曲名和hash
+	public List<String[]> gedan(String url) throws IOException{
+		
+		//获取请求连接
+		Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
+		
+		//解析请求结果
+		Document doc=con.get(); 
+		String html =doc.toString();
+		//System.out.println(html);
+
+		//获取hash和歌曲名称
+		
+		
+		String regex1 = "title=.*><input type=\"checkbox\"";
+		// 将正则表达式转成正则对象
+		Pattern pattern1 = Pattern.compile(regex1);
+		// 正则对象与字符串匹配
+		Matcher matcher1 = pattern1.matcher(html);
+		
+		List<String[]> list = new ArrayList<String[]>();
+		
+		// 匹配成功后打印出找到的结果              
+		while (matcher1.find()) {
+			String dizhi = matcher1.group();
+			
+			//去掉无用字符
+			dizhi = dizhi.replace("title=\"", "");
+			dizhi = dizhi.replace("\" hidefocus=\"true\" href=\"javascript:;\" ", "");
+			dizhi = dizhi.replace("\"><input type=\"checkbox\"", "");
+			//System.out.println(dizhi);
+			String ds [] = dizhi.split("data=\"");
+			
+			
+			//歌曲名
+			String geming = ds[0];
+			//System.out.println(geming);
+			
+			//hash地址
+			String ds2[] = ds[1].split("\\|");
+			String hash = ds2[0];
+			//System.out.println(hash);
+			
+			//System.out.println();
+			//System.out.println();
+			//System.out.println();
+			//System.out.println();
+			//System.out.println();
+			//System.out.println();
+
+			String [] aa={geming,hash};
+			list.add(aa);
+		}
+		
+		return list; 
+	}
+	
+	//根据歌单列表网址获取所有歌单地址
+	public List<String> gedanList(String url) throws IOException{
+		
+		//获取请求连接
+		Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
+		
+		//解析请求结果
+		Document doc=con.get(); 
+		String html =doc.toString();
+		//System.out.println(html);
+
+		//获取hash和歌曲名称
+		
+		
+		String regex1 = "\" href=\"https://www.kugou.com/yy/special/single/.*html\" onclick=\"sdnClick\\(";
+		// 将正则表达式转成正则对象
+		Pattern pattern1 = Pattern.compile(regex1);
+		// 正则对象与字符串匹配
+		Matcher matcher1 = pattern1.matcher(html);
+		
+		List<String> list = new ArrayList<String>();
+		
+		// 匹配成功后打印出找到的结果              
+		while (matcher1.find()) {
+			String dizhi = matcher1.group();
+			//System.out.println(dizhi);
+			
+			dizhi = dizhi.replace("\" href=\"", "");
+			dizhi = dizhi.replace("\" onclick=\"sdnClick(", "");
+			
+			list.add(dizhi);
+			//System.out.println(dizhi);
+		}
+		
+		return list; 
+	}
+	
+	
+	//根据歌单列表地址，获取所有歌单内的所有歌曲，并存储
+	
+	public String gedanAllCunchu(String url) throws IOException{
+		
+		//根据URL获取所有歌单
+		List<String> gedanUrls = this.gedanList(url);
+		
+		for (int i = 0; i < gedanUrls.size(); i++) {
+			System.out.println("歌单："+gedanUrls.get(i));
+			List<String[]> gequList = this.gedan(gedanUrls.get(i));
+			
+			for (int j = 0; j < gequList.size(); j++) {
+				String geming = gequList.get(j)[0];
+				String hash = gequList.get(j)[1];
+				System.out.println("歌名："+geming);
+				//查询是否已经存在这个标题
+				if(this.yinyueXiazaiDao.getYinyueBytitle(geming).size()>0){
+					System.out.println("已经存在");
+				}else{
+				
+					System.out.println("hash："+hash);
+					
+					YinyueXiazai yinyueXiazai = new YinyueXiazai();
+					yinyueXiazai.setDatetime(StringCode.getDateTime());
+					yinyueXiazai.setGequ_name(geming);
+					
+					//hash地址拼接
+					String shitingUrl = "https://www.kugou.com/song/u052n19.html#hash="+hash+"&album_id=0";
+					
+					yinyueXiazai.setShiting_url(shitingUrl);
+					yinyueXiazai.setStatus(1);
+					yinyueXiazai.setUuid("歌单自动");
+					yinyueXiazai.setXiazai_dizhi("");
+	//				保存歌曲名称和下载地址到数据库
+					yinyueXiazaiDao.saveYinyueXiazai(yinyueXiazai);
+				}
+			}
+		}
+		
+		
+		//根据每个歌单获取所有歌曲名
+		
+		return "";
+		
+	}
+	
+	
+	
+	
 		
 	public static void main(String[] args) throws IOException {
-		//System.out.println("开始");
-//		new KuGou().urlToMusic1("https://www.kugou.com/song/u052n19.html");
-//		new KuGou().urlToMusicList("https://www.kugou.com/yy/rank/home/1-6666.html?from=rank");
-	//	new KuGou().urlToMusic("https://www.kugou.com/song/u052n19.html#hash=E7DFB273EFC40E9AFEEFA7C6E7DFA8F3&album_id=0");
-		//System.out.println("结束");
+		System.out.println("开始");
+		new KuGou().gedanAllCunchu("https://www.kugou.com/yy/special/index/1-6-0.html");
+		System.out.println("结束");
 		
 	}
 

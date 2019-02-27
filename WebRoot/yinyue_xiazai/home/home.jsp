@@ -1,8 +1,13 @@
+<%@page import="com.clint.yinyue_xiazai.util.yinyueUtil"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	
+	String basePath = request.getScheme() + "://" + request.getServerName() + "/";
+	
+	if(basePath.indexOf(yinyueUtil.basePath)>=0){
+		basePath = basePath.replace(yinyueUtil.basePath, "www."+yinyueUtil.basePath);
+	}
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

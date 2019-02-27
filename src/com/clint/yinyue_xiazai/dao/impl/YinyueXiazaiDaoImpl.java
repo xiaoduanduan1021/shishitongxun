@@ -83,4 +83,14 @@ public class YinyueXiazaiDaoImpl extends BaseHibernate implements YinyueXiazaiDa
 		return pagelist;
 		
 	}
+	
+//	查询是否有相同标题的歌
+	public List<YinyueXiazai> getYinyueBytitle(String title) {
+
+		title = title.replace("'", "''");
+		String sql = " from YinyueXiazai where gequ_name = '"+title+"'";
+		
+		return this.getObjects(sql);
+	}
+	
 }

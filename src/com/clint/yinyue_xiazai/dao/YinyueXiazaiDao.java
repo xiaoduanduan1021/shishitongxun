@@ -32,4 +32,7 @@ public interface YinyueXiazaiDao {
 	
 	//分页查询所有歌曲
 	public PageList getPageYinyue(Map<String, Object> tiaojian,int start, int pagesize);
+	
+//	查询是否有相同标题的歌
+	public List<YinyueXiazai> getYinyueBytitle(String title);
 }

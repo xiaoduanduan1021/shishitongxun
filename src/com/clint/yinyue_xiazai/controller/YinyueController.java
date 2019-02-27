@@ -200,11 +200,36 @@ public class YinyueController {
 	}
 	
 	
-	//分析排行榜存入数据库
+	
+	
+	
+	
+	//分析酷狗排行榜存入数据库
 	@RequestMapping(value = "/fenxiPaihang")
 	public void fenxiPaihang() throws IOException {
-		kugou.ListToDB("https://www.kugou.com/yy/rank/home/1-22163.html?from=rank",25,"中国TOP排行榜"+" 2019-02-18期");
+		kugou.ListToDB("https://www.kugou.com/yy/rank/home/1-31311.html?from=rank",25,"酷狗"+"自动期");
 	}
+	
+	
+
+	
+	
+	//分析酷狗排行榜存入数据库
+	@RequestMapping(value = "/fenxiGedan")
+	public void fenxiGedan() throws IOException {
+		System.out.println("开始");
+		kugou.gedanAllCunchu("https://www.kugou.com/yy/special/index/1-5-0.html");
+		kugou.gedanAllCunchu("https://www.kugou.com/yy/special/index/1-6-0.html");
+		kugou.gedanAllCunchu("https://www.kugou.com/yy/special/index/1-3-0.html");
+		kugou.gedanAllCunchu("https://www.kugou.com/yy/special/index/1-8-0.html");
+		System.out.println("结束");
+	}
+	
+	
+	
+	
+	
+	
 	
 	//根据id获取一首歌的下载地址，进入下载页面
 	@RequestMapping(value = "/xiazai")
