@@ -22,7 +22,7 @@
 <meta name="sogou_site_verification" content="Rqn1Znigf0"/>
 
 
-	<title>250音乐</title>
+	<title>250音乐 免费下载 原版 高清 mp3 音乐250 歌曲 免费下载音乐网</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,chrome=1">
 
 

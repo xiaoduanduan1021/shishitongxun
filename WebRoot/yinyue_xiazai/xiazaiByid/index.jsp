@@ -16,7 +16,7 @@
 
 <base href="<%=basePath%>">
 
-<title>${yinyueXiazai.gequ_name}歌曲下载</title>
+<title>${yinyueXiazai.gequ_name} 免费下载 原版 高清 mp3 音乐250 歌曲免费下载音乐网</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">

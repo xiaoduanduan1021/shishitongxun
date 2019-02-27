@@ -13,7 +13,7 @@
 
     <base href="<%=basePath%>">
 
-<title>250音乐网  全部音乐列表 mp3免费下载高清</title>
+<title>250音乐网  全部音乐列表 mp3免费下载 原版 高清 歌曲免费下载音乐网</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
