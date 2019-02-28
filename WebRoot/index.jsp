@@ -18,9 +18,13 @@
 <meta http-equiv="keywords" content="音乐250网提供歌曲试听下载MP3高清">
 <meta http-equiv="description" content="音乐250网提供歌曲试听下载MP3高清">
 
+
+<!-- 搜索引擎网站验证 -->
 <meta name="360-site-verification" content="4d30fb3958016958083a33cc710c123e" />
 <meta name="sogou_site_verification" content="Rqn1Znigf0"/>
-
+<!-- 神马搜索 -->
+<meta name="shenma-site-verification" content="fb43d3a91dfa264357485b6cfc33fa47_1551317708"> 
+<!-- 搜索引擎网站验证 -->
 
 	<title>250音乐 免费下载 原版 高清 mp3 音乐250 歌曲 免费下载音乐网</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8,chrome=1">
