@@ -79,6 +79,8 @@ var _hmt = _hmt || [];
 					<div class="wenzihang">百年舞曲网DJ：<a  target="_blank" href='http://www.190757.com/'>www.190757.com</a></div>
 					<div class="wenzihang">DJ耶耶网：<a  target="_blank" href='http://www.djye.com/'>www.djye.com</a></div>
 					<div class="wenzihang">Dj嗨嗨网：<a  target="_blank" href='http://www.djkk.com/'>www.djkk.com</a></div>
+					<div class="wenzihang">72DJ网：<a  target="_blank" href='http://www.72dj.com/'>www.72dj.com</a></div>
+					<div class="wenzihang">宝贝DJ网：<a  target="_blank" href='http://www.bbdj.com/'>www.bbdj.com</a></div>
 					<div class="wenzihang">未纳入的请联系客服免费纳入</div>
 					<div class="wenzihang">联系客服可定制网站音乐批量下载任务，例如批量下载酷狗排行榜前五百</div>
 				</div>

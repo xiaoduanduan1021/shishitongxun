@@ -352,10 +352,47 @@ public class KuGou {
 	
 	
 	
+	//根据歌手地址扫描出所有排名歌手地址
+	public List<String> geshou(String url) throws IOException{
+		
+		//获取请求连接
+		Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
+		
+		//解析请求结果
+		Document doc=con.get(); 
+		String html =doc.toString();
+		System.out.println(html);
+
+		//获取hash和歌曲名称
+		
+		
+		String regex1 = "\" href=\"https://www.kugou.com/yy/special/single/.*html\" onclick=\"sdnClick\\(";
+		// 将正则表达式转成正则对象
+		Pattern pattern1 = Pattern.compile(regex1);
+		// 正则对象与字符串匹配
+		Matcher matcher1 = pattern1.matcher(html);
+		
+		List<String> list = new ArrayList<String>();
+		
+		// 匹配成功后打印出找到的结果              
+		while (matcher1.find()) {
+			String dizhi = matcher1.group();
+			//System.out.println(dizhi);
+			
+			dizhi = dizhi.replace("\" href=\"", "");
+			dizhi = dizhi.replace("\" onclick=\"sdnClick(", "");
+			
+			list.add(dizhi);
+			//System.out.println(dizhi);
+		}
+		
+		return list; 
+	}
+	
 		
 	public static void main(String[] args) throws IOException {
 		System.out.println("开始");
-		new KuGou().gedanAllCunchu("https://www.kugou.com/yy/special/index/1-6-0.html");
+		new KuGou().geshou("https://www.kugou.com/yy/singer/index/1-all-6.html");
 		System.out.println("结束");
 		
 	}

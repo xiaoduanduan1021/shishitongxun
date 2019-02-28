@@ -24,33 +24,15 @@ import util.string.StringCode;
 import util.string.UnicodeToUtf8;
 
 
-@Service(value="www72dj")
-//72舞曲dj网
-public class WWW_72dj {
+@Service(value="bBDJ")
+//宝贝dj网
+public class BBDJ {
 
 	
 	//根据一个url获取一个下载链接，这个是试听页面的地址
 	public String urlToMusic(String url) throws IOException{
 		//获取请求连接
         Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
-        
-        
-        con.data("Remote Address", "47.52.240.34:80");
-        con.data("Referrer Policy", "no-referrer-when-downgrade");
-
-        
-		
-		
-		con.header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
-		con.header("Accept-Encoding", "gzip, deflate");
-		con.header("Accept-Language", "zh-CN,zh;q=0.9,en;q=0.8");
-		con.header("Cache-Control", "no-cache");
-		con.header("Connection", "keep-alive");
-		con.header("Cookie", "BAIDU_SSP_lcr=http://www.72dj.com/; ASPSESSIONIDCCCSCDBC=FGDODGHDPEEOMJIEPNKKGCLG; 33386=vitistime=2019%2F2%2F28+20%3A40%3A00; Hm_lvt_32a74560febfb6ead895c3dfcddac8bb=1550977356,1551357548,1551357905; Hm_lpvt_32a74560febfb6ead895c3dfcddac8bb=1551357911; open_player=");
-		con.header("Host", "www.72dj.com");
-		con.header("Pragma", "no-cache");
-		con.header("Upgrade-Insecure-Requests", "1");
-		con.header("User-Agent", "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Mobile Safari/537.36");
         
         //解析请求结果
         Document doc=con.get(); 
@@ -61,7 +43,7 @@ public class WWW_72dj {
         
         
         
-        String regex1 = "var danceFilePath=\".*\";";
+        String regex1 = ",playurl=\".*\",nextMusicId=";
 		// 将正则表达式转成正则对象
 		Pattern pattern1 = Pattern.compile(regex1);
 		// 正则对象与字符串匹配
@@ -72,8 +54,8 @@ public class WWW_72dj {
 		while (matcher1.find()) {
 			hash = matcher1.group();
 		}
-		hash = hash.replace("var danceFilePath=\"", "http://p21.72dj.com:83/m4adj/");
-		hash = hash.replace("\";", ".m4a");
+		hash = hash.replace(",playurl=\"", "http://bbtm.vvvdj.com/mp4");
+		hash = hash.replace("\",nextMusicId=", ".mp4");
 		
 		//下载地址
 //		System.out.println(hash);
@@ -89,7 +71,7 @@ public class WWW_72dj {
 		
 	public static void main(String[] args) throws IOException {
 		System.out.println("开始");
-		new WWW_72dj().urlToMusic("http://www.72dj.com/play/33386.htm");
+		new BBDJ().urlToMusic("http://www.bbdj.com/html/play/74245.html");
 		System.out.println("结束");
 		
 	}

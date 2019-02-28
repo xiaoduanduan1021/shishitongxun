@@ -22,10 +22,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.clint.yinyue_xiazai.dao.YinyueXiazaiDao;
 import com.clint.yinyue_xiazai.model.YinyueXiazai;
+import com.clint.yinyue_xiazai.util.BBDJ;
 import com.clint.yinyue_xiazai.util.DJye;
 import com.clint.yinyue_xiazai.util.Ik123;
 import com.clint.yinyue_xiazai.util.KuGou;
 import com.clint.yinyue_xiazai.util.QianQianYinYue;
+import com.clint.yinyue_xiazai.util.WWW_72dj;
 import com.clint.yinyue_xiazai.util.yinyueUtil;
 
 import net.sf.json.JSONObject;
@@ -116,6 +118,22 @@ public class YinyueController {
         if(yinyueXiazai.getShiting_url().indexOf("www.djkk.com")>0){
         	
         	String djkk = new com.clint.yinyue_xiazai.util.djkk().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setXiazai_dizhi(djkk);
+        	yinyueXiazai.setStatus(1);
+        	
+        }
+        //72dj定制
+        if(yinyueXiazai.getShiting_url().indexOf("www.72dj.com")>0){
+        	
+        	String djkk = new WWW_72dj().urlToMusic(yinyueXiazai.getShiting_url());
+        	yinyueXiazai.setXiazai_dizhi(djkk);
+        	yinyueXiazai.setStatus(1);
+        	
+        }
+        //bbdj定制
+        if(yinyueXiazai.getShiting_url().indexOf("www.bbdj.com")>0){
+        	
+        	String djkk = new BBDJ().urlToMusic(yinyueXiazai.getShiting_url());
         	yinyueXiazai.setXiazai_dizhi(djkk);
         	yinyueXiazai.setStatus(1);
         	
