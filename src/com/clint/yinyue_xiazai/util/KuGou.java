@@ -416,6 +416,8 @@ public class KuGou {
 		//获取请求连接
 		Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
 		
+//		con.header("cookie", "kg_mid=49c10678418931d16eb156e670e1bf5f; ACK_SERVER_10015=%7B%22list%22%3A%5B%5B%22gzlogin-user.kugou.com%22%5D%5D%7D; ACK_SERVER_10016=%7B%22list%22%3A%5B%5B%22gzreg-user.kugou.com%22%5D%5D%7D; ACK_SERVER_10017=%7B%22list%22%3A%5B%5B%22gzverifycode.service.kugou.com%22%5D%5D%7D; Hm_lvt_aedee6983d4cfc62f509129360d6bb3d=");
+		
 		//解析请求结果
 		Document doc=con.get(); 
 		String html =doc.toString();
@@ -462,8 +464,8 @@ public class KuGou {
 		
 		//目前到43了
 //		页码https://www.kugou.com/yy/singer/index/3-all-4.html
-		for (int i = 4; i <= 11; i++) {
-			for (int j = 1; j <= 5; j++) {
+		for (int i = 6; i <= 6; i++) {
+			for (int j = 2; j <= 2; j++) {
 				
 				String url = "https://www.kugou.com/yy/singer/index/"+j+"-all-"+i+".html";
 				
