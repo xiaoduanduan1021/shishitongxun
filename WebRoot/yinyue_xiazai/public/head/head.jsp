@@ -25,7 +25,7 @@
 
 
 
-<!-- 自动推送 -->
+<!-- 自动推送百度 -->
 <script>
 (function(){
     var bp = document.createElement('script');
@@ -43,3 +43,11 @@
 <!-- 自动推送 -->
 
 
+<!-- 自动推送360 -->
+<script>
+	(function(){
+		var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?f805db696cc2d15c5a6894f1ed281d6b":"https://jspassport.ssl.qhimg.com/11.0.1.js?f805db696cc2d15c5a6894f1ed281d6b";
+		document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
+</script>
+<!-- 自动推送 -->
