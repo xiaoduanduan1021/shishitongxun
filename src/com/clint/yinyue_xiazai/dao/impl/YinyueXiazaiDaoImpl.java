@@ -93,4 +93,13 @@ public class YinyueXiazaiDaoImpl extends BaseHibernate implements YinyueXiazaiDa
 		return this.getObjects(sql);
 	}
 	
+	
+//	获取所有id
+	public List<Object> getAllId() {
+		
+		String sql = "select id from YinyueXiazai";
+		
+		return this.getObjects(sql);
+	}
+	
 }

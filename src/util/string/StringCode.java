@@ -46,6 +46,12 @@ public class StringCode {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");     
 		return df.format(cal.getTime());
 	}
+	//当前年月日时间
+	public static String getDateHH(){
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH");     
+		return df.format(cal.getTime());
+	}
 	
 	public static String getNextYear(){
 		String str = "";

@@ -2023,9 +2023,6 @@ input, option, textarea {
 	overflow: hidden
 }
 
-.SG_colW95 .SG_connBody {
-	background-image: url(../index_files/modelbody.png)
-}
 
 .SG_colW95 .SG_connFoot {
 	background-image: url(../index_files/modelfoot.png);
@@ -2041,10 +2038,6 @@ input, option, textarea {
 	overflow: hidden
 }
 
-.SG_colW73 .SG_connBody {
-	background-image: url(../index_files/modelbody.png);
-	background-position: 1450px 0
-}
 
 .SG_colW73 .SG_connFoot {
 	background-image: url(../index_files/modelfoot.png);
@@ -2058,11 +2051,6 @@ input, option, textarea {
 	background-position: 720px 0;
 	height: 26px;
 	overflow: hidden
-}
-
-.SG_colW51 .SG_connBody {
-	background-image: url(../index_files/modelbody.png);
-	background-position: 720px 0
 }
 
 .SG_colW51 .SG_connFoot {
@@ -2079,10 +2067,6 @@ input, option, textarea {
 	overflow: hidden
 }
 
-.SG_colW21 .SG_connBody {
-	background-image: url(../index_files/modelbody.png);
-	background-position: 210px 0
-}
 
 .SG_colW21 .SG_connFoot {
 	background-image: url(../index_files/modelfoot.png);
@@ -3753,13 +3737,6 @@ li.SG_s_pgnext a, li.SG_s_pgprev a {
 	overflow: hidden
 }
 
-.blogads .ad_body {
-	background-image: url(../index_files/modelbody.png);
-	background-position: 1450px 0;
-	padding: 10px;
-	height: 90px;
-	clear: both
-}
 
 .blogads .ad_foot {
 	background-image: url(../index_files/modelfoot.png);

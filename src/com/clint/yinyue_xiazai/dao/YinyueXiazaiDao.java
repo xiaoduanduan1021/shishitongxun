@@ -35,4 +35,7 @@ public interface YinyueXiazaiDao {
 	
 //	查询是否有相同标题的歌
 	public List<YinyueXiazai> getYinyueBytitle(String title);
+	
+//	获取所有id
+	public List<Object> getAllId();
 }

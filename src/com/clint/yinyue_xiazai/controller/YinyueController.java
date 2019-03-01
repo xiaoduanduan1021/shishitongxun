@@ -47,11 +47,30 @@ public class YinyueController {
 	@Resource(name="kugou")
 	private KuGou kugou;
 	
+	
+	//首页
+	@RequestMapping(value = "/home")
+	public String home() {
+		System.out.println("index");
+		System.out.println("index");
+		System.out.println("index");
+		System.out.println("index");
+		System.out.println("index");
+		return "/index.jsp";
+	}
+	
+	
+	
+	
+	
 	//进入客户端录入试听地址页面
 	@RequestMapping(value = "/yinyue_xiazai_home")
 	public String yinyue_xiazai_home() {
 		return "/yinyue_xiazai/home/home.jsp";
 	}
+	
+	
+	
 	
 	//提交试听地址
 	@RequestMapping(value = "/saveShiting")
@@ -244,6 +263,13 @@ public class YinyueController {
 	}
 	
 	
+	//分析酷狗歌手排行榜存入数据库
+	@RequestMapping(value = "/fenxiGeshou")
+	public void fenxigeshou() throws IOException {
+		System.out.println("开始--分析--歌手");
+		kugou.bianliRemenGeshou();
+		System.out.println("结束--分析--歌手");
+	}
 	
 	
 	
