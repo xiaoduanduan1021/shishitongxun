@@ -52,7 +52,7 @@ public class yinyueUtil {
 			List<Object> allid = yinyueXiazaiDao.getAllId();
 			System.out.println("共"+allid.size()+"条");
 			//随机产生10首歌id
-			int [] randIds = new RandNumber().getRandmNumber(20,allid.size());
+			int [] randIds = new RandNumber().getRandmNumber(50,allid.size());
 			
 			String html = "";
 			html+="<br>";

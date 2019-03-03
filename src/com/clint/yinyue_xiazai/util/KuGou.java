@@ -457,15 +457,16 @@ public class KuGou {
 	
 	
 	//遍历所有热门歌手地址
-	public String bianliRemenGeshou() throws IOException{
+	public String bianliRemenGeshou() throws IOException, InterruptedException{
 			//遍历热门歌手列表
 		//这个从1开始到11是全部的榜单
 		
 		
 		//目前到43了
 //		页码https://www.kugou.com/yy/singer/index/3-all-4.html
-		for (int i = 6; i <= 6; i++) {
-			for (int j = 2; j <= 2; j++) {
+//		https://www.kugou.com/yy/singer/index/5-all-8.html
+		for (int i = 11; i <= 11; i++) {
+			for (int j = 5; j <= 5; j++) {
 				
 				String url = "https://www.kugou.com/yy/singer/index/"+j+"-all-"+i+".html";
 				
@@ -481,7 +482,7 @@ public class KuGou {
 					
 					try {
 						
-					
+						System.out.println(i+"列"+j+"页"+k+"个歌手");
 						List<String []>  gequs = this.geshou_gequ(geshouurl);
 						
 						
@@ -537,7 +538,7 @@ public class KuGou {
 	
 	
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		System.out.println("开始");
 		new KuGou().bianliRemenGeshou();
 		System.out.println("结束");
