@@ -93,15 +93,26 @@ public class XiGuaShiPin {
 		for (int i = 0; i < data.length(); i++) {
 			System.out.println(i);
 			JSONObject yitiao =  (JSONObject) data.get(i);
-			//标题
+			
 			String title = yitiao.getString("title");
 			String image_url = yitiao.getString("large_image_url");
-			System.out.println(title);
-			System.out.println(image_url);
+			System.out.println("标题："+title);
+			System.out.println("图片地址："+image_url);
 		 	String video_id = yitiao.getString("video_id");
-		 	System.out.println(video_id);
 		 	String videoUrl = this.getDownloadUrl(video_id);
-		 	System.out.println(videoUrl);
+		 	System.out.println("视频地址："+videoUrl);
+		 	
+		 	System.out.println("下载图片");
+		 	DownImage dwimg = new DownImage();
+		 	dwimg.saveToFile(image_url, title+".jpg");
+		 	System.out.println("下载视频");
+		 	DownImage dwvidwo = new DownImage();
+		 	dwvidwo.saveToFile(videoUrl, title+".mp4");
+		 	
+		 	
+		 	
+		 	
+		 	
 		 	
 		}
 		
@@ -159,12 +170,46 @@ public class XiGuaShiPin {
 					while ((line = in.readLine()) != null) {
 						searchResult.append(line);
 					}
-					String regex="(?<=\"main_url\":\")[^\"]+";
-					Matcher m=Pattern.compile(regex,Pattern.CASE_INSENSITIVE).matcher(searchResult);
-					mainUrl=m.find()?m.group():"";
-					System.out.println(mainUrl);
-					mainUrl=new String(Base64.decodeBase64(mainUrl));
-					System.out.println(mainUrl);
+					
+					
+					System.out.println("真实地址获取内容"+searchResult.toString());
+					//用json
+					//获取最清晰的视频
+					JSONObject json = JSONObject.fromString(searchResult.toString());
+					
+					JSONObject data = (JSONObject) json.get("data");
+					JSONObject video_list = (JSONObject) data.get("video_list");
+					
+					
+					if(video_list.has("video_4")){
+						System.out.println("video4");
+						JSONObject video_4 = (JSONObject) video_list.get("video_4");
+						String zhenshiUrl = new String(Base64.decodeBase64(video_4.getString("main_url")));
+						System.out.println(zhenshiUrl);
+						return zhenshiUrl;
+					}
+					if(video_list.has("video_3")){
+						System.out.println("video3");
+						JSONObject video_3 = (JSONObject) video_list.get("video_3");
+						String zhenshiUrl = new String(Base64.decodeBase64(video_3.getString("main_url")));
+						System.out.println(zhenshiUrl);
+						return zhenshiUrl;
+					}
+					if(video_list.has("video_2")){
+						System.out.println("video2");
+						JSONObject video_2 = (JSONObject) video_list.get("video_2");
+						String zhenshiUrl = new String(Base64.decodeBase64(video_2.getString("main_url")));
+						System.out.println(zhenshiUrl);
+						return zhenshiUrl;
+					}
+					if(video_list.has("video_1")){
+						System.out.println("video1");
+						JSONObject video_1 = (JSONObject) video_list.get("video_1");
+						String zhenshiUrl = new String(Base64.decodeBase64(video_1.getString("main_url")));
+						System.out.println(zhenshiUrl);
+						return zhenshiUrl;
+					}
+					
 				}
 	        }
 		} catch (Exception e) {
@@ -233,8 +278,8 @@ public class XiGuaShiPin {
 			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1E57C48D746DAE&cp=5C87A63D7A5EEE1&max_behot_time=1552185127&_signature=hdFDWQAA2WJUfCN.otzWIIXRQ0&i=1552185127");
 			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1A52C68A7D6DB0&cp=5C8726DD1BB0BE1&max_behot_time=1552181527&_signature=hdFDWQAA2WJUfCN.otwHZoXRQ0&i=1552181527");
 
-	//		new XiGuaShiPin().urlToMusic("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1A52C68A7D6DB0&cp=5C8726DD1BB0BE1&max_behot_time=1552181527&_signature=hdFDWQAA2WJUfCN.otwHZoXRQ0&i=1552181527");
-			new XiGuaShiPin().getDownloadUrl("v02004700000bh950r0ckqblmb0bb7m0");
+			new XiGuaShiPin().urlToMusic("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1E57C48D746DAE&cp=5C87A63D7A5EEE1&max_behot_time=1552185127&_signature=hdFDWQAA2WJUfCN.otzWIIXRQ0&i=1552185127");
+//			new XiGuaShiPin().getDownloadUrl("v02004700000bh950r0ckqblmb0bb7m0");
 			
 			
 		System.out.println("结束");
