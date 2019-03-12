@@ -416,6 +416,8 @@ public class KuGou {
 		//获取请求连接
 		Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
 		
+//		con.header("cookie", "kg_mid=49c10678418931d16eb156e670e1bf5f; ACK_SERVER_10015=%7B%22list%22%3A%5B%5B%22gzlogin-user.kugou.com%22%5D%5D%7D; ACK_SERVER_10016=%7B%22list%22%3A%5B%5B%22gzreg-user.kugou.com%22%5D%5D%7D; ACK_SERVER_10017=%7B%22list%22%3A%5B%5B%22gzverifycode.service.kugou.com%22%5D%5D%7D; Hm_lvt_aedee6983d4cfc62f509129360d6bb3d=");
+		
 		//解析请求结果
 		Document doc=con.get(); 
 		String html =doc.toString();
@@ -455,15 +457,16 @@ public class KuGou {
 	
 	
 	//遍历所有热门歌手地址
-	public String bianliRemenGeshou() throws IOException{
+	public String bianliRemenGeshou() throws IOException, InterruptedException{
 			//遍历热门歌手列表
 		//这个从1开始到11是全部的榜单
 		
 		
 		//目前到43了
 //		页码https://www.kugou.com/yy/singer/index/3-all-4.html
-		for (int i = 4; i <= 11; i++) {
-			for (int j = 1; j <= 5; j++) {
+//		https://www.kugou.com/yy/singer/index/5-all-8.html
+		for (int i = 11; i <= 11; i++) {
+			for (int j = 5; j <= 5; j++) {
 				
 				String url = "https://www.kugou.com/yy/singer/index/"+j+"-all-"+i+".html";
 				
@@ -479,7 +482,7 @@ public class KuGou {
 					
 					try {
 						
-					
+						System.out.println(i+"列"+j+"页"+k+"个歌手");
 						List<String []>  gequs = this.geshou_gequ(geshouurl);
 						
 						
@@ -535,7 +538,7 @@ public class KuGou {
 	
 	
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		System.out.println("开始");
 		new KuGou().bianliRemenGeshou();
 		System.out.println("结束");

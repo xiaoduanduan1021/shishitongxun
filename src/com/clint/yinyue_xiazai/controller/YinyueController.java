@@ -265,7 +265,7 @@ public class YinyueController {
 	
 	//分析酷狗歌手排行榜存入数据库
 	@RequestMapping(value = "/fenxiGeshou")
-	public void fenxigeshou() throws IOException {
+	public void fenxigeshou() throws IOException, InterruptedException {
 		System.out.println("开始--分析--歌手");
 		kugou.bianliRemenGeshou();
 		System.out.println("结束--分析--歌手");
