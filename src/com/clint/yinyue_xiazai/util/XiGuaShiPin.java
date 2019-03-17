@@ -98,16 +98,42 @@ public class XiGuaShiPin {
 			String image_url = yitiao.getString("large_image_url");
 			System.out.println("标题："+title);
 			System.out.println("图片地址："+image_url);
-		 	String video_id = yitiao.getString("video_id");
+		 	
+			//如果没有视频id可能是广告，直接跳过
+			if(yitiao.has("video_id") == false){
+				System.out.println("没有视频id可能是广告，直接跳过");
+				continue;
+			}
+			String video_id = yitiao.getString("video_id");
+		 	
 		 	String videoUrl = this.getDownloadUrl(video_id);
 		 	System.out.println("视频地址："+videoUrl);
 		 	
+		 	
+		 	String jianjie = "";
+		 	if(yitiao.has("abstract")){
+		 		jianjie = yitiao.getString("abstract");
+		 	}
+		 	System.out.println("简介："+jianjie);
+		 	
+		 	
+		 	String biaoqian = "";
+		 	if(yitiao.has("keywords")){
+		 		biaoqian = yitiao.getString("keywords");
+		 	}
+		 	System.out.println("标签："+biaoqian);
+		 	
+		 	
+		 	
+		 	
+		 	
+		 	String wenjianming = title+"-简介-"+jianjie+"-标签-"+biaoqian;
 		 	System.out.println("下载图片");
 		 	DownImage dwimg = new DownImage();
-		 	dwimg.saveToFile(image_url, title+".jpg");
+		 	dwimg.saveToFile(image_url, wenjianming+".jpg");
 		 	System.out.println("下载视频");
 		 	DownImage dwvidwo = new DownImage();
-		 	dwvidwo.saveToFile(videoUrl, title+".mp4");
+		 	dwvidwo.saveToFile(videoUrl, wenjianming+".mp4");
 		 	
 		 	
 		 	
@@ -272,15 +298,13 @@ public class XiGuaShiPin {
 			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1656C189736DA7&cp=5C87A6DD1AD74E1&max_behot_time=1552206727&_signature=hdFDWQAA2WJUfCN.otzJRYXRQ0&i=1552206727");
 			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1B53C087726DA9&cp=5C87A65D4AA97E1&max_behot_time=1552203127&_signature=hdFDWQAA2WJUfCN.otygZIXRQ0&i=1552203127");
 			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1B53C087726DA9&cp=5C87A65D4AA97E1&max_behot_time=1552199527&_signature=hdFDWQAA2WJUfCN.oty2IYXRQ0&i=1552199527");
-			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1859C481726DAB&cp=5C87B69DBAFBDE1&max_behot_time=1552195927&_signature=hdFDWQAA2WJUfCN.otznWIXRQ0&i=1552195927");
-			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1A51CA88766DAC&cp=5C87769D4AFC4E1&max_behot_time=1552192327&_signature=hdFDWQAA2WJUfCN.oty-d4XRQ0&i=1552192327");
-			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1156C685716DAD&cp=5C8796AD8AED9E1&max_behot_time=1552188727&_signature=hdFDWQAA2WJUfCN.otz.4oXRQ0&i=1552188727");
-			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1E57C48D746DAE&cp=5C87A63D7A5EEE1&max_behot_time=1552185127&_signature=hdFDWQAA2WJUfCN.otzWIIXRQ0&i=1552185127");
-			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1A52C68A7D6DB0&cp=5C8726DD1BB0BE1&max_behot_time=1552181527&_signature=hdFDWQAA2WJUfCN.otwHZoXRQ0&i=1552181527");
 
-			new XiGuaShiPin().urlToMusic("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1E57C48D746DAE&cp=5C87A63D7A5EEE1&max_behot_time=1552185127&_signature=hdFDWQAA2WJUfCN.otzWIIXRQ0&i=1552185127");
-//			new XiGuaShiPin().getDownloadUrl("v02004700000bh950r0ckqblmb0bb7m0");
-			
+			//			new XiGuaShiPin().urlToMusic("");
+
+			//			new XiGuaShiPin().urlToMusic("");
+
+			String url  = new XiGuaShiPin().getDownloadUrl("d5c9ecf7bff64cedbc597092a41ce0f5");
+			System.out.println(url);
 			
 		System.out.println("结束");
 	}
