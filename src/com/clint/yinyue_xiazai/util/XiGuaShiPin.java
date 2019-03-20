@@ -55,8 +55,8 @@ http://m.ixigua.com/?channel=subv_movie#channel=subv_movie
 	*/
 public class XiGuaShiPin {
 
-	
-	//根据一个url获取一个下载链接，这个是试听页面的地址
+	//主页推荐页翻页地址
+	//根据一个翻页地址获取包含的所有视频连接，并下载
 	public String urlToMusic(String url) throws IOException{
 		//获取请求连接
         Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
@@ -250,8 +250,145 @@ public class XiGuaShiPin {
 	
 	
 	
+	
+	
+	//搜索页翻页地址
+	//根据一个翻页地址获取所有包含的视频地址
+	//播放量输入一个数，大于这个数的才会下载
+	public String urlTo_sousuo(String url ,int bofangliang) throws IOException{
 		
-	public static void main(String[] args) throws IOException {
+		System.out.println("当前执行的链接"+url);
+		
+		
+		//获取请求连接
+        Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
+        
+		con.header(":authority", "www.ixigua.com");
+		con.header(":method", "GET");
+		con.header(":path", "/i6496066227780207118");
+		con.header(":scheme", "https");
+		con.header("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+		con.header("accept-encoding", "gzip, deflate, br");
+		con.header("accept-language", "zh-CN,zh;q=0.9,en;q=0.8");
+		con.header("cache-control", "max-age=0");
+		con.header("cookie", "_ga=GA1.2.1148979710.1551858889; WEATHER_CITY=%E5%8C%97%E4%BA%AC; tt_webid=6667350672986834440; _gid=GA1.2.68123408.1552363597; __tasessionId=ibulfid4c1552373134743");
+		con.header("upgrade-insecure-requests", "1");
+		con.header("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36");
+        
+        
+        
+        //解析请求结果
+        Document doc=con.get(); 
+        //获取标题
+        String neirong = doc.body().text();
+        
+        System.out.println(neirong);
+        
+        System.out.println("转换成中文");
+		//neirong = new UnicodeToUtf8().decodeUnicode(neirong);
+		System.out.println(neirong);
+		
+		System.out.println("转换成json");
+		JSONObject json = new JSONObject().fromString(neirong);
+		net.sf.json.JSONArray data = json.getJSONArray("data");
+		for (int i = 0; i < data.length(); i++) {
+			System.out.println(i);
+			JSONObject yitiao =  (JSONObject) data.get(i);
+			
+			String title = yitiao.getString("title");
+			
+			
+			
+			System.out.println("标题："+title);
+		 	
+			
+			System.out.println("播放数");
+			String bofangshu =yitiao.getString("video_watch_count"); 
+			System.out.println(bofangshu);
+			
+			if((int)Integer.valueOf(bofangshu) < bofangliang){
+				System.out.println("播放量太少跳过这个视频");
+				continue;
+			}
+			
+			
+			
+			
+			
+			
+			String group_id = yitiao.getString("group_id");
+		 	
+			//获取videoid
+
+			String video_id = urlTo_videoid(group_id);
+			
+		 	String videoUrl = this.getDownloadUrl(video_id);
+		 	System.out.println("视频地址："+videoUrl);
+		 	
+		 	
+		 	System.out.println("下载视频");
+		 	DownImage dwvidwo = new DownImage();
+		 	dwvidwo.saveToFile(videoUrl, title+".mp4");
+		 	
+		}
+		
+        return "";
+	}
+	
+	
+	
+	
+//	https://m.toutiaoimg.cn/i6577156310331032071/info/
+	
+	//根据视频地址编号获取视频id
+	public String urlTo_videoid(String groupid) throws IOException{
+
+		String url = "https://m.toutiaoimg.cn/i"+groupid+"/info/";
+		//获取请求连接
+        Connection con = Jsoup.connect(url).timeout(1000 * 30).ignoreContentType(true);
+        
+        
+		con.header(":authority", "www.ixigua.com");
+		con.header(":method", "GET");
+		con.header(":path", "/i6496066227780207118");
+		con.header(":scheme", "https");
+		con.header("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+		con.header("accept-encoding", "gzip, deflate, br");
+		con.header("accept-language", "zh-CN,zh;q=0.9,en;q=0.8");
+		con.header("cache-control", "max-age=0");
+		con.header("cookie", "_ga=GA1.2.1148979710.1551858889; WEATHER_CITY=%E5%8C%97%E4%BA%AC; tt_webid=6667350672986834440; _gid=GA1.2.68123408.1552363597; __tasessionId=ibulfid4c1552373134743");
+		con.header("upgrade-insecure-requests", "1");
+		con.header("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36");
+		
+		
+        //解析请求结果
+        Document doc=con.get(); 
+        //获取标题
+        String neirong = doc.toString();
+        
+        System.out.println(neirong);
+        
+		System.out.println("转换成json");
+		String neiarray[] = neirong.split("\"video_id\":\"");
+		
+		String video_id = "";
+		try {
+			
+			String  []hou = neiarray[1].split("\",\"creator_uid\"");
+			video_id = hou[0];
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("没有获取到视频地址");
+		}
+		
+        return video_id;
+	}
+	
+	
+	
+	
+		//这个是推荐页下拉翻页下载方法
+	public static void main1(String[] args) throws IOException {
 		System.out.println("开始");
 		List<String> list = new ArrayList<String>();
 			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A125DCF837A6D3A&cp=5C87063D332ADE1&max_behot_time=1552354327&_signature=hdFDWQAA2WJUfCN.otzHkoXRQ0&i=1552354327");
@@ -300,12 +437,34 @@ public class XiGuaShiPin {
 			list.add("http://m.ixigua.com/list/?tag=subv_movie&ac=wap&count=20&format=json_raw&as=A1B53C087726DA9&cp=5C87A65D4AA97E1&max_behot_time=1552199527&_signature=hdFDWQAA2WJUfCN.oty2IYXRQ0&i=1552199527");
 
 			//			new XiGuaShiPin().urlToMusic("");
+			
+			new XiGuaShiPin().urlToMusic("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E4%B8%9D%E8%A2%9C&cur_tab=1&offset=20");
 
-			//			new XiGuaShiPin().urlToMusic("");
-
-			String url  = new XiGuaShiPin().getDownloadUrl("d5c9ecf7bff64cedbc597092a41ce0f5");
-			System.out.println(url);
+//			String url  = new XiGuaShiPin().getDownloadUrl("d5c9ecf7bff64cedbc597092a41ce0f5");
+		//	System.out.println(url);
 			
 		System.out.println("结束");
 	}
+	
+	
+	
+	//这个是搜索页下拉翻页，扫描下载方法
+	public static void main(String[] args) throws IOException {
+		System.out.println("开始");
+			
+		
+		
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E9%9F%A9%E5%9B%BD%E8%BD%A6%E6%A8%A1&cur_tab=1&offset=0",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E9%9F%A9%E5%9B%BD%E8%BD%A6%E6%A8%A1&cur_tab=1&offset=20",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E9%9F%A9%E5%9B%BD%E8%BD%A6%E6%A8%A1&cur_tab=1&offset=40",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E9%9F%A9%E5%9B%BD%E8%BD%A6%E6%A8%A1&cur_tab=1&offset=60",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E9%9F%A9%E5%9B%BD%E8%BD%A6%E6%A8%A1&cur_tab=1&offset=80",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E9%9F…9%E5%9B%BD%E8%BD%A6%E6%A8%A1&cur_tab=1&offset=100",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E9%9F…9%E5%9B%BD%E8%BD%A6%E6%A8%A1&cur_tab=1&offset=120",5000);
+
+				
+
+		System.out.println("结束");
+	}
+	
 }
