@@ -624,19 +624,10 @@ public class XiGuaShiPin {
 		System.out.println("开始");
 		
 		
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553586113&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553556506&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553510567&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553464500&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553410594&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553339080&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553292180&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553219520&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553162788&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553080645&max_repin_time=0&count=20&page_type=0",5000);
+				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=94392040153&max_behot_time=0&max_repin_time=0&count=20&page_type=0",5000);
+				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=94392040153&max_behot_time=1553503593&max_repin_time=0&count=20&page_type=0",5000);
+				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=94392040153&max_behot_time=1553233335&max_repin_time=0&count=20&page_type=0",5000);
 
-		
-		
 		System.out.println("结束");
 	}
 	
