@@ -593,50 +593,33 @@ public class XiGuaShiPin {
 	
 	
 	//这个是搜索页下拉翻页，扫描下载方法
-	public static void main2(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		System.out.println("开始");
-			
 		
 		
-		
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94%B5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=0",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94%B5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=20",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94%B5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=40",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94%B5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=60",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94%B5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=80",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=100",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=120",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=140",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=160",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=180",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=200",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=220",5000);
-		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E7%94…5%E5%BD%B1%E9%A2%9C%E5%80%BC&cur_tab=1&offset=240",5000);
-		
-		
-		
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E5%86%AF%E6%8F%90%E8%8E%AB&cur_tab=1&offset=20",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E5%86%AF%E6%8F%90%E8%8E%AB&cur_tab=1&offset=40",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E5%86%AF%E6%8F%90%E8%8E%AB&cur_tab=1&offset=60",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E5%86%AF%E6%8F%90%E8%8E%AB&cur_tab=1&offset=80",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E5%86%AF%E6%8F%90%E8%8E%AB&cur_tab=1&offset=100",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E5%86%AF%E6%8F%90%E8%8E%AB&cur_tab=1&offset=120",5000);
+		new XiGuaShiPin().urlTo_sousuo("https://www.ixigua.com/search_content/?format=json&autoload=true&count=20&keyword=%E5%86%AF%E6%8F%90%E8%8E%AB&cur_tab=1&offset=140",5000);
 		
 		
 		System.out.println("结束");
 	}
 	//个人页下拉翻页，扫描下载方法
-	public static void main(String[] args) throws IOException {
+	public static void main222(String[] args) throws IOException {
 		System.out.println("开始");
 		
-		
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553586113&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553556506&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553510567&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553464500&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553410594&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553339080&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553292180&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553219520&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553162788&max_repin_time=0&count=20&page_type=0",5000);
-				new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=67288375111&max_behot_time=1553080645&max_repin_time=0&count=20&page_type=0",5000);
+		new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=68245019059&max_behot_time=0&max_repin_time=0&count=20&page_type=0",2000);
+		new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=68245019059&max_behot_time=1553558460&max_repin_time=0&count=20&page_type=0",2000);
+		new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=68245019059&max_behot_time=1553126520&max_repin_time=0&count=20&page_type=0",5000);
+		new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=68245019059&max_behot_time=1552694520&max_repin_time=0&count=20&page_type=0",5000);
+		new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=68245019059&max_behot_time=1552348920&max_repin_time=0&count=20&page_type=0",10000);
+		new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=68245019059&max_behot_time=1552003260&max_repin_time=0&count=20&page_type=0",10000);
+		new XiGuaShiPin().urlTo_geren("https://www.ixigua.com/c/user/article/?user_id=68245019059&max_behot_time=1551707768&max_repin_time=0&count=20&page_type=0",10000);
 
-		
-		
 		System.out.println("结束");
 	}
 	
